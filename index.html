@@ -9,416 +9,260 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --ink: #16110d; --parchment: #f4efe5; --cream: #faf6f0;
-      --gold: #b8955a; --gold-light: #d4b882; --gold-pale: #ecdfc4;
-      --muted: #7a6f62; --dark-bg: #130f0b; --dark-mid: #1e170f;
+      --ink: #1e1a14; --cream: #faf7f2; --parchment: #f2ede3;
+      --gold: #a07840; --gold-light: #c9a96e;
+      --green-deep: #2d4a2d; --green-mid: #4a7c4a; --green-light: #7aaa6a;
+      --muted: #7a6f5e; --dark-mid: #1c1814;
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'EB Garamond', serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--cream); }
-    ::-webkit-scrollbar-thumb { background: var(--gold); }
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(19,15,11,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(184,149,90,0.18); padding: 0 2.5rem; }
+    ::-webkit-scrollbar-thumb { background: var(--green-mid); }
+
+    /* SPLASH */
+    #splash {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--cream);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
+      animation: splashFade 0.7s ease 3s both;
+    }
+    @keyframes splashFade { to { opacity: 0; pointer-events: none; } }
+    .splash-logo { animation: fadeUp 0.9s ease both; }
+    .splash-name { font-family: 'Cinzel', serif; font-size: clamp(0.9rem, 2.5vw, 1.4rem); letter-spacing: 0.35em; color: var(--green-deep); text-align: center; animation: fadeUp 0.9s ease 0.3s both; }
+    .splash-tagline { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--muted); animation: fadeUp 0.9s ease 0.5s both; }
+
+    /* NAV */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,247,242,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(74,124,74,0.15); padding: 0 2.5rem; }
     .nav-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 66px; }
-    .nav-logo { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.22em; color: var(--gold); text-decoration: none; }
+    .nav-brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+    .nav-logo-text { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--green-deep); line-height: 1.3; }
     nav ul { list-style: none; display: flex; gap: 2.2rem; }
-    nav ul li a { font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.14em; color: rgba(212,197,169,0.75); text-decoration: none; transition: color 0.3s; }
-    nav ul li a:hover { color: var(--gold); }
-    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
-    .hero-left { background: var(--dark-bg); position: relative; display: flex; align-items: flex-end; justify-content: center; padding: 7rem 3rem 5rem; }
-    .hero-left::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(19,15,11,0.65) 0%, transparent 55%); pointer-events: none; }
-    .hero-photo-wrap { width: 100%; max-width: 400px; aspect-ratio: 3/4; overflow: hidden; position: relative; }
-    .hero-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: grayscale(15%) sepia(8%); }
-    .photo-caption { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); z-index: 2; font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.3em; color: var(--gold-light); white-space: nowrap; }
-    .hero-right { background: var(--cream); display: flex; align-items: center; padding: 8rem 4rem 5rem 5rem; position: relative; }
-    .hero-right::before { content: '\201C'; position: absolute; top: 3.5rem; left: 2.5rem; font-family: 'Cormorant Garamond', serif; font-size: 16rem; line-height: 1; color: var(--gold-pale); pointer-events: none; opacity: 0.45; }
-    .hero-content { position: relative; z-index: 1; animation: fadeUp 1s ease both 0.3s; }
-    .hero-photo-wrap { animation: fadeUp 1s ease both 0.1s; }
-    .eyebrow { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gold); display: block; margin-bottom: 1.4rem; }
-    .hero-content h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.6rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.05; margin-bottom: 0.3rem; }
-    .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.3rem; color: var(--gold); display: block; margin-bottom: 2.5rem; }
-    .thin-line { width: 50px; height: 1px; background: var(--gold); margin-bottom: 2.5rem; }
-    .hero-bio { font-size: 1.05rem; line-height: 1.9; color: #3a322a; max-width: 460px; }
-    .hero-bio p { margin-bottom: 1rem; }
-    .hero-bio .motto { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; border-left: 2px solid var(--gold); padding-left: 1.2rem; color: var(--muted); }
-    .hero-cta { display: inline-block; margin-top: 2rem; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.25em; color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(184,149,90,0.4); padding-bottom: 0.3rem; transition: all 0.3s; }
-    .hero-cta:hover { color: var(--ink); border-color: var(--ink); }
-    .ornament { text-align: center; padding: 3.5rem 2rem; color: var(--gold); font-size: 1.1rem; letter-spacing: 0.6em; opacity: 0.4; }
-    .section-label { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.4em; color: var(--gold); display: block; text-align: center; margin-bottom: 1rem; }
+    nav ul li a { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.14em; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    nav ul li a:hover { color: var(--green-deep); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; padding-top: 66px; }
+    .hero-photo-col { position: relative; background: var(--parchment); display: flex; align-items: stretch; }
+    .hero-photo-col img { width: 100%; height: 100%; object-fit: cover; object-position: center top; filter: sepia(10%) saturate(90%); display: block; }
+    .hero-photo-col::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, transparent 70%, var(--cream) 100%), linear-gradient(to top, rgba(45,74,45,0.15) 0%, transparent 40%); pointer-events: none; }
+    .hero-text-col { background: var(--cream); display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 3rem; position: relative; }
+    .hero-flowers { position: absolute; top: 2rem; right: 2rem; opacity: 0.15; pointer-events: none; }
+    .hero-eyebrow { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.45em; color: var(--green-mid); display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.8rem; animation: fadeUp 0.9s ease 0.4s both; }
+    .hero-eyebrow::before { content: ''; display: inline-block; width: 30px; height: 1px; background: var(--green-mid); }
+    .hero-name { font-family: 'Cormorant Garamond', serif; font-weight: 300; font-size: clamp(2.8rem, 4.5vw, 5rem); line-height: 1.0; color: var(--ink); margin-bottom: 0.6rem; animation: fadeUp 0.9s ease 0.55s both; }
+    .hero-name em { font-style: italic; color: var(--green-deep); }
+    .hero-subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.25rem; color: var(--gold); display: block; margin-bottom: 2.5rem; animation: fadeUp 0.9s ease 0.65s both; }
+    .hero-divider { width: 60px; height: 1px; background: linear-gradient(to right, var(--green-mid), transparent); margin-bottom: 2rem; animation: fadeUp 0.9s ease 0.75s both; }
+    .hero-motto { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.08rem; line-height: 1.85; color: var(--muted); border-left: 2px solid var(--green-light); padding-left: 1.2rem; margin-bottom: 1.5rem; max-width: 380px; animation: fadeUp 0.9s ease 0.85s both; }
+    .hero-desc { font-size: 1.02rem; line-height: 1.9; color: #4a3f30; max-width: 380px; margin-bottom: 2.5rem; animation: fadeUp 0.9s ease 0.95s both; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 0.6rem; font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.28em; color: var(--green-deep); text-decoration: none; border: 1px solid rgba(45,74,45,0.35); padding: 0.85rem 2rem; transition: all 0.3s; align-self: flex-start; animation: fadeUp 0.9s ease 1.05s both; }
+    .hero-cta:hover { background: var(--green-deep); color: var(--cream); border-color: var(--green-deep); }
+
+    .ornament { text-align: center; padding: 3rem 2rem; color: var(--green-mid); font-size: 1rem; letter-spacing: 0.6em; opacity: 0.35; }
+    .section-label { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.4em; color: var(--green-mid); display: block; text-align: center; margin-bottom: 0.8rem; }
     .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; text-align: center; margin-bottom: 4rem; }
+
+    /* VOLUME */
     #volume { background: var(--parchment); padding: 7rem 2rem; position: relative; }
-    #volume::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
-    .volume-grid { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 2.5rem; }
-    .volum-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.2rem; transition: transform 0.3s; }
-    .volum-card:hover { transform: translateY(-6px); }
-    .volum-cover { width: 120px; height: 170px; background: linear-gradient(145deg, #2a1f14, #1a1208); border: 1px solid rgba(184,149,90,0.3); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; box-shadow: 4px 8px 24px rgba(0,0,0,0.25); }
+    #volume::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, var(--green-mid), transparent); }
+    .volume-grid { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 2.5rem; }
+    .volum-card { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1.2rem; }
+    .volum-card a.cover-link { display: block; transition: transform 0.3s; }
+    .volum-card a.cover-link:hover { transform: translateY(-8px); }
+    .volum-card a.cover-link:hover .volum-cover { box-shadow: 6px 14px 36px rgba(0,0,0,0.28); }
+    .volum-cover { width: 115px; height: 165px; background: linear-gradient(145deg, #2d4a2d, #1a3020); border: 1px solid rgba(74,124,74,0.3); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; box-shadow: 4px 8px 24px rgba(0,0,0,0.18); transition: box-shadow 0.3s; }
     .volum-cover img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; }
-    .volum-spine { position: absolute; left: 0; top: 0; bottom: 0; width: 7px; background: rgba(184,149,90,0.15); z-index: 1; }
-    .cover-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.8rem; color: var(--gold-light); text-align: center; padding: 1rem 0.8rem; line-height: 1.6; z-index: 2; position: relative; }
-    .volum-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 0.95rem; font-style: italic; font-weight: 400; margin-bottom: 0.3rem; line-height: 1.4; }
-    .volum-info .year { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.2em; color: var(--gold); display: block; }
-    .volum-info .editor { font-size: 0.75rem; color: var(--muted); font-style: italic; display: block; margin-top: 0.2rem; }
-    .volum-info .coautor { font-size: 0.72rem; color: var(--gold); font-style: italic; display: block; margin-top: 0.2rem; opacity: 0.8; }
-    #poeme { padding: 7rem 2rem; }
-    .poem-container { max-width: 660px; margin: 0 auto; }
-    .poem-tabs { display: flex; justify-content: center; margin-bottom: 4rem; border-bottom: 1px solid rgba(184,149,90,0.2); flex-wrap: wrap; }
-    .poem-tab { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--muted); padding: 0.8rem 1.5rem; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.3s; background: none; border-top: none; border-left: none; border-right: none; }
-    .poem-tab:hover { color: var(--gold); }
-    .poem-tab.active { color: var(--gold); border-bottom-color: var(--gold); }
-    .poem-group { display: none; }
-    .poem-group.active { display: block; }
-    .poem-block { margin-bottom: 5rem; position: relative; }
-    .poem-block::before { content: attr(data-numar); position: absolute; left: -4.5rem; top: 0.3rem; font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.25em; color: var(--gold); opacity: 0.45; }
-    .poem-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 3.5vw, 2.5rem); font-weight: 300; font-style: italic; text-align: center; margin-bottom: 2.5rem; }
-    .poem-body { font-family: 'Cormorant Garamond', serif; font-size: 1.28rem; line-height: 2.05; }
-    .strofa { margin-bottom: 2rem; }
-    .vers { display: block; }
-    .poem-divider { width: 40px; height: 1px; background: rgba(184,149,90,0.4); margin: 4.5rem auto; }
-    .poem-source { text-align: center; margin-top: 2rem; font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.2em; color: var(--muted); }
-    #despre { background: var(--dark-bg); padding: 7rem 2rem; position: relative; overflow: hidden; }
-    #despre::before { content: 'M'; position: absolute; right: -2rem; top: -3rem; font-family: 'Cormorant Garamond', serif; font-size: 28rem; font-weight: 300; color: rgba(184,149,90,0.04); pointer-events: none; line-height: 1; }
-    .despre-inner { max-width: 760px; margin: 0 auto; position: relative; z-index: 1; }
-    .despre-inner .section-label { color: var(--gold-light); opacity: 0.8; }
-    .despre-inner h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; color: var(--cream); margin-bottom: 1.5rem; text-align: center; }
-    .despre-text { font-size: 1.1rem; line-height: 1.95; color: rgba(212,197,169,0.8); margin-bottom: 1.1rem; }
-    .despre-motto { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: var(--gold-light); border-left: 2px solid rgba(184,149,90,0.4); padding-left: 1.5rem; margin: 2.5rem 0; line-height: 1.7; }
-    .despre-semnat { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.25em; color: var(--gold); opacity: 0.7; margin-top: 0.5rem; display: block; }
-    .contact-wrap { text-align: center; margin-top: 3rem; }
-    .contact-link { display: inline-block; font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.3em; color: var(--gold); text-decoration: none; border: 1px solid rgba(184,149,90,0.4); padding: 0.9rem 2.5rem; transition: all 0.3s; }
-    .contact-link:hover { background: rgba(184,149,90,0.1); border-color: var(--gold); }
-    footer { background: var(--dark-mid); border-top: 1px solid rgba(184,149,90,0.12); padding: 3rem 2rem; text-align: center; }
-    .footer-logo { font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 0.25em; color: var(--gold); margin-bottom: 0.5rem; display: block; }
-    footer p { font-size: 0.78rem; color: var(--muted); }
-    @keyframes fadeUp { from { opacity:0; transform: translateY(28px); } to { opacity:1; transform: translateY(0); } }
+    .volum-spine { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: rgba(74,124,74,0.2); z-index: 1; }
+    .cover-text { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.78rem; color: rgba(200,230,200,0.85); text-align: center; padding: 1rem 0.8rem; line-height: 1.6; z-index: 2; position: relative; }
+    .volum-info h3 { font-family: 'Cormorant Garamond', serif; font-size: 0.92rem; font-style: italic; font-weight: 400; margin-bottom: 0.3rem; line-height: 1.4; }
+    .volum-info .year { font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.2em; color: var(--green-mid); display: block; }
+    .volum-info .editor { font-size: 0.73rem; color: var(--muted); font-style: italic; display: block; margin-top: 0.2rem; }
+    .volum-info .coautor { font-size: 0.7rem; color: var(--gold); font-style: italic; display: block; margin-top: 0.2rem; }
+    .volum-info .soon { font-family: 'Cinzel', serif; font-size: 0.52rem; letter-spacing: 0.15em; color: var(--muted); opacity: 0.6; margin-top: 0.4rem; display: block; }
+
+    /* FOOTER */
+    footer { background: var(--dark-mid); border-top: 1px solid rgba(74,124,74,0.15); padding: 3rem 2rem; text-align: center; }
+    .footer-brand { display: flex; align-items: center; justify-content: center; gap: 0.7rem; margin-bottom: 0.8rem; }
+    .footer-logo-text { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.25em; color: rgba(200,230,200,0.7); }
+    footer p { font-size: 0.75rem; color: #4a4a40; }
+
+    @keyframes fadeUp { from { opacity:0; transform: translateY(24px); } to { opacity:1; transform: translateY(0); } }
+
     @media (max-width: 860px) {
       .hero { grid-template-columns: 1fr; }
-      .hero-left { min-height: 65vw; padding: 7rem 2rem 3rem; }
-      .hero-right { padding: 4rem 2rem 5rem; }
-      .hero-right::before { font-size: 9rem; top: 1rem; left: 1rem; }
-      .poem-block::before { display: none; }
+      .hero-photo-col { height: 70vw; }
+      .hero-photo-col::after { background: linear-gradient(to bottom, transparent 60%, var(--cream) 100%); }
+      .hero-text-col { padding: 3rem 2rem 5rem; }
     }
-    @media (max-width: 540px) { .volume-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .volume-grid { grid-template-columns: repeat(2, 1fr); } nav ul { gap: 1.2rem; } }
   </style>
 </head>
 <body>
 
+<!-- SPLASH -->
+<div id="splash">
+  <div class="splash-logo">
+    <svg width="100" height="120" viewBox="0 0 120 140" fill="none">
+      <path d="M60 130 C60 130 58 90 55 65 C52 40 48 20 60 8" stroke="#2d4a2d" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M60 120 C60 120 62 95 65 75 C68 55 72 35 64 18" stroke="#2d4a2d" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M55 65 C40 55 28 42 30 20 C38 30 48 48 55 65Z" fill="#4a7c4a" opacity="0.85"/>
+      <path d="M64 55 C80 45 90 30 86 10 C78 22 68 40 64 55Z" fill="#4a7c4a" opacity="0.75"/>
+      <path d="M57 72 C52 72 48 75 48 80" stroke="#2d4a2d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="46" cy="83" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.2"/>
+      <path d="M41 85 Q46 91 51 85" stroke="#2d4a2d" stroke-width="0.9" fill="none"/>
+      <path d="M56 82 C50 82 45 86 46 91" stroke="#2d4a2d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="44" cy="94" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.2"/>
+      <path d="M39 96 Q44 102 49 96" stroke="#2d4a2d" stroke-width="0.9" fill="none"/>
+      <path d="M56 93 C51 94 47 98 48 103" stroke="#2d4a2d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="46" cy="106" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.2"/>
+      <path d="M41 108 Q46 114 51 108" stroke="#2d4a2d" stroke-width="0.9" fill="none"/>
+      <path d="M63 65 C68 64 72 67 72 72" stroke="#2d4a2d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="74" cy="75" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.2"/>
+      <path d="M69 77 Q74 83 79 77" stroke="#2d4a2d" stroke-width="0.9" fill="none"/>
+      <path d="M63 76 C69 76 74 80 73 85" stroke="#2d4a2d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="75" cy="88" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.2"/>
+      <path d="M70 90 Q75 96 80 90" stroke="#2d4a2d" stroke-width="0.9" fill="none"/>
+      <path d="M63 88 C68 89 72 93 71 98" stroke="#2d4a2d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="73" cy="101" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.2"/>
+      <path d="M68 103 Q73 109 78 103" stroke="#2d4a2d" stroke-width="0.9" fill="none"/>
+    </svg>
+  </div>
+  <span class="splash-name">VIOLETA-MIRELA MAREȘ</span>
+  <span class="splash-tagline">vocea tăcerii</span>
+</div>
+
+<!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#" class="nav-logo">VIOLETA-MIRELA MAREȘ</a>
+    <a href="index.html" class="nav-brand">
+      <svg width="28" height="34" viewBox="0 0 120 140" fill="none">
+        <path d="M60 130 C60 130 58 90 55 65 C52 40 48 20 60 8" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M60 120 C60 120 62 95 65 75 C68 55 72 35 64 18" stroke="#2d4a2d" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M55 65 C40 55 28 42 30 20 C38 30 48 48 55 65Z" fill="#4a7c4a" opacity="0.85"/>
+        <path d="M64 55 C80 45 90 30 86 10 C78 22 68 40 64 55Z" fill="#4a7c4a" opacity="0.75"/>
+        <ellipse cx="46" cy="83" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+        <ellipse cx="44" cy="97" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+        <ellipse cx="74" cy="78" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+        <ellipse cx="75" cy="92" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+      </svg>
+      <span class="nav-logo-text">VIOLETA-MIRELA<br>MAREȘ</span>
+    </a>
     <ul>
       <li><a href="#volume">Volume</a></li>
-      <li><a href="#poeme">Poeme</a></li>
-      <li><a href="#despre">Despre</a></li>
+      <li><a href="toamna-descheiata.html">Poeme</a></li>
     </ul>
   </div>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-photo-wrap">
-      <img src="034.JPG" alt="Violeta-Mirela Mareș">
-      <span class="photo-caption">VIOLETA-MIRELA MAREȘ · POETĂ</span>
-    </div>
+  <div class="hero-photo-col">
+    <img src="034.JPG" alt="Violeta-Mirela Mareș">
   </div>
-  <div class="hero-right">
-    <div class="hero-content">
-      <span class="eyebrow">Poetă contemporană română</span>
-      <h1>Violeta-Mirela<br>Mareș</h1>
-      <span class="hero-subtitle">vocea tăcerii</span>
-      <div class="thin-line"></div>
-      <div class="hero-bio">
-        <p class="motto">„Frunza nu cade ca să moară,<br>ci ca să învețe pământul să respire din nou."</p>
-        <p>Violeta-Mirela Mareș scrie cu o mână care nu apasă, ci mângâie. Poezia ei nu strigă, ci șoptește. Nu explică, ci lasă să se înțeleagă.</p>
-      </div>
-      <a href="#poeme" class="hero-cta">Descoperă versurile →</a>
-    </div>
+  <div class="hero-text-col">
+    <svg class="hero-flowers" width="160" height="190" viewBox="0 0 120 140" fill="none">
+      <path d="M60 130 C60 130 58 90 55 65 C52 40 48 20 60 8" stroke="#2d4a2d" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M60 120 C60 120 62 95 65 75 C68 55 72 35 64 18" stroke="#2d4a2d" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+      <path d="M55 65 C40 55 28 42 30 20 C38 30 48 48 55 65Z" fill="#4a7c4a"/>
+      <path d="M64 55 C80 45 90 30 86 10 C78 22 68 40 64 55Z" fill="#4a7c4a" opacity="0.8"/>
+      <path d="M57 72 C52 72 48 75 48 80" stroke="#2d4a2d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="46" cy="83" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.2"/>
+      <path d="M56 82 C50 82 45 86 46 91" stroke="#2d4a2d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="44" cy="94" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.2"/>
+      <path d="M56 93 C51 94 47 98 48 103" stroke="#2d4a2d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="46" cy="106" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.2"/>
+      <path d="M63 65 C68 64 72 67 72 72" stroke="#2d4a2d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="74" cy="75" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.2"/>
+      <path d="M63 76 C69 76 74 80 73 85" stroke="#2d4a2d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="75" cy="88" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.2"/>
+      <path d="M63 88 C68 89 72 93 71 98" stroke="#2d4a2d" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <ellipse cx="73" cy="101" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.2"/>
+    </svg>
+    <span class="hero-eyebrow">Poetă contemporană română</span>
+    <h1 class="hero-name">Violeta-Mirela<br><em>Mareș</em></h1>
+    <span class="hero-subtitle">vocea tăcerii</span>
+    <div class="hero-divider"></div>
+    <p class="hero-motto">„Frunza nu cade ca să moară,<br>ci ca să învețe pământul să respire din nou."</p>
+    <p class="hero-desc">Autoarea a cinci volume de poezie publicate între 1999 și 2025. Scrie cu o mână care nu apasă, ci mângâie. Poezia ei nu strigă, ci șoptește.</p>
+    <a href="#volume" class="hero-cta">Explorează opera →</a>
   </div>
 </section>
 
 <div class="ornament">· · ·</div>
 
+<!-- VOLUME -->
 <section id="volume">
   <span class="section-label">Opera</span>
   <h2 class="section-title">Volume publicate</h2>
   <div class="volume-grid">
+
     <div class="volum-card">
-      <div class="volum-cover"><div class="volum-spine"></div><div class="cover-text">Metaprovocare</div></div>
+      <a href="metaprovocare.html" class="cover-link">
+        <div class="volum-cover"><div class="volum-spine"></div><div class="cover-text">Metaprovocare</div></div>
+      </a>
       <div class="volum-info"><h3>Metaprovocare</h3><span class="year">1999</span><span class="editor">Ed. Marineasa</span></div>
     </div>
+
     <div class="volum-card">
-      <div class="volum-cover"><div class="volum-spine"></div><div class="cover-text">La Ora Poemului</div></div>
+      <a href="la-ora-poemului.html" class="cover-link">
+        <div class="volum-cover"><div class="volum-spine"></div><div class="cover-text">La Ora Poemului</div></div>
+      </a>
       <div class="volum-info"><h3>La Ora Poemului</h3><span class="year">2002</span><span class="editor">Ed. Augusta</span></div>
     </div>
+
     <div class="volum-card">
-      <div class="volum-cover"><div class="volum-spine"></div><div class="cover-text">Prea mândră doamnă, Toamna</div></div>
+      <a href="prea-mandra-doamna.html" class="cover-link">
+        <div class="volum-cover"><div class="volum-spine"></div><div class="cover-text">Prea mândră doamnă, Toamna</div></div>
+      </a>
       <div class="volum-info"><h3>Prea mândră doamnă, Toamna</h3><span class="year">2014</span><span class="editor">Ed. Marineasa</span></div>
     </div>
+
     <div class="volum-card">
-      <div class="volum-cover"><div class="volum-spine"></div><div class="cover-text">La apusul poemelor</div></div>
+      <a href="la-apusul-poemelor.html" class="cover-link">
+        <div class="volum-cover"><div class="volum-spine"></div><div class="cover-text">La apusul poemelor</div></div>
+      </a>
       <div class="volum-info"><h3>La apusul poemelor</h3><span class="year">2025</span><span class="editor">Ed. Didactikos</span></div>
     </div>
+
     <div class="volum-card">
-      <div class="volum-cover"><div class="volum-spine"></div><div class="cover-text">Toamna descheiată la plopi</div></div>
+      <a href="toamna-descheiata.html" class="cover-link">
+        <div class="volum-cover"><div class="volum-spine"></div><div class="cover-text">Toamna descheiată la plopi</div></div>
+      </a>
       <div class="volum-info"><h3>Toamna descheiată la plopi</h3><span class="year">2025</span><span class="editor">Ed. Didactikos</span></div>
     </div>
+
     <div class="volum-card">
-      <div class="volum-cover">
-        <div class="volum-spine"></div>
-        <img src="IMG_0134.JPG" alt="Pruncul cuvintelor noastre">
-      </div>
+      <a href="pruncul-cuvintelor.html" class="cover-link">
+        <div class="volum-cover">
+          <div class="volum-spine"></div>
+          <img src="IMG_0134.JPG" alt="Pruncul cuvintelor noastre">
+        </div>
+      </a>
       <div class="volum-info"><h3>Pruncul cuvintelor noastre</h3><span class="year">2015</span><span class="editor">Ed. Mirton, Timișoara</span><span class="coautor">cu Andrei Constantin Burdușa</span></div>
     </div>
+
   </div>
 </section>
 
 <div class="ornament">· · ·</div>
 
-<section id="poeme">
-  <span class="section-label">Creație poetică</span>
-  <h2 class="section-title">Versuri</h2>
-  <div class="poem-container">
-    <div class="poem-tabs">
-      <button class="poem-tab active" onclick="switchTab('tab-toamna', this)">Toamna descheiată la plopi</button>
-      <button class="poem-tab" onclick="switchTab('tab-pruncul', this)">Pruncul cuvintelor noastre</button>
-    </div>
-
-    <div class="poem-group active" id="tab-toamna">
-      <div class="poem-block" data-numar="I">
-        <h3 class="poem-title">întomnare</h3>
-        <div class="poem-body">
-          <div class="strofa">
-            <span class="vers">îmi era foame de toamnă</span>
-            <span class="vers">am mușcat cu atâta poftă din ea</span>
-            <span class="vers">încât mi-au dat lacrimile</span>
-            <span class="vers">m-am șters la ochi cu dosul palmei</span>
-            <span class="vers">și ceața-mi pătrunse buzele</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">mâinile mi se transformaseră deja</span>
-            <span class="vers">în crengi tremurânde ruginiu</span>
-            <span class="vers">ca de o plecare</span>
-            <span class="vers">în neiubire</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">pluteam deja</span>
-            <span class="vers">ca o frunză spre uitare</span>
-          </div>
-        </div>
-        <p class="poem-source">din „Toamna descheiată la plopi", 2025</p>
-      </div>
-      <div class="poem-divider"></div>
-      <div class="poem-block" data-numar="II">
-        <h3 class="poem-title">pre destin are</h3>
-        <div class="poem-body">
-          <div class="strofa">
-            <span class="vers">curge în cuvintele mele</span>
-            <span class="vers">uneori</span>
-            <span class="vers">așa trist</span>
-            <span class="vers">o lumină care cuvântă</span>
-            <span class="vers">aproape albastru</span>
-            <span class="vers">încât</span>
-            <span class="vers">mă adun rotund în pumni</span>
-            <span class="vers">și nu știu</span>
-            <span class="vers">plâng sau plouă?</span>
-          </div>
-        </div>
-        <p class="poem-source">din „Toamna descheiată la plopi", 2025</p>
-      </div>
-      <div class="poem-divider"></div>
-      <div class="poem-block" data-numar="III">
-        <h3 class="poem-title">absența</h3>
-        <div class="poem-body">
-          <div class="strofa">
-            <span class="vers">uneori nu dorm</span>
-            <span class="vers">de teama de a nu te pierde</span>
-            <span class="vers">în timpul nopții</span>
-            <span class="vers">și absența ta râde</span>
-            <span class="vers">dezolant de strident</span>
-            <span class="vers">acoperind căutarea mea</span>
-            <span class="vers">care te strigă</span>
-            <span class="vers">și vocea se stinge în întuneric</span>
-            <span class="vers">dureros de tăcută</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">întotdeauna</span>
-            <span class="vers">dar întotdeauna</span>
-            <span class="vers">absența are inițiala numelui tău</span>
-            <span class="vers">mustind de așteptarea mea</span>
-            <span class="vers">rodind tăcerii</span>
-            <span class="vers">în formă de dor</span>
-          </div>
-        </div>
-        <p class="poem-source">din „Toamna descheiată la plopi", 2025</p>
-      </div>
-      <div class="poem-divider"></div>
-      <div class="poem-block" data-numar="IV">
-        <h3 class="poem-title">ninge</h3>
-        <div class="poem-body">
-          <div class="strofa">
-            <span class="vers">ninge disperat de alb și de înghețat</span>
-            <span class="vers">pătimaș și adânc</span>
-            <span class="vers">din pântecul spart al cerului</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">ninge prelung și haotic</span>
-            <span class="vers">peste o iubire deznădăjduită și disperată</span>
-            <span class="vers">ca o amintire atârnând uitată într-un sertar vechi</span>
-            <span class="vers">ce-și scârțâie lacrima</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">ninge</span>
-            <span class="vers">în această dimineață de lume nefecundă</span>
-            <span class="vers">ca într-un dor neputincios</span>
-            <span class="vers">de rod</span>
-          </div>
-        </div>
-        <p class="poem-source">din „Toamna descheiată la plopi", 2025</p>
-      </div>
-      <div class="poem-divider"></div>
-      <div class="poem-block" data-numar="V">
-        <h3 class="poem-title">De...</h3>
-        <div class="poem-body">
-          <div class="strofa">
-            <span class="vers">de-ți este sete</span>
-            <span class="vers">sunt aici</span>
-            <span class="vers">să-ți pun palmele mele căuș</span>
-            <span class="vers">și să izvoresc în ele apă rece de izvor</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">de-ți este foame</span>
-            <span class="vers">sunt aici</span>
-            <span class="vers">să pun zălog privirea mea răsăritului</span>
-            <span class="vers">și el să-ți coacă pâinea cea de toate zilele</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">de te doare ființa ta</span>
-            <span class="vers">sunt aici</span>
-            <span class="vers">cu toată ființarea mea</span>
-            <span class="vers">să te umplu de tine</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">ești tine de mine</span>
-            <span class="vers">și sunt mine de tine</span>
-          </div>
-        </div>
-        <p class="poem-source">din „Toamna descheiată la plopi", 2025</p>
-      </div>
-      <div class="poem-divider"></div>
-      <div style="opacity:0.35; text-align:center; margin-bottom:3rem;">
-        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.1rem; color:var(--muted);">· alte poeme urmează ·</p>
-      </div>
-    </div>
-
-    <div class="poem-group" id="tab-pruncul">
-      <div class="poem-block" data-numar="I">
-        <h3 class="poem-title">Tac.</h3>
-        <div class="poem-body">
-          <div class="strofa">
-            <span class="vers">Tac.</span>
-            <span class="vers">Și genele mele înghețate</span>
-            <span class="vers">înmuiate ast-noapte în călimara cu lacrimi</span>
-            <span class="vers">îți zgârie vers cu vers,</span>
-            <span class="vers">poemul pe pleoape.</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">Clipirea are atâta lumină</span>
-            <span class="vers">încât aud cum se cambrează curcubeul</span>
-            <span class="vers">sub fruntea ta</span>
-            <span class="vers">în arcadele suspinului meu.</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">Tac.</span>
-            <span class="vers">amintirea parfumului meu ți se țese pe chip</span>
-            <span class="vers">preț de-o fărâmă dintr-o eternitate.</span>
-          </div>
-          <div class="strofa"><span class="vers">Tac.</span></div>
-        </div>
-        <p class="poem-source">din „Pruncul cuvintelor noastre", 2015</p>
-      </div>
-      <div class="poem-divider"></div>
-      <div class="poem-block" data-numar="II">
-        <h3 class="poem-title">scurtă poezie de dragoste</h3>
-        <div class="poem-body">
-          <div class="strofa">
-            <span class="vers">te rog să mă dezlegi de mine</span>
-            <span class="vers">ca de năluca unui gol</span>
-            <span class="vers">cuvântul să-mi rodească-n vine</span>
-            <span class="vers">să-mi fie dor să nu mai mor</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">descântă-mă de neiubire</span>
-            <span class="vers">cu versuri trupești de-amor</span>
-            <span class="vers">și lasă-mă să dorm în tine</span>
-            <span class="vers">să-mi fie dor să nu mai mor</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">deoache-mă îmbrățișată</span>
-            <span class="vers">sărutul tău cel acrișor</span>
-            <span class="vers">să-l gust cu nemurirea toată</span>
-            <span class="vers">să-mi fii tu dor și pot să mor</span>
-          </div>
-        </div>
-        <p class="poem-source">din „Pruncul cuvintelor noastre", 2015</p>
-      </div>
-      <div class="poem-divider"></div>
-      <div class="poem-block" data-numar="III">
-        <h3 class="poem-title">identitate</h3>
-        <div class="poem-body">
-          <div class="strofa">
-            <span class="vers">eu sunt strigătul tău</span>
-            <span class="vers">chemarea ta</span>
-            <span class="vers">eu sunt sărutul tău sigilat pe buzele mele</span>
-            <span class="vers">și sunt prezența și absența ta</span>
-            <span class="vers">deopotrivă</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">uneori mă întreb unde încep eu</span>
-            <span class="vers">și unde te sfârșești tu</span>
-          </div>
-          <div class="strofa">
-            <span class="vers">alteori rămân același poem trist</span>
-            <span class="vers">scris pe eternitate</span>
-          </div>
-        </div>
-        <p class="poem-source">din „Pruncul cuvintelor noastre", 2015</p>
-      </div>
-      <div class="poem-divider"></div>
-      <div style="opacity:0.35; text-align:center; margin-bottom:3rem;">
-        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.1rem; color:var(--muted);">· alte poeme urmează ·</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="ornament">· · ·</div>
-
-<section id="despre">
-  <div class="despre-inner">
-    <span class="section-label">Despre</span>
-    <h2>Violeta-Mirela Mareș</h2>
-    <p class="despre-text">Toamna nu vine doar în arbori. Ea se strecoară în oameni, în gesturi, în cuvinte. Se deschide încet, ca o rană care nu doare, ca o pleoapă care se închide spre vis. Întomnarea nu e sfârșit, ci începutul unei tăceri fertile, în care sensurile se coc și se desprind de ram.</p>
-    <div class="despre-motto">„Frunza nu cade ca să moară,<br>ci ca să învețe pământul să respire din nou."</div>
-    <p class="despre-text">Violeta-Mirela Mareș scrie cu o mână care nu apasă, ci mângâie. Poezia ei nu strigă, ci șoptește. Nu explică, ci lasă să se înțeleagă. Autoarea a cinci volume de poezie publicate între 1999 și 2025.</p>
-    <p class="despre-text">Fiecare poem e o frunză care cade în suflet, lăsând o urmă de dor, de întrebare, de lumină.</p>
-    <span class="despre-semnat">— Timișoara, septembrie 2025</span>
-    <div class="contact-wrap">
-      <a href="mailto:contact@mirelamares.art" class="contact-link">CONTACT</a>
-    </div>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer>
-  <span class="footer-logo">VIOLETA-MIRELA MAREȘ</span>
-  <p>Copyright © 2026 · Toate drepturile rezervate</p>
+  <div class="footer-brand">
+    <svg width="20" height="24" viewBox="0 0 120 140" fill="none">
+      <path d="M60 130 C60 130 58 90 55 65 C52 40 48 20 60 8" stroke="#4a7c4a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M55 65 C40 55 28 42 30 20 C38 30 48 48 55 65Z" fill="#4a7c4a" opacity="0.7"/>
+      <ellipse cx="46" cy="83" rx="5" ry="6.5" fill="white" stroke="#4a7c4a" stroke-width="1.8"/>
+      <ellipse cx="44" cy="97" rx="5" ry="6.5" fill="white" stroke="#4a7c4a" stroke-width="1.8"/>
+    </svg>
+    <span class="footer-logo-text">VIOLETA-MIRELA MAREȘ</span>
+  </div>
+  <p>Copyright © 2026 · Toate drepturile rezervate · mirelamares.art</p>
 </footer>
 
 <script>
-  function switchTab(tabId, btn) {
-    document.querySelectorAll('.poem-group').forEach(g => g.classList.remove('active'));
-    document.querySelectorAll('.poem-tab').forEach(t => t.classList.remove('active'));
-    document.getElementById(tabId).classList.add('active');
-    btn.classList.add('active');
-  }
+  document.getElementById('splash').addEventListener('animationend', function() { this.style.display = 'none'; });
 </script>
 </body>
 </html>
