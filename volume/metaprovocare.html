@@ -1,43 +1,1307 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Metaprovocare — Violeta-Mirela Mareș</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metaprovocare · Violeta-Mirela Mareș</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    :root{--green-deep:#2d4a2d;--green-mid:#4a7c4a;--cream:#faf7f2;--muted:#7a6f5e;--dark-mid:#1c1814}
-    body{font-family:'EB Garamond',serif;background:var(--cream);color:var(--green-deep)}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,247,242,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(74,124,74,0.15);padding:0 2.5rem}
-    .nav-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:66px}
-    .nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
-    .nav-logo-text{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.2em;color:var(--green-deep);line-height:1.3}
-    .nav-back{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.18em;color:var(--muted);text-decoration:none}
-    .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;background:var(--green-deep)}
-    .badge{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.45em;color:rgba(122,170,106,0.7);margin-bottom:1.5rem;display:block}
-    h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,4rem);font-weight:300;color:var(--cream);margin-bottom:.8rem}
-    .meta{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.25em;color:rgba(200,230,200,0.5);margin-bottom:3rem;display:block}
-    .soon{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;color:rgba(200,230,160,0.6);margin-bottom:3rem}
-    .btn{display:inline-block;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.28em;color:rgba(200,230,200,0.85);text-decoration:none;border:1px solid rgba(122,170,106,0.4);padding:.85rem 2rem;transition:all .3s}
-    .btn:hover{background:rgba(122,170,106,0.15)}
-    footer{background:var(--dark-mid);padding:2rem;text-align:center}
-    footer p{font-size:.72rem;color:#4a4a40;font-family:'Cinzel',serif;letter-spacing:.2em}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1e1a14; --cream: #faf7f2; --parchment: #f2ede3;
+      --gold: #a07840; --green-deep: #2d4a2d; --green-mid: #4a7c4a;
+      --green-light: #7aaa6a; --muted: #7a6f5e; --dark-mid: #1c1814;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'EB Garamond', serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+    nav { background: rgba(250,247,242,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(74,124,74,0.15); padding: 0 2.5rem; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .nav-brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+    .nav-logo-text { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--green-deep); line-height: 1.3; }
+    nav ul { list-style: none; display: flex; gap: 2.2rem; }
+    nav ul li a { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.14em; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    nav ul li a:hover { color: var(--green-deep); }
+
+    .volum-header { background: var(--green-deep); color: var(--cream); padding: 5rem 2rem 4rem; text-align: center; position: relative; }
+    .volum-header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(200,230,200,0.3), transparent); }
+    .volum-label { font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.4em; opacity: 0.6; display: block; margin-bottom: 1rem; }
+    .volum-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 300; margin-bottom: 1rem; }
+    .volum-meta { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; opacity: 0.7; }
+
+    .search-wrap { max-width: 500px; margin: 2.5rem auto; padding: 0 2rem; }
+    .search-box { width: 100%; padding: 0.85rem 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; border: 1px solid rgba(74,124,74,0.25); border-radius: 40px; background: var(--cream); color: var(--ink); outline: none; transition: border-color 0.3s; }
+    .search-box:focus { border-color: var(--green-mid); }
+
+    .poems-grid { max-width: 1100px; margin: 0 auto; padding: 1rem 2rem 5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .poem-card { background: var(--parchment); border: 1px solid rgba(74,124,74,0.1); padding: 1.8rem; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; }
+    .poem-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green-deep), transparent); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
+    .poem-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(45,74,45,0.12); border-color: rgba(74,124,74,0.25); }
+    .poem-card:hover::before { transform: scaleX(1); }
+    .poem-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--green-deep); margin-bottom: 0.6rem; }
+    .poem-preview { font-size: 0.92rem; color: var(--muted); line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+    .no-results { text-align: center; padding: 4rem; color: var(--muted); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; display: none; }
+
+    /* MODAL */
+    .modal { display: none; position: fixed; inset: 0; background: rgba(28,24,20,0.92); z-index: 1000; overflow-y: auto; backdrop-filter: blur(4px); }
+    .modal-content { background: var(--cream); margin: 3rem auto; padding: 3.5rem; max-width: 680px; position: relative; border-top: 3px solid var(--green-deep); }
+    .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.8rem; color: var(--muted); cursor: pointer; transition: color 0.2s; background: none; border: none; line-height: 1; }
+    .modal-close:hover { color: var(--green-deep); }
+    .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; font-weight: 300; color: var(--green-deep); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(74,124,74,0.15); }
+    .modal-poem { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 2.1; color: #3a322a; white-space: pre-wrap; }
+
+    footer { background: var(--dark-mid); border-top: 1px solid rgba(74,124,74,0.15); padding: 2.5rem 2rem; text-align: center; }
+    .footer-logo-text { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.25em; color: rgba(200,230,200,0.7); display: block; margin-bottom: 0.5rem; }
+    footer p { font-size: 0.75rem; color: #4a4a40; }
+
+    @media (max-width: 600px) {
+      .poems-grid { grid-template-columns: 1fr; }
+      .modal-content { margin: 1rem; padding: 2rem 1.5rem; }
+    }
   </style>
 </head>
 <body>
-<nav><div class="nav-inner">
-  <a href="../index.html" class="nav-brand">
-    <svg width="26" height="32" viewBox="0 0 120 140" fill="none"><path d="M60 130 C60 130 58 90 55 65 C52 40 48 20 60 8" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M55 65 C40 55 28 42 30 20 C38 30 48 48 55 65Z" fill="#4a7c4a" opacity=".85"/><path d="M64 55 C80 45 90 30 86 10 C78 22 68 40 64 55Z" fill="#4a7c4a" opacity=".75"/><ellipse cx="46" cy="83" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/><ellipse cx="74" cy="78" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/></svg>
-    <span class="nav-logo-text">VIOLETA-MIRELA<br>MAREȘ</span>
-  </a>
-  <a href="index.html#volume" class="nav-back">← Înapoi la volume</a>
-</div></nav>
-<div class="hero">
-  <span class="badge">Volum de poezie · 1999</span>
-  <h1>Metaprovocare</h1>
-  <span class="meta">Violeta-Mirela Mareș · Ed. Marineasa · 1999</span>
-  <p class="soon">Poemele acestui volum vor fi disponibile în curând.</p>
-  <a href="index.html#volume" class="btn">← Înapoi la volume</a>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <svg width="28" height="34" viewBox="0 0 120 140" fill="none">
+        <path d="M60 130 C60 130 58 90 55 65 C52 40 48 20 60 8" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M55 65 C40 55 28 42 30 20 C38 30 48 48 55 65Z" fill="#4a7c4a" opacity="0.85"/>
+        <path d="M64 55 C80 45 90 30 86 10 C78 22 68 40 64 55Z" fill="#4a7c4a" opacity="0.75"/>
+        <ellipse cx="46" cy="83" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+        <ellipse cx="44" cy="97" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+        <ellipse cx="74" cy="78" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+        <ellipse cx="75" cy="92" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+      </svg>
+      <span class="nav-logo-text">VIOLETA-MIRELA<br>MAREȘ</span>
+    </a>
+    <ul>
+      <li><a href="../index.html#volume">← Volume</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="volum-header">
+  <span class="volum-label">VOLUM DE POEZIE · 1999</span>
+  <h1 class="volum-title">Metaprovocare</h1>
+  <p class="volum-meta">Violeta-Mirela Mareș · Ed. Marineasa · 1999</p>
 </div>
-<footer><p>VIOLETA-MIRELA MAREȘ · mirelamares.art</p></footer>
-</body></html>
+
+<div class="search-wrap">
+  <input type="text" class="search-box" id="searchBox" placeholder="Caută în poeme...">
+</div>
+
+<div class="poems-grid" id="poemsGrid">
+            <div class="poem-card" onclick="showPoem(0)">
+              <div class="poem-title">Terestra</div>
+              <div class="poem-preview">Inimii mele i-ai confectionat aripi dar ea neaga zborul. Nu e inima-pasare, e do...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(1)">
+              <div class="poem-title">Toamna iernii</div>
+              <div class="poem-preview">Cu mainile transformate-n crengi te mangai a toamna.  Apoi scrasnesc din pleoape...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(2)">
+              <div class="poem-title">Adverbe</div>
+              <div class="poem-preview">oriunde privesc oriunde iubesc oriunde-i oriunde  ma regasesc. Pretutindeni sunt...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(3)">
+              <div class="poem-title">Topografica</div>
+              <div class="poem-preview">Masor cu talpa sufletului Marea si ea imi ghiceste in palma.  Pe crestetul sufle...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(4)">
+              <div class="poem-title">Frig</div>
+              <div class="poem-preview">Iarna ?  E sarutul tau , ce s-a prelins pe glezna mea si a-nghetat....</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(5)">
+              <div class="poem-title">Materie prima</div>
+              <div class="poem-preview">Sculptez din sarut iubirea mea pe umarul tau si mi-e zbor sa ma cuprinzi intre a...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(6)">
+              <div class="poem-title">Glaciara</div>
+              <div class="poem-preview">Mi-au inghetat sentiment ele. Meteorologii anunta ca nu mai simt ca sunt ale mel...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(7)">
+              <div class="poem-title">Intinare</div>
+              <div class="poem-preview">imi curge tristetea pe fata. mi-a murdarit ochii,obrajii... uite,si mainile imi ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(8)">
+              <div class="poem-title">Pronume posesive</div>
+              <div class="poem-preview">aud bataile inimii tale in pulsul meu.  suspinul meu, in hohotul tau de plans.  ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(9)">
+              <div class="poem-title">19 mai</div>
+              <div class="poem-preview">Intr-un orasel de provincial intr-o cofetarie imi caut fratele.  Caut prajitura ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(10)">
+              <div class="poem-title">Oglindire</div>
+              <div class="poem-preview">Ma uit in oglinda. Imaginea mea rade in hohote de mine si chipul meu se refugiaz...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(11)">
+              <div class="poem-title">Amestecata</div>
+              <div class="poem-preview">N-am stiut sa pastrez in palma frunza vesteda. s-a transformat in fulg  N-ai sti...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(12)">
+              <div class="poem-title">Inevitabila</div>
+              <div class="poem-preview">imi vine cateodata sa-mi mototolesc viata sa o arunc.  cu un gest foarte simplu ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(13)">
+              <div class="poem-title">Regasire</div>
+              <div class="poem-preview">Pamantul primeste dara de iarna in brazda sa malul primeste dara de mare in valu...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(14)">
+              <div class="poem-title">Conciliere</div>
+              <div class="poem-preview">am intins mana , nevolnic , Realitatii. doream sa ma impac cu ea. i-am promis ca...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(15)">
+              <div class="poem-title">Diurn versus nocturn</div>
+              <div class="poem-preview">O zi are la ambele capete o noapte.   Zbuciumul in care se succed ma intriga.  C...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(16)">
+              <div class="poem-title">Incident</div>
+              <div class="poem-preview">Mi s-a impiedicat mana de o foaie de hartie.  apoi a cazut gandul impiedicat de ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(17)">
+              <div class="poem-title">Epic-centru</div>
+              <div class="poem-preview">Talpa mea, a aunecat pe zapada de frunze si am atins cu varful piciorului centru...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(18)">
+              <div class="poem-title">Infometare</div>
+              <div class="poem-preview">Imi era foame de toamna. Am muscat cu atata pofta din ea incat mi-au dat lacrimi...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(19)">
+              <div class="poem-title">Incompatibilitate</div>
+              <div class="poem-preview">Bratul meu a incercat sa intre pe maneca sufletului. Intai bratul drept,apoi bra...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(20)">
+              <div class="poem-title">Dincolo</div>
+              <div class="poem-preview">Am baut impreuna toamna din causul palmei si ne-au ramas frunze vestede-n par.  ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(21)">
+              <div class="poem-title">Iarta</div>
+              <div class="poem-preview">Iarta-mi neputinta de a avea doar doua brate intru inclestarea imbratisarii!  ne...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(22)">
+              <div class="poem-title">Atotputernicie</div>
+              <div class="poem-preview">Scrisul meu,a apartinut candva copacului, care se ruga cu toata seva lui, TOAMNE...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(23)">
+              <div class="poem-title">Apartenenta</div>
+              <div class="poem-preview">Aud cum imi bate toamna in geamul sufletului cu degete amortite de vant..  Stiu ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(24)">
+              <div class="poem-title">Prefacere</div>
+              <div class="poem-preview">Stigatul sufletului meu ajunge la tine Ecou.  Lacrima sufletului meu se preface ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(25)">
+              <div class="poem-title">Corespondenta</div>
+              <div class="poem-preview">Mainile mi-au imbatranit.  Palma mea are alte linii de cand ti-ai scris destinul...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(26)">
+              <div class="poem-title">Cu susu’n jos</div>
+              <div class="poem-preview">Uneori,simt ca norii imi mangaie talpa. Alteori, Soarele rasare printre firele d...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(27)">
+              <div class="poem-title">Rugaciune</div>
+              <div class="poem-preview">Da-mi,Doamne locul gol dintre aripi, sa invat zborul!  spatiul dintre crengi sa ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(28)">
+              <div class="poem-title">Intro-strigat</div>
+              <div class="poem-preview">Imi inmuguresc degetele insangerate de absenta poemului.  Va evada si sufletul d...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(29)">
+              <div class="poem-title">Prenastere</div>
+              <div class="poem-preview">Fiul meu, cand mi-a parasit pantecul, a uitat acolo, o carte.  Si cuvantul meu s...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(30)">
+              <div class="poem-title">Schita</div>
+              <div class="poem-preview">De va fi , sa plang vreodata fara lacrimi, Inmoaie-ti un colt de suflet in iarna...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(31)">
+              <div class="poem-title">Implorare</div>
+              <div class="poem-preview">Si copacul a cazut in genunchii lui de copac, implorand zapada sa nu mai fie ata...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(32)">
+              <div class="poem-title">Tacand poemul</div>
+              <div class="poem-preview">Tac si genele mele inghetate iti zgarie vers cu vers, poemul pe frunte.  Am uita...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(33)">
+              <div class="poem-title">Corvoada</div>
+              <div class="poem-preview">Duc cu mine dintotdeauna Umbra ta.  E responsabila cu tristetile mele si imi e d...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(34)">
+              <div class="poem-title">Granite</div>
+              <div class="poem-preview">Mi s-au spart ridurile azi-noapte.  Acum, zambetul imi aluneca pe fata, amesteca...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(35)">
+              <div class="poem-title">Non-directie</div>
+              <div class="poem-preview">Cand voi alerga ratacita spre tine in sens invers, ma voi izbi de mine iubindu-t...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(36)">
+              <div class="poem-title">Gol de pasare</div>
+              <div class="poem-preview">Drama pasarii dominate de lacrima cerului, nu este lipsa zborului ci neputinta i...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(37)">
+              <div class="poem-title">Chibzuinta</div>
+              <div class="poem-preview">Ai cheltuit ce aveai,  Ai cheltuit ce primeai,  Ai cheltuit: frunza, zambetul, r...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(38)">
+              <div class="poem-title">Permisiune</div>
+              <div class="poem-preview">Ma intreb: Daca ni se permite aceeasi noapte, de ce n-avem dreptul la acelasi vi...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(39)">
+              <div class="poem-title">Identificare</div>
+              <div class="poem-preview">Frunza asta ce forteaza copacul sa o nasca, O fi cea pe care i-am lipit-o ast'to...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(40)">
+              <div class="poem-title">Paternitate</div>
+              <div class="poem-preview">Dimineata  se face dintr-o noapte fecunda.  Seara se naste din pantecul zilei.  ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(41)">
+              <div class="poem-title">Personificare</div>
+              <div class="poem-preview">Cuvintele au alergat toata noaptea dupa mine. S-au agatat de mana mea dreapta, m...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(42)">
+              <div class="poem-title">Inconfortabila</div>
+              <div class="poem-preview">Inima mea, ti-a ramas mica, zambetul nu te mai incape, te strange sufletul meu s...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(43)">
+              <div class="poem-title">Non-arta</div>
+              <div class="poem-preview">Ma aud uneori cantand desi eu nu stiu nicio melodie.  Alteori mi se pare ca pict...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(44)">
+              <div class="poem-title">Rana</div>
+              <div class="poem-preview">Orbecaind, mi-am ranit poemul si acum aud cu sufletul mirosul florii de cais cre...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(45)">
+              <div class="poem-title">Acoperire</div>
+              <div class="poem-preview">De voi plange vreodata cioburi, ma voi ascunde, sa nu-ti ranesti talpa in lacrim...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(46)">
+              <div class="poem-title">Lacas</div>
+              <div class="poem-preview">Am fost harazita sa-mi port fiul si poemul in pantecul sufletului....</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(47)">
+              <div class="poem-title">(A) alunga</div>
+              <div class="poem-preview">In mine, doar de tine am loc.  M-ai cotropit, m-ai devastat, m-ai ocupat.  Imi a...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(48)">
+              <div class="poem-title">Zbor  ud</div>
+              <div class="poem-preview">Stii, fluturii sunt diferiti! Fiecare aripa, inseamna secretul zborului.  Oameni...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(49)">
+              <div class="poem-title">Intomnata</div>
+              <div class="poem-preview">Intomneaza-ma!  Scutura toate florile pomilor fructiferi in parul meu!  Asculta!...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(50)">
+              <div class="poem-title">Cu pasul</div>
+              <div class="poem-preview">As masura cu pasul, de cate ori se cuprinde umbra mea in lipsa umbrei tale?...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(51)">
+              <div class="poem-title">Acasa</div>
+              <div class="poem-preview">In fiecare noapte, pasarile calatoare ale ochilor tai, se intorc la cuiburile oc...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(52)">
+              <div class="poem-title">Anti-umbra</div>
+              <div class="poem-preview">Te port uneori in lacrima.  Alteori te surprind in adancul ochiului meu inchis. ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(53)">
+              <div class="poem-title">Poem zburat</div>
+              <div class="poem-preview">Imi stropesc aripile cu cerneala negarii zborului, intru cuvant  de rasarit . No...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(54)">
+              <div class="poem-title">Explicatie</div>
+              <div class="poem-preview">Rasaritul e insangerat pentru ca dimineata se naste dintr-o noapte fecunda....</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(55)">
+              <div class="poem-title">Modelare</div>
+              <div class="poem-preview">Dumnezeu a luat o bucățică de iubire,a frământat-o cu lacrima sa, și cum Ii era ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(56)">
+              <div class="poem-title">Zburanda</div>
+              <div class="poem-preview">Imi doresc sa-mi fie ce n-a fost sa fie.  sa-mi fie asa... deodata  zbor,poem,zb...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(57)">
+              <div class="poem-title">Forma insufletita</div>
+              <div class="poem-preview">Palmele tale imi amprenteaza corpul.  Asa mi s-au format bratele, umerii, pantec...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(58)">
+              <div class="poem-title">Mamei</div>
+              <div class="poem-preview">Ma rog pentru mama mamei copilului meu.  Pentru mainile ei, pentru cuvant, durer...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(59)">
+              <div class="poem-title">Rutiera</div>
+              <div class="poem-preview">Incerc sa traversez o iubire.  Intamplator,vad semaforul.  Din dreapta, din stan...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(60)">
+              <div class="poem-title">Didactica</div>
+              <div class="poem-preview">Fiul meu si-a sprijinit  tampla de sufletul tau.  Apoi, l-ai imbratisat cu sufle...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(61)">
+              <div class="poem-title">Tie</div>
+              <div class="poem-preview">Intai te-am imbratisat cu bratele inimii mele.  Apoi, gura inimii mele, te-a sar...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(62)">
+              <div class="poem-title">Mica publicitate</div>
+              <div class="poem-preview">Ofer la schimb aroma cafelei de dimineata zambetul nascut din lacrima, fiecare a...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(63)">
+              <div class="poem-title">Rid-Colind-Ploaie-Ecou</div>
+              <div class="poem-preview">Strigatul sufletului meu ajunge la tine Ecou. Lacrima sufletului meu se preface ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(64)">
+              <div class="poem-title">Nedumerire</div>
+              <div class="poem-preview">Daca ma imprimavarez peste noapte, voi scrie cuvinte verzi cu mana-nmugurita?...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(65)">
+              <div class="poem-title">Tomnanda</div>
+              <div class="poem-preview">Mi-am ranit glezna de creanga infrigurata a copacului ce-si striga deznadajduit ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(66)">
+              <div class="poem-title">La un ceai</div>
+              <div class="poem-preview">Am invitat copacii la o cana de ceai. Si ei au venit toti, toti deodata.  Apoi a...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(67)">
+              <div class="poem-title">Canon</div>
+              <div class="poem-preview">Am intrat tiptil in sufletul meu si m-am ingrozit de-atata dezordine.  Amintiri ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(68)">
+              <div class="poem-title">Ramasag</div>
+              <div class="poem-preview">Te provoc la un pariu. Pariul cu iubirea. Sanse sa-l pierzi ai si tu, am si eu. ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(69)">
+              <div class="poem-title">Nuanta de alb</div>
+              <div class="poem-preview">Culorile mele se izbesc de culorile tale si asa,fara zgomot, se amesteca,se ames...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(70)">
+              <div class="poem-title">Apartenenta</div>
+              <div class="poem-preview">impleteste-mi parul cu frunze vestede si romanta de toamna ma voi numi!  Apoi,  ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(71)">
+              <div class="poem-title">Amintiri</div>
+              <div class="poem-preview">Zdrente de amintiri pastrez.  Toamna mi-o amintesc, mangaierea si sarutul, sarut...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(72)">
+              <div class="poem-title">Dor de mana ta</div>
+              <div class="poem-preview">Mi-e dor de mana ta care zambeste E dor de mana ta care ma cauta Dor de mana ta ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(73)">
+              <div class="poem-title">Imobilitate</div>
+              <div class="poem-preview">In simfonia frunzei cazute intr-un ochi de moarte ai topit toamna si m-ai poleit...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(74)">
+              <div class="poem-title">Aroma</div>
+              <div class="poem-preview">Umbra copacului ce se oglindeste resemnat in soapta toamnei, suspinul fiecarei f...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(75)">
+              <div class="poem-title">Dor de tine</div>
+              <div class="poem-preview">Dorul de tine ma cauta adesea si in vis sa-mi sfredeleasca fiecare ciob de sufle...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(76)">
+              <div class="poem-title">Piosenie</div>
+              <div class="poem-preview">Mi-am surprins aseara ochiul rugandu-se.  A soptit rugaciunea cu genele impreuna...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(77)">
+              <div class="poem-title">Floarea soarelui</div>
+              <div class="poem-preview">Floarea soarelui refuza sa  priveasca in ochi pe altcineva chiar daca e in vaza ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(78)">
+              <div class="poem-title">Dimineata aromata</div>
+              <div class="poem-preview">Ce-as mai putea sa aflu de mi-as ghici-n cafea cand, aroma ei, in fiecare dimine...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(79)">
+              <div class="poem-title">Dedicata</div>
+              <div class="poem-preview">De cate ori am ocazia, imbratisez fericirea.  Si ea imi spune cu ochi senini: "M...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(80)">
+              <div class="poem-title">Fecunda</div>
+              <div class="poem-preview">Intai te-am purtat in zambet,  Apoi, mi-ai alunecat incet pe obraz cand n-am mai...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(81)">
+              <div class="poem-title">Arhitectura</div>
+              <div class="poem-preview">Palmele  tale imi amprenteaza corpul. Asa mi s-au format bratele,umerii,pantecul...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(82)">
+              <div class="poem-title">Materna</div>
+              <div class="poem-preview">Ma rog pentru mama mamei copilului meu.  Pentru mainile ei, pentru cuvant, durer...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(83)">
+              <div class="poem-title">Toamna iernita</div>
+              <div class="poem-preview">Sub pasul meu trosneste bruma.  Si toamna imi pleaca hulita de iarna.  Copite de...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(84)">
+              <div class="poem-title">Absenta</div>
+              <div class="poem-preview">Am fost plecata putin din aceasta iubire.  -Ce s-a intamplat pe-aici?  Vad ca to...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(85)">
+              <div class="poem-title">De-a joaca</div>
+              <div class="poem-preview">Hai sa ne jucam de-a toamna! Eu frunza, tu copac.  Sa ne numaram… Ies afara de-a...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(86)">
+              <div class="poem-title">Imperativ</div>
+              <div class="poem-preview">Se facea Ca ma compui. Dar portativul batran please, sprijinindu-se in cheia sol...</div>
+            </div>
+</div>
+<div class="no-results" id="noResults">Nu s-au găsit poeme...</div>
+
+<div class="modal" id="poemModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h2 class="modal-title" id="modalTitle"></h2>
+    <div class="modal-poem" id="modalPoem"></div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo-text">VIOLETA-MIRELA MAREȘ</span>
+  <p>Copyright © 2026 · Toate drepturile rezervate · mirelamares.art</p>
+</footer>
+
+<script>
+const poems = [
+  {title: `Terestra`, text: `Inimii mele i-ai confectionat aripi
+dar ea neaga zborul.
+Nu e inima-pasare, e doar
+inima-om.`},
+  {title: `Toamna iernii`, text: `Cu mainile transformate-n crengi
+te mangai a toamna.
+
+Apoi scrasnesc din pleoape
+sa nu te ninga lacrima mea.`},
+  {title: `Adverbe`, text: `oriunde privesc
+oriunde iubesc
+oriunde-i oriunde
+
+ma regasesc.
+Pretutindeni sunt eu.
+Unde-i oriunde?`},
+  {title: `Topografica`, text: `Masor cu talpa sufletului Marea si ea
+imi ghiceste in palma.
+
+Pe crestetul sufletului meu,
+se odihneste un pescarus.
+
+zboru-mi e fragil
+Unde era marea?`},
+  {title: `Frig`, text: `Iarna ?
+
+E sarutul tau ,
+ce s-a prelins pe glezna mea
+si a-nghetat.`},
+  {title: `Materie prima`, text: `Sculptez din sarut
+iubirea mea
+pe umarul tau
+si mi-e zbor
+sa ma cuprinzi
+intre aripi.`},
+  {title: `Glaciara`, text: `Mi-au inghetat sentiment ele.
+Meteorologii anunta
+ca nu mai simt ca sunt ale mele.
+
+Am incercat  sa le salvez.
+Am aruncat chiar apa fierbinte peste ele.
+
+Invat sa devin
+om fara sentimente.`},
+  {title: `Intinare`, text: `imi curge tristetea pe fata.
+mi-a murdarit ochii,obrajii...
+uite,si mainile imi sunt murdare de tristete.
+
+ma opresc din scris
+
+nu vreau un poem murdar.`},
+  {title: `Pronume posesive`, text: `aud bataile inimii tale
+in pulsul meu.
+
+suspinul meu,
+in hohotul tau de plans.
+
+uneori nu stiu unde sa imi caut ploaia
+alteori , ma intalnesc cu tine cand nu-ti gasesti iarna.`},
+  {title: `19 mai`, text: `Intr-un orasel de provincial
+intr-o cofetarie
+imi caut fratele.
+
+Caut prajitura copilariei
+Dar
+ma regasesc pe mine intr-un miros pregnant de cafea prajit
+de-acum,dintotdeauna.`},
+  {title: `Oglindire`, text: `Ma uit in oglinda.
+Imaginea mea rade in hohote de mine
+si chipul meu se refugiaza batjocorit
+in suflet.
+
+oglinda sufletului imi daruieste
+imaginea distorsionata.`},
+  {title: `Amestecata`, text: `N-am stiut sa pastrez in palma
+frunza vesteda.
+s-a transformat in fulg
+
+N-ai stiut sa-mi mangai lacrima
+Si uite cate riduri am!
+
+Nu stiu daca inteleg anotimpul
+In care ninge cu frunze.`},
+  {title: `Inevitabila`, text: `imi vine cateodata sa-mi mototolesc viata
+sa o arunc.
+
+cu un gest foarte simplu
+
+sa o indes in tomberonul de diverse.
+
+la reciclabile n-are ce cauta!`},
+  {title: `Regasire`, text: `Pamantul primeste dara de iarna in brazda sa
+malul primeste dara de mare in valul acesteia
+
+ma definesc de-o parte si de alta a ridului.
+
+
+15Basm
+
+
+A fost odata o fetita,
+o fetita ca toate fetitele,
+nici frumoasa,nici urata,
+care avea doar sentimente.
+La un moment dat,
+a primit un fratior
+si i-a daruit lui tot ce avea.
+N-a pastrat nimic pentru ea.
+Nu avea idealuri,
+n-o interesa nimic .
+Isi dorea doar 
+sa-si faca fratiorul fericit.
+Si fratiorul a crescut.
+A crescut si fetita.
+Si nu s-a schimbat nimic.
+A ramas,
+o fetita ca oricare alta,
+carunta,cu riduri in jurul ochilor,
+fara sentimente,
+cu un fratior fericit.
+
+uneori privesc stelele.
+ne imaginam aiurea ca
+si ele ne privesc pe noi.
+ce-i pasa stelei daca
+sunt obosita sau daca
+am mancat astazi orez cu lapte.
+doar eu simt ca steaua mea
+plange
+sau ca ii vine sa cada.`},
+  {title: `Conciliere`, text: `am intins mana , nevolnic , Realitatii.
+doream sa ma impac cu ea.
+i-am promis ca o iert
+ca m-a izbit dureros de puternic.
+ca m-a trantit,ca ma refuza
+si nu ma saluta niciodata.
+mi-a intors din nou spatele.
+mai incerc.
+ma lupt cu o Realitate prost-crescuta`},
+  {title: `Diurn versus nocturn`, text: `O zi
+are la ambele capete o noapte.
+
+
+Zbuciumul in care se succed ma intriga.
+
+Cate zile se sparg in noapte?
+
+Cate nopti intregi mai am?`},
+  {title: `Incident`, text: `Mi s-a impiedicat mana
+de o foaie de hartie.
+
+apoi a cazut gandul
+impiedicat de cuvant
+
+Imi bandajez inima
+
+S-a julit la genunchi
+intr-un colt de suflet.`},
+  {title: `Epic-centru`, text: `Talpa mea,
+a aunecat pe zapada de frunze
+si
+am atins cu varful piciorului centrul pamantului.
+
+Imbratisarea fiului meu,atinge in fiecare dimineata
+centrul iubirii.`},
+  {title: `Infometare`, text: `Imi era foame de toamna.
+Am muscat cu atata pofta din ea
+incat mi-au dat lacrimile.
+
+Apoi m-am sters la ochi
+cu dosul palmei
+si mainile mi se transformasera deja in crengi.`},
+  {title: `Incompatibilitate`, text: `Bratul meu a incercat sa intre
+pe maneca sufletului.
+Intai bratul drept,apoi bratul stang.
+Sufletul mi s-a crapat in spate
+Cand mi-o fi ramas mic?`},
+  {title: `Dincolo`, text: `Am baut impreuna toamna din causul palmei
+si ne-au ramas frunze vestede-n par.
+
+Si renasc
+si respir
+si iubesc doar pentru tine din adancul meu
+peste te iubesc!`},
+  {title: `Iarta`, text: `Iarta-mi
+neputinta de a avea doar doua brate
+intru inclestarea imbratisarii!
+
+neputinta zborului
+spre inclestarea inariparii!
+
+Si primeste,
+incrancenata insufletire!`},
+  {title: `Atotputernicie`, text: `Scrisul meu,a apartinut candva copacului,
+care se ruga cu toata seva lui,
+TOAMNEI,
+sa nu-l inghete.
+
+Ochiul meu,a apartinut candva apei,
+care se ruga cu toata lacrima ei,
+TOAMNEI,
+sa n-o inghete.
+
+Inima mea,a apartinut candva inimii tale,
+care se ruga cu toata bataia ei,
+IERNII,
+sa o-nghete.`},
+  {title: `Apartenenta`, text: `Aud cum imi bate toamna
+in geamul sufletului
+cu degete amortite de vant..
+
+Stiu de ce ma cheama.
+
+Trebuie sa redau copacului frunza.
+
+Neputinta mea se prelinge
+pe ochiul care vegheaza inchis.
+
+Ma abandonez toamnei
+care desi ma are,ma striga.`},
+  {title: `Prefacere`, text: `Stigatul sufletului meu
+ajunge la tine
+Ecou.
+
+Lacrima sufletului meu
+se preface pana la tine
+Ploaie.
+
+Da drumul inimii tale
+sa bata pana la mine
+Colind!
+
+Si mangaie-ma cu
+Ridul
+ce vine din absenta mea!`},
+  {title: `Corespondenta`, text: `Mainile mi-au imbatranit.
+
+Palma mea are alte linii
+de cand ti-ai scris destinul acolo,
+cu un ciob de gheata.
+
+In fiecare cuta a mainii mele
+se zbate o imbratisare a sufletului tau.`},
+  {title: `Cu susu’n jos`, text: `Uneori,simt
+ca norii imi mangaie talpa.
+Alteori,
+Soarele rasare printre firele de iarba.
+Candva ,voi invata
+sa ma prabusesc.
+Acum,stiu doar sa zbor
+Cu susu-n jos!`},
+  {title: `Rugaciune`, text: `Da-mi,Doamne
+locul gol dintre aripi,
+sa invat zborul!
+
+spatiul dintre crengi
+sa  invat imbratisarea!
+
+cerneala nescrisa a poemului!
+
+Si iubirea,nu!
+
+Da-mi ,neputinta!
+Si,fa-ma om!`},
+  {title: `Intro-strigat`, text: `Imi inmuguresc degetele
+insangerate de absenta poemului.
+
+Va evada si sufletul
+de va gasi o bresa printre ramuri.
+
+Si voi tipa pe dinauntru
+Tacandu-ti absenta!`},
+  {title: `Prenastere`, text: `Fiul meu,
+cand mi-a parasit pantecul,
+a uitat acolo,
+o carte.
+
+Si cuvantul meu scris
+se scrijeleste pe ea.
+
+Cine stie?
+
+Poate intr-o zi,
+intr-o durere sfasietoare,
+voi naste poem.`},
+  {title: `Schita`, text: `De va fi , sa plang vreodata fara lacrimi,
+Inmoaie-ti un colt de suflet in iarna,
+Si deseneaza-mi-le , incet, pe obraz!`},
+  {title: `Implorare`, text: `Si copacul a cazut
+in genunchii lui de copac,
+implorand zapada sa nu mai fie atat de pura.`},
+  {title: `Tacand poemul`, text: `Tac
+si genele mele inghetate
+iti zgarie vers cu vers,
+poemul pe frunte.
+
+Am uitat sa imi urlu disperarea.
+
+Doresc,
+sa-ti ascult respiratia
+de sub fruntea ranita de cuvantul
+de noapte ucisa de zi.`},
+  {title: `Corvoada`, text: `Duc cu mine dintotdeauna
+Umbra ta.
+
+E responsabila cu tristetile mele
+si imi e din ce in ce mai greu
+s-o port.
+
+Dar cand eu voi disparea,
+in ce corp se va-ntrupa,
+Umbra ta ?`},
+  {title: `Granite`, text: `Mi s-au spart ridurile azi-noapte.
+
+Acum,
+zambetul imi aluneca pe fata,
+amestecat cu lacrima si absenta ta.
+
+Imbatraneste-mi, Doamne sufletul,
+sa-mi ramana iubirea,
+acolo,
+intre ridurile lui!`},
+  {title: `Non-directie`, text: `Cand voi alerga ratacita spre tine
+in sens invers,
+ma voi izbi de mine iubindu-te?`},
+  {title: `Gol de pasare`, text: `Drama pasarii dominate de
+lacrima cerului,
+nu este lipsa zborului ci
+neputinta impreunarii aripilor
+intru rugaciune.`},
+  {title: `Chibzuinta`, text: `Ai cheltuit ce aveai,
+
+Ai cheltuit ce primeai,
+
+Ai cheltuit: frunza, zambetul, ridul si tristetea,
+luna, ochiul si lumina,
+floarea si noaptea,
+clipa.
+
+Ti-am ramas eu-
+ultimii tai bani de buzunar.`},
+  {title: `Permisiune`, text: `Ma intreb:
+Daca ni se permite aceeasi noapte,
+de ce n-avem dreptul la acelasi vis?`},
+  {title: `Identificare`, text: `Frunza asta ce forteaza copacul
+sa o nasca,
+O fi cea pe care i-am lipit-o ast'toamna
+cand se hotarase sa-l paraseasca?`},
+  {title: `Paternitate`, text: `Dimineata  se face dintr-o noapte fecunda.
+
+Seara se naste din pantecul
+zilei.
+
+Oare cuvantului meu
+ii sangereaza paternitatea?`},
+  {title: `Personificare`, text: `Cuvintele au alergat toata noaptea dupa mine.
+S-au agatat de mana mea dreapta,
+m-au implorat
+sa le transform .
+
+"-Daca nu ai nevoie de noi,
+lasa-ne , sa ne odihnim in parul tau!"
+
+De dimineata,
+m-am privit in oglinda.
+Eram femeia-poem.`},
+  {title: `Inconfortabila`, text: `Inima mea, ti-a ramas mica,
+zambetul nu te mai incape,
+te strange sufletul meu
+si atunci.
+
+Te voi purta in mine
+pentru ca nu stiu sa te port
+in lacrima.`},
+  {title: `Non-arta`, text: `Ma aud uneori cantand
+desi eu nu stiu nicio melodie.
+
+Alteori mi se pare
+ca pictez
+desi penelul imi este strain.
+
+Mai bine strig,
+decat sa-mi dau seama
+ca nu stiu sa scriu.`},
+  {title: `Rana`, text: `Orbecaind,
+mi-am ranit poemul
+si acum aud cu sufletul
+mirosul florii de cais
+crescand in urma pasilor mei.`},
+  {title: `Acoperire`, text: `De voi plange vreodata cioburi,
+ma voi ascunde,
+sa nu-ti ranesti talpa in lacrimile mele.`},
+  {title: `Lacas`, text: `Am fost harazita
+sa-mi port fiul si poemul
+in pantecul sufletului.`},
+  {title: `(A) alunga`, text: `In mine,
+doar de tine am loc.
+
+M-ai cotropit,
+m-ai devastat,
+m-ai ocupat.
+
+Imi aud inima
+incet, foarte incet.
+
+Am alungat-o,sa ai tu loc!`},
+  {title: `Zbor  ud`, text: `Stii,
+fluturii sunt diferiti!
+Fiecare aripa,
+inseamna secretul zborului.
+
+Oamenii?
+Ei, seamana-ntre ei.
+Ploaia ii invata
+Ca nu poti sa te inalti
+cu aripi ude.`},
+  {title: `Intomnata`, text: `Intomneaza-ma!
+
+Scutura toate florile
+pomilor fructiferi in parul meu!
+
+Asculta!
+La geamul nostru,
+suiera ,plange primavara
+si ne implora sa i le  inapoiem.
+
+Si noi,
+ne desprimavaram unul pe altul,
+toamna de toamna!`},
+  {title: `Cu pasul`, text: `As masura cu pasul,
+de cate ori se cuprinde umbra mea
+in lipsa umbrei tale?`},
+  {title: `Acasa`, text: `In fiecare noapte,
+pasarile calatoare ale ochilor tai,
+se intorc la cuiburile ochilor mei.
+Fiecare rasarit imi este
+Dis-de-primavara.`},
+  {title: `Anti-umbra`, text: `Te port uneori in lacrima.
+
+Alteori te surprind
+in adancul ochiului meu inchis.
+
+Cuvantul meu nescris,nerostit,
+iti dedica nefiinta lui
+sfasiata-n vers.
+
+Imi recunosc umbra sufletului
+are contururile siluetei tale.`},
+  {title: `Poem zburat`, text: `Imi stropesc aripile cu cerneala
+negarii zborului,
+intru cuvant  de rasarit .
+Non cuvant apus,
+insangerat amurg.`},
+  {title: `Explicatie`, text: `Rasaritul e insangerat
+pentru ca dimineata
+se naste dintr-o noapte fecunda.`},
+  {title: `Modelare`, text: `Dumnezeu a luat o bucățică
+de iubire,a frământat-o
+cu lacrima sa,
+și cum
+Ii era greu sa ii găsească un loc,
+a ascuns-o în locul sufletului meu.
+
+De-atunci îmi ești suflet,fiule!`},
+  {title: `Zburanda`, text: `Imi doresc sa-mi fie
+ce n-a fost sa fie.
+
+sa-mi fie asa...
+deodata
+
+zbor,poem,zbor,poem,
+sa pot atinge iubirea
+c-o aripa.`},
+  {title: `Forma insufletita`, text: `Palmele tale
+imi amprenteaza corpul.
+
+Asa mi s-au format
+bratele, umerii, pantecul
+si cutele dintre sprancene.
+
+Pe buze am gustul amarui
+al tigarii neterminate
+de dorul meu.
+
+Si eu,
+suflu peste tine , cuvant !`},
+  {title: `Mamei`, text: `Ma rog pentru mama mamei
+copilului meu.
+
+Pentru mainile ei,
+pentru cuvant,
+durere sau
+adiere de vant.
+
+Apoi,
+suspin.
+Pentru mama ma-nchin.`},
+  {title: `Rutiera`, text: `Incerc sa traversez o iubire.
+
+Intamplator,vad semaforul.
+
+Din dreapta, din stanga,
+din toate partile
+vajaie violent sentimente
+nerabdatoare sa ajunga la destinatia lor de
+sentimente.
+
+Culoarea semaforului permite
+Si brusc
+Ma traverseaza o iubire.`},
+  {title: `Didactica`, text: `Fiul meu
+si-a sprijinit  tampla
+de sufletul tau.
+
+Apoi,
+l-ai imbratisat cu sufletul
+in rugaciunea de dimineata.
+
+Incet, incet ,
+i-ai daruit cuvantul scris
+pe un petec de inima.
+
+Sufletul meu de mama
+ingenuncheaza in fata ta,
+Dascal-poem.`},
+  {title: `Tie`, text: `Intai te-am imbratisat
+cu bratele inimii mele.
+
+Apoi,
+gura inimii mele, te-a sarutat.
+
+De atunci,
+inima inimii mele te iubeste.
+
+eu sunt
+o inima care iubeste-un om.`},
+  {title: `Mica publicitate`, text: `Ofer la schimb
+aroma cafelei de dimineata
+zambetul nascut din lacrima,
+fiecare anotimp al meu.
+
+Solicit
+culoarea senin
+(preferabil a cerului ochilor),
+chipul primaverii
+si lumina sufletului.
+
+Termenul de valabilitate al anuntului
+a expirat
+de cand ne stim.`},
+  {title: `Rid-Colind-Ploaie-Ecou`, text: `Strigatul sufletului meu
+ajunge la tine
+Ecou.
+Lacrima sufletului meu
+se preface pana la tine-n
+Ploaie.
+Da drumul inimii tale
+sa-mi cante-a
+Colind.
+Si mangaie-ma cu
+Ridul
+ce-ti vine din absenta mea.`},
+  {title: `Nedumerire`, text: `Daca ma imprimavarez peste noapte,
+voi scrie cuvinte verzi
+cu mana-nmugurita?`},
+  {title: `Tomnanda`, text: `Mi-am ranit glezna
+de creanga infrigurata
+a copacului ce-si striga
+deznadajduit goliciunea
+
+Si alergam si te strigam,
+ma prabuseam
+Si te scriam.
+
+Apoi
+m-a imbratisat sarutul tau
+si
+creanga tomnanda
+Ti-a inmugurit in palma?`},
+  {title: `La un ceai`, text: `Am invitat copacii
+la o cana de ceai.
+Si ei au venit toti,
+toti deodata.
+
+Apoi am invitat culorile
+la o cana de ceai.
+Au venit si ele,
+poate o nuanta,doua sa fii lipsit.
+
+Apoi,
+te-am chemat pe tine,
+cu toate necuvintele mele.
+Si ceaiul a capatat o aroma galbena
+cand s-a racit.`},
+  {title: `Canon`, text: `Am intrat tiptil in sufletul meu
+si m-am ingrozit
+de-atata dezordine.
+
+Amintiri vechi,
+zaceau pe toate rafturile,
+in toate ungherele
+si parca nici nu se recunosteau
+unele pe altele.
+
+Am sters mai intai praful,
+apoi 
+am inramat fiecare amintire
+si am fixat-o-ntr-un cui 
+pe cate-un perete
+al sufletului.
+
+N-am inteles
+ca 
+mi-l rastignesc!`},
+  {title: `Ramasag`, text: `Te provoc la un pariu.
+Pariul cu iubirea.
+Sanse sa-l pierzi
+ai si tu,
+am si eu.
+
+Batem palma?
+Sa taie toamna.`},
+  {title: `Nuanta de alb`, text: `Culorile mele
+se izbesc de culorile tale
+si
+asa,fara zgomot,
+se amesteca,se amesteca
+si se cuprind unele pe altele
+pana cand,
+din ele nu mai ramane nimic
+pana cand,
+din noi nu mai ramane nimic.
+
+Pana cand?
+Pana cand?`},
+  {title: `Apartenenta`, text: `impleteste-mi parul
+cu frunze vestede
+si romanta de toamna
+ma voi numi!
+
+Apoi,
+
+suiera peste mine
+acorduri tacande,
+in amorteala fecunda
+si-a ta voi fi!`},
+  {title: `Amintiri`, text: `Zdrente de amintiri pastrez.
+
+Toamna mi-o amintesc,
+mangaierea
+si sarutul,
+sarutul acela amarui
+cu gust de poama rascoapta,
+
+pe care-l pastrez in lacrima
+sa-l pot cerne printre gene
+cand ochii mei se sparg
+de neputinta clipirii.`},
+  {title: `Dor de mana ta`, text: `Mi-e dor de mana ta care zambeste
+E dor de mana ta care ma cauta
+Dor de mana ta care striga
+De mana ta care ma gaseste
+Mana ta care striga
+Care suspina
+Si-apoi intalneste mana mea
+Intalneste mana mea care
+Mana mea care scrie
+De dor de mana ta.`},
+  {title: `Imobilitate`, text: `In simfonia frunzei
+cazute intr-un ochi de moarte
+ai topit toamna
+si m-ai poleit cu ea.
+
+De atunci,
+in nemiscarea mea,
+haladuiesc cu pasi tacanzi
+pe silabele numelui tau.`},
+  {title: `Aroma`, text: `Umbra copacului
+ce se oglindeste resemnat
+in soapta toamnei,
+suspinul fiecarei frunze
+care pleaca
+si aroma cafelei
+dintr-o dimineata rece de toamna
+le impart cu tine
+dincolo de litera,sunet sau cuvant,
+aici,oriunde, la marginea timpului!`},
+  {title: `Dor de tine`, text: `Dorul de tine
+ma cauta adesea si in vis
+sa-mi sfredeleasca fiecare ciob de suflet.
+
+Ploaia
+imi inunda sentimentele si trupul
+doar dorul de tine
+hohoteste nemernic intr-un ecou
+ca o simfonie fara acorduri.`},
+  {title: `Piosenie`, text: `Mi-am surprins aseara ochiul
+rugandu-se.
+
+A soptit rugaciunea
+cu genele impreunate,
+apoi
+s-a inchinat incet
+c-o lacrima.`},
+  {title: `Floarea soarelui`, text: `Floarea soarelui
+refuza
+sa  priveasca in ochi
+pe altcineva
+chiar daca e in vaza mea.
+
+Te pregatesti sa rasari?
+Imi aranjez putin petalele
+si vin sa te privesc.`},
+  {title: `Dimineata aromata`, text: `Ce-as mai putea sa aflu
+de mi-as ghici-n cafea
+cand,
+aroma ei,
+in fiecare dimineata,
+iti imprumuta parfumul?`},
+  {title: `Dedicata`, text: `De cate ori am ocazia,
+imbratisez fericirea.
+
+Si ea imi spune cu ochi senini:
+"Mama,te iubesc!
+Esti frumoasa mea!”
+
+Si mama fericirii isi aminteste,
+ca stie sa planga.`},
+  {title: `Fecunda`, text: `Intai te-am purtat in zambet,
+
+Apoi,
+mi-ai alunecat incet pe obraz
+cand n-am mai putut sa te port
+in lacrima.
+
+Abia dupa ce te-am compus
+am inteles
+irepetabilitatea nasterii.
+Sufletul meu binecuvantat,
+etern insarcinat cu tine,
+pruncul meu!`},
+  {title: `Arhitectura`, text: `Palmele  tale
+imi amprenteaza corpul.
+Asa mi s-au format bratele,umerii,pantecul si cutele dintre sprancene.
+
+Pe buze am gustul amarui
+al tigarii neterminate
+de dorul meu.
+
+Si eu,
+suflu peste tine,cuvant!`},
+  {title: `Materna`, text: `Ma rog pentru mama mamei
+copilului meu.
+
+Pentru mainile ei,
+pentru cuvant,
+durere sau
+adiere de vant.
+
+Apoi,
+suspin.
+Pentru mama ma-nchin.`},
+  {title: `Toamna iernita`, text: `Sub pasul meu
+trosneste bruma.
+
+Si toamna imi pleaca
+hulita de iarna.
+
+Copite de cai ,
+mi-au calcat ieri cuvantul.
+
+Si astazi se-aude
+despuiat  si stingher,
+acordul tacut al solstitiului nostru,
+desprins linistit dintr-o coarda de ger.`},
+  {title: `Absenta`, text: `Am fost plecata putin
+din aceasta iubire.
+
+-Ce s-a intamplat pe-aici?
+
+Vad ca totul e bine.
+Ma recunoaste si cuvantul.
+Doar toamna mi-a intors spatele.
+
+I-am luat culoare pentru ochi
+si ti-am daruit-o-n clipire
+cat am lipsit.`},
+  {title: `De-a joaca`, text: `Hai sa ne jucam de-a toamna!
+Eu frunza, tu copac.
+
+Sa ne numaram…
+Ies afara
+de-afara.
+
+Intru-n joc
+doar daca
+iti acoperi ochii
+cu ochii mei.`},
+  {title: `Imperativ`, text: `Se facea
+Ca ma compui.
+Dar portativul batran please,
+sprijinindu-se in cheia sol.
+Si notele-silabe ale numelui meu-
+scartaiau schilodite de tacere.
+
+Orologiul a batut de iarna.
+Se aude o suferinta
+Cantata strident, sacadat si obsesiv
+undeva in stele.
+
+Recompune-ma din umbre!
+Pierde-ma in forme fixe!
+Dar scrie-ma, iubite, scrie-ma!`},
+];
+
+function showPoem(i) {
+  document.getElementById('modalTitle').textContent = poems[i].title;
+  document.getElementById('modalPoem').textContent = poems[i].text;
+  document.getElementById('poemModal').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('poemModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('poemModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+document.getElementById('searchBox').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.poem-card');
+  let visible = 0;
+  cards.forEach((card, i) => {
+    const match = !q || (poems[i].title + ' ' + poems[i].text).toLowerCase().includes(q);
+    card.style.display = match ? '' : 'none';
+    if (match) visible++;
+  });
+  document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+});
+</script>
+</body>
+</html>
