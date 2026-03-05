@@ -3,95 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toamna descheiată la plopi — Violeta-Mirela Mareș</title>
+  <title>Toamna descheiată la plopi · Violeta-Mirela Mareș</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
       --ink: #1e1a14; --cream: #faf7f2; --parchment: #f2ede3;
-      --gold: #a07840; --green-deep: #2d4a2d; --green-mid: #4a7c4a; --green-light: #7aaa6a;
-      --muted: #7a6f5e; --dark-mid: #1c1814;
+      --gold: #a07840; --green-deep: #2d4a2d; --green-mid: #4a7c4a;
+      --green-light: #7aaa6a; --muted: #7a6f5e; --dark-mid: #1c1814;
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'EB Garamond', serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-thumb { background: var(--green-mid); }
-
-    /* NAV */
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(250,247,242,0.97); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(74,124,74,0.15); padding: 0 2.5rem; }
+    nav { background: rgba(250,247,242,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(74,124,74,0.15); padding: 0 2.5rem; position: sticky; top: 0; z-index: 100; }
     .nav-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 66px; }
     .nav-brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
     .nav-logo-text { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--green-deep); line-height: 1.3; }
-    .nav-back { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.18em; color: var(--muted); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; transition: color 0.3s; }
-    .nav-back:hover { color: var(--green-deep); }
-
-    /* VOLUM HERO */
-    .volum-hero {
-      min-height: 52vh;
-      background: var(--green-deep);
-      display: flex; flex-direction: column; align-items: center; justify-content: flex-end;
-      padding: 8rem 2rem 5rem;
-      position: relative; overflow: hidden; text-align: center;
+    nav ul { list-style: none; display: flex; gap: 2.2rem; }
+    nav ul li a { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.14em; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    nav ul li a:hover { color: var(--green-deep); }
+    .volum-header { background: var(--green-deep); color: var(--cream); padding: 5rem 2rem 4rem; text-align: center; position: relative; }
+    .volum-header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(200,230,200,0.3), transparent); }
+    .volum-label { font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.4em; opacity: 0.6; display: block; margin-bottom: 1rem; }
+    .volum-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300; margin-bottom: 0.5rem; font-style: italic; }
+    .volum-subtitle { font-family: 'Cormorant Garamond', serif; font-size: 1rem; opacity: 0.55; display: block; margin-bottom: 0.8rem; font-style: italic; }
+    .volum-meta { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; opacity: 0.7; }
+    .motto { max-width: 560px; margin: 2rem auto 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; opacity: 0.65; border-left: 1px solid rgba(200,230,200,0.4); padding-left: 1.2rem; text-align: left; }
+    .search-wrap { max-width: 500px; margin: 2.5rem auto; padding: 0 2rem; }
+    .search-box { width: 100%; padding: 0.85rem 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; border: 1px solid rgba(74,124,74,0.25); border-radius: 40px; background: var(--cream); color: var(--ink); outline: none; transition: border-color 0.3s; }
+    .search-box:focus { border-color: var(--green-mid); }
+    .poems-grid { max-width: 1100px; margin: 0 auto; padding: 1rem 2rem 5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .poem-card { background: var(--parchment); border: 1px solid rgba(74,124,74,0.1); padding: 1.8rem; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; }
+    .poem-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green-deep), transparent); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
+    .poem-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(45,74,45,0.12); border-color: rgba(74,124,74,0.25); }
+    .poem-card:hover::before { transform: scaleX(1); }
+    .poem-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--green-deep); margin-bottom: 0.6rem; }
+    .poem-preview { font-size: 0.92rem; color: var(--muted); line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .no-results { text-align: center; padding: 4rem; color: var(--muted); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; display: none; }
+    .modal { display: none; position: fixed; inset: 0; background: rgba(28,24,20,0.92); z-index: 1000; overflow-y: auto; backdrop-filter: blur(4px); }
+    .modal-content { background: var(--cream); margin: 3rem auto; padding: 3.5rem; max-width: 680px; position: relative; border-top: 3px solid var(--green-deep); }
+    .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.8rem; color: var(--muted); cursor: pointer; transition: color 0.2s; background: none; border: none; line-height: 1; }
+    .modal-close:hover { color: var(--green-deep); }
+    .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; font-weight: 300; color: var(--green-deep); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(74,124,74,0.15); }
+    .modal-poem { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 2.1; color: #3a322a; white-space: pre-wrap; }
+    footer { background: var(--dark-mid); border-top: 1px solid rgba(74,124,74,0.15); padding: 2.5rem 2rem; text-align: center; }
+    .footer-logo-text { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.25em; color: rgba(200,230,200,0.7); display: block; margin-bottom: 0.5rem; }
+    footer p { font-size: 0.75rem; color: #4a4a40; }
+    @media (max-width: 600px) {
+      .poems-grid { grid-template-columns: 1fr; }
+      .modal-content { margin: 1rem; padding: 2rem 1.5rem; }
     }
-    .volum-hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse at 50% 0%, rgba(74,124,74,0.3) 0%, transparent 65%);
-    }
-    .volum-hero-flowers { position: absolute; right: 5%; top: 10%; opacity: 0.12; }
-    .volum-hero-flowers-left { position: absolute; left: 5%; top: 15%; opacity: 0.08; transform: scaleX(-1); }
-    .volum-badge { font-family: 'Cinzel', serif; font-size: 0.55rem; letter-spacing: 0.45em; color: rgba(122,170,106,0.75); margin-bottom: 1.5rem; position: relative; z-index: 1; }
-    .volum-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 5vw, 4.5rem); font-weight: 300; color: var(--cream); line-height: 1.1; margin-bottom: 1rem; position: relative; z-index: 1; }
-    .volum-subtitle { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: rgba(200,230,160,0.75); position: relative; z-index: 1; margin-bottom: 0.6rem; }
-    .volum-meta { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.25em; color: rgba(200,230,200,0.5); position: relative; z-index: 1; }
-    .volum-motto {
-      font-family: 'Cormorant Garamond', serif; font-style: italic;
-      font-size: 1.05rem; color: rgba(200,230,160,0.65);
-      max-width: 520px; margin: 2rem auto 0; line-height: 1.8;
-      position: relative; z-index: 1;
-      border-top: 1px solid rgba(122,170,106,0.2); padding-top: 1.5rem;
-    }
-
-    /* CUPRINS */
-    .cuprins-wrap { background: var(--parchment); padding: 4rem 2rem; border-bottom: 1px solid rgba(74,124,74,0.12); }
-    .cuprins-inner { max-width: 800px; margin: 0 auto; }
-    .cuprins-title { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.4em; color: var(--green-mid); margin-bottom: 1.5rem; display: block; }
-    .cuprins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.2rem 2rem; }
-    .cuprins-item { display: flex; align-items: baseline; gap: 0.5rem; padding: 0.3rem 0; }
-    .cuprins-item a { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; color: var(--ink); text-decoration: none; transition: color 0.2s; line-height: 1.5; }
-    .cuprins-item a:hover { color: var(--green-deep); }
-    .cuprins-nr { font-family: 'Cinzel', serif; font-size: 0.5rem; color: var(--green-mid); opacity: 0.5; min-width: 1.5rem; }
-
-    /* POEME */
-    .poeme-wrap { max-width: 680px; margin: 0 auto; padding: 6rem 2rem 8rem; }
-    .poem-block { margin-bottom: 6rem; scroll-margin-top: 90px; }
-    .poem-nr { font-family: 'Cinzel', serif; font-size: 0.52rem; letter-spacing: 0.3em; color: var(--green-mid); opacity: 0.5; display: block; text-align: center; margin-bottom: 0.8rem; }
-    .poem-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 3vw, 2.2rem); font-weight: 300; font-style: italic; text-align: center; margin-bottom: 2.5rem; color: var(--green-deep); }
-    .poem-body { font-family: 'Cormorant Garamond', serif; font-size: 1.22rem; line-height: 2.1; }
-    .strofa { margin-bottom: 2rem; }
-    .vers { display: block; }
-    .poem-divider { width: 36px; height: 1px; background: rgba(74,124,74,0.25); margin: 5.5rem auto; }
-    .back-top { display: block; text-align: center; margin-top: 4rem; font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.25em; color: var(--muted); text-decoration: none; transition: color 0.3s; }
-    .back-top:hover { color: var(--green-deep); }
-
-    /* FOOTER */
-    footer { background: var(--dark-mid); border-top: 1px solid rgba(74,124,74,0.12); padding: 2.5rem 2rem; text-align: center; }
-    .footer-brand { display: flex; align-items: center; justify-content: center; gap: 0.7rem; margin-bottom: 0.6rem; }
-    .footer-logo-text { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.22em; color: rgba(200,230,200,0.65); }
-    footer p { font-size: 0.72rem; color: #4a4a40; }
-
-    @media (max-width: 600px) { .cuprins-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-
 <nav>
   <div class="nav-inner">
     <a href="../index.html" class="nav-brand">
-      <svg width="26" height="32" viewBox="0 0 120 140" fill="none">
+      <svg width="28" height="34" viewBox="0 0 120 140" fill="none">
         <path d="M60 130 C60 130 58 90 55 65 C52 40 48 20 60 8" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <path d="M60 120 C60 120 62 95 65 75 C68 55 72 35 64 18" stroke="#2d4a2d" stroke-width="2" fill="none" stroke-linecap="round"/>
         <path d="M55 65 C40 55 28 42 30 20 C38 30 48 48 55 65Z" fill="#4a7c4a" opacity="0.85"/>
         <path d="M64 55 C80 45 90 30 86 10 C78 22 68 40 64 55Z" fill="#4a7c4a" opacity="0.75"/>
         <ellipse cx="46" cy="83" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
@@ -101,277 +70,1357 @@
       </svg>
       <span class="nav-logo-text">VIOLETA-MIRELA<br>MAREȘ</span>
     </a>
-    <a href="index.html#volume" class="nav-back">← Înapoi la volume</a>
+    <ul>
+      <li><a href="../index.html#volume">← Volume</a></li>
+    </ul>
   </div>
 </nav>
 
-<!-- VOLUM HERO -->
-<div class="volum-hero">
-  <svg class="volum-hero-flowers" width="200" height="240" viewBox="0 0 120 140" fill="none">
-    <path d="M60 130 C60 130 58 90 55 65 C52 40 48 20 60 8" stroke="white" stroke-width="1.5" fill="none" stroke-linecap="round"/>
-    <path d="M60 120 C60 120 62 95 65 75 C68 55 72 35 64 18" stroke="white" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-    <path d="M55 65 C40 55 28 42 30 20 C38 30 48 48 55 65Z" fill="white" opacity="0.6"/>
-    <path d="M64 55 C80 45 90 30 86 10 C78 22 68 40 64 55Z" fill="white" opacity="0.5"/>
-    <ellipse cx="46" cy="83" rx="5" ry="6.5" fill="white" opacity="0.7" stroke="white" stroke-width="1"/>
-    <ellipse cx="44" cy="97" rx="5" ry="6.5" fill="white" opacity="0.7" stroke="white" stroke-width="1"/>
-    <ellipse cx="46" cy="111" rx="5" ry="6.5" fill="white" opacity="0.7" stroke="white" stroke-width="1"/>
-    <ellipse cx="74" cy="78" rx="5" ry="6.5" fill="white" opacity="0.7" stroke="white" stroke-width="1"/>
-    <ellipse cx="75" cy="92" rx="5" ry="6.5" fill="white" opacity="0.7" stroke="white" stroke-width="1"/>
-    <ellipse cx="73" cy="106" rx="5" ry="6.5" fill="white" opacity="0.7" stroke="white" stroke-width="1"/>
-  </svg>
-  <span class="volum-badge">Volum de poezie · 2025</span>
-  <h1 class="volum-title">Toamna descheiată<br>la plopi</h1>
-  <p class="volum-subtitle">Poeme târzii</p>
-  <span class="volum-meta">Violeta-Mirela Mareș · Ed. Didactikos · 2025</span>
-  <p class="volum-motto">„Frunza nu cade ca să moară,<br>ci ca să învețe pământul să respire din nou."</p>
+<div class="volum-header">
+  <span class="volum-label">VOLUM DE POEZIE · 2025</span>
+  <h1 class="volum-title">Toamna descheiată la plopi</h1>
+  <span class="volum-subtitle">poeme târzii</span>
+  <p class="volum-meta">Violeta-Mirela Mareș · Ed. Didaktikos · 2025</p>
+  <blockquote class="motto">„Frunza nu cade ca să moară,<br>ci ca să învețe pământul să respire din nou."</blockquote>
 </div>
 
-<!-- CUPRINS -->
-<div class="cuprins-wrap">
-  <div class="cuprins-inner">
-    <span class="cuprins-title">Cuprins</span>
-    <div class="cuprins-grid">
-      <div class="cuprins-item"><span class="cuprins-nr">1</span><a href="#p1">întomnare</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">2</span><a href="#p2">despre ofrande</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">3</span><a href="#p3">insomnia</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">4</span><a href="#p4">diminețile</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">5</span><a href="#p5">încă devreme</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">6</span><a href="#p6">despre trecerea peste zi a sărutului</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">7</span><a href="#p7">spre haiku dar nu până acolo</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">8</span><a href="#p8">așteptarea și sensul. umbrele amurgul patima.</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">9</span><a href="#p9">esențe de martie</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">10</span><a href="#p10">plouă</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">11</span><a href="#p11">pictură de-avril</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">12</span><a href="#p12">despre înfrunzirea jertfei în cuvânt</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">13</span><a href="#p13">esența unui dor ce doare în floare</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">14</span><a href="#p14">înrămând în floare plânsul</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">15</span><a href="#p15">pre destin are</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">16</span><a href="#p16">pictură</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">17</span><a href="#p17">tușe de primăvară</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">18</span><a href="#p18">desen de iarnă</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">19</span><a href="#p19">desen de iarnă (2)</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">20</span><a href="#p20">desen de decembrie în iarnă plină</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">21</span><a href="#p21">ninge</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">22</span><a href="#p22">rid colind ploaie ecou</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">23</span><a href="#p23">vid</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">24</span><a href="#p24">întrebări esențiale I</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">25</span><a href="#p25">întrebări esențiale II</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">26</span><a href="#p26">schiță de-o clipă</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">27</span><a href="#p27">despre devenire cumva</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">28</span><a href="#p28">desen de devenire</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">29</span><a href="#p29">singurătate. desen în creion.</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">30</span><a href="#p30">sentimentul monocrom în desen trist</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">31</span><a href="#p31">desen cu mâini</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">32</span><a href="#p32">tatuaj permanent pe sens înnodat</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">33</span><a href="#p33">modelaj</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">34</span><a href="#p34">autoportret in disolve</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">35</span><a href="#p35">moody</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">36</span><a href="#p36">moody 2</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">37</span><a href="#p37">serendipity</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">38</span><a href="#p38">de dor (I)</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">39</span><a href="#p39">de dor (II)</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">40</span><a href="#p40">mirajul unui dor descris</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">41</span><a href="#p41">despre dorul care mă arde în chip de senin</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">42</span><a href="#p42">întru totul dorință</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">43</span><a href="#p43">despre durerea marginii de tine în formă continuă</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">44</span><a href="#p44">despre noi la prezent compus</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">45</span><a href="#p45">conjugarea căderii din sens</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">46</span><a href="#p46">despre perfectul în sinea sa imperfectă</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">47</span><a href="#p47">înapoi spre înainte</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">48</span><a href="#p48">în așteptare</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">49</span><a href="#p49">absența</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">50</span><a href="#p50">singurătatea ca o chemare perfectă</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">51</span><a href="#p51">cuvântul cel de pe urmă</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">52</span><a href="#p52">viscerală</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">53</span><a href="#p53">vaiet</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">54</span><a href="#p54">în dimensiunea zbaterii unei pleoape până la etern</a></div>
-      <div class="cuprins-item"><span class="cuprins-nr">55</span><a href="#p55">De...</a></div>
-    </div>
+<div class="search-wrap">
+  <input type="text" class="search-box" id="searchBox" placeholder="Caută în poeme...">
+</div>
+
+<div class="poems-grid" id="poemsGrid">
+            <div class="poem-card" onclick="showPoem(0)">
+              <div class="poem-title">întomnare</div>
+              <div class="poem-preview">îmi era foame de toamnă am muşcat cu atâta poftă din ea încât mi-au dat lacrimil...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(1)">
+              <div class="poem-title">despre ofrande</div>
+              <div class="poem-preview">când cerul plutește fierbinte-n albastru rezemându-se pe acoperișurile caselor î...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(2)">
+              <div class="poem-title">insomnia</div>
+              <div class="poem-preview">ascult privesc şi ard în bătăile inimii tale şi respir în ritmul ei cadențat car...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(3)">
+              <div class="poem-title">diminețile</div>
+              <div class="poem-preview">diminețile se sparg în versuri şi înfloresc cristalin pe mângâierile mele desenâ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(4)">
+              <div class="poem-title">încă devreme</div>
+              <div class="poem-preview">încă devreme se fărâmițează-n zorii primăverii frunza  în zbaterea embrionului s...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(5)">
+              <div class="poem-title">despre trecerea peste zi a sărutului</div>
+              <div class="poem-preview">dimineața ți-aş ridica greutatea pleoapei cu geana mea şi aş veghea să ți se rev...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(6)">
+              <div class="poem-title">spre haiku dar nu până acolo</div>
+              <div class="poem-preview">dacă aş plânge sângerând rouă  răsăritului dimineților mele atinse de dor ai înț...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(7)">
+              <div class="poem-title">aşteptarea şi sensul. umbrele amurgul patima.</div>
+              <div class="poem-preview">ascult cum se topeşte amurgul peste mine şi ninge a linişte şi ochii mei de mier...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(8)">
+              <div class="poem-title">esențe de martie</div>
+              <div class="poem-preview">viața şi moartea zâmbesc în fiecare dimineață cu acelaşi chip precum zăpada ceru...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(9)">
+              <div class="poem-title">plouă</div>
+              <div class="poem-preview">cu stropi mari dezordonați şi zgomotoşi  peste noi goi peste doi ba chiar şi pes...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(10)">
+              <div class="poem-title">pictură de-avril</div>
+              <div class="poem-preview">plânge cerul rece şi mohorât  încrustând inserții de toamnă pe-un început de apr...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(11)">
+              <div class="poem-title">despre înfrunzirea jertfei în cuvânt</div>
+              <div class="poem-preview">din totului tot ce aş fi putut să fac pentru tine în fiecare dospire a dimineții...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(12)">
+              <div class="poem-title">esența unui dor ce doare în floare</div>
+              <div class="poem-preview">în părul meu se odihnesc  toate florile de salcâm toate florile de castan toate ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(13)">
+              <div class="poem-title">înrămând în floare plânsul</div>
+              <div class="poem-preview">pun în ramă fotografia mării neodihnite şi o privesc din fotografia nisipului ca...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(14)">
+              <div class="poem-title">pre destin are</div>
+              <div class="poem-preview">curge în cuvintele mele uneori așa trist o lumină care cuvântă aproape albastru ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(15)">
+              <div class="poem-title">pictură</div>
+              <div class="poem-preview">cerul creionează acoperişurile caselor în lumini şi umbre înserate se aud zgomot...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(16)">
+              <div class="poem-title">tușe de primăvară</div>
+              <div class="poem-preview">ne târâm prin această ternă primăvară cu sensuri unice şi mirosuri puternice de ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(17)">
+              <div class="poem-title">desen de iarnă</div>
+              <div class="poem-preview">de va fi să plâng vreodată fără lacrimi înmoaie-ți un colț de suflet în zăpadă ș...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(18)">
+              <div class="poem-title">desen de iarnă (2)</div>
+              <div class="poem-preview">tac și genele mele înghețate iți aștern vers cu vers poemul invers pe frunte mă ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(19)">
+              <div class="poem-title">desen de decembrie în iarnă plină</div>
+              <div class="poem-preview">îmi lipsesc vocea privirea auzul cuvintele mângâierile sărutul rutul e noapte şi...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(20)">
+              <div class="poem-title">ninge</div>
+              <div class="poem-preview">ninge disperat de alb și de înghețat pătimaş şi adânc din pântecul spart al ceru...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(21)">
+              <div class="poem-title">rid colind ploaie ecou</div>
+              <div class="poem-preview">strigătul sufletului meu ajunge la tine ecou lacrima sufletului meu se preface p...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(22)">
+              <div class="poem-title">vid</div>
+              <div class="poem-preview">din sărutul tău  s-a prelins pe glezna mea şi a înghețat umbra prelungă a trecer...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(23)">
+              <div class="poem-title">întrebări esențiale (I)</div>
+              <div class="poem-preview">de ce oare apa nu se ineacă în mare de ce oare lumina nu se întoarce în soare de...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(24)">
+              <div class="poem-title">întrebări esențiale (II)</div>
+              <div class="poem-preview">de ce oare eu cuvânt aşa cu tăcerea ta până când mă topesc în noi în formă de un...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(25)">
+              <div class="poem-title">schiță de-o clipă</div>
+              <div class="poem-preview">fiecare clipă a mea mă trece mă petrece respectuos până la uşă şi mă pofteşte să...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(26)">
+              <div class="poem-title">despre devenire cumva</div>
+              <div class="poem-preview">schițează-mă desenează-mă în tuşe simple sau lasă-mă aşa în alb şi negru rotundă...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(27)">
+              <div class="poem-title">desen de devenire</div>
+              <div class="poem-preview">sub fiecare pas al tău se închină un fir de iarbă sub fiecare pas al meu se plăm...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(28)">
+              <div class="poem-title">singurătate. desen în creion.</div>
+              <div class="poem-preview">mi se pare că imaginile în care gândesc se estompează imaginile devin gri ca şi ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(29)">
+              <div class="poem-title">sentimentul monocrom în desen trist</div>
+              <div class="poem-preview">mi se pare că imaginile în care gândesc se estompează imaginile devin gri ca şi ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(30)">
+              <div class="poem-title">desen cu mâini</div>
+              <div class="poem-preview">mâna mea se strecoară ca o privire fină ce se înfiripă abia simțită pe gâtul tău...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(31)">
+              <div class="poem-title">tatuaj permanent pe sens înnodat</div>
+              <div class="poem-preview">mi-am tatuat pasul cu sărutul tău precum toate nopțile sub care m-aştern la piep...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(32)">
+              <div class="poem-title">modelaj</div>
+              <div class="poem-preview">surâsul meu atât de rotund întârzie pe la colțurile verii până când muchiile se ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(33)">
+              <div class="poem-title">autoportret in disolve</div>
+              <div class="poem-preview">privirea mea ecou ridat al privirii tale diluând culorile până la nuanțe surâsul...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(34)">
+              <div class="poem-title">moody (I)</div>
+              <div class="poem-preview">uneori umerii mei se frâng sub povara florilor albe de cireş ca şi cum milioanel...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(35)">
+              <div class="poem-title">moody (II)</div>
+              <div class="poem-preview">ce să-ți las eu să-ți aminteşti de mine? o geană pe pernă după o noapte de iubir...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(36)">
+              <div class="poem-title">serendipity</div>
+              <div class="poem-preview">în jurul cuvintelor tale ochii mei îți țes migdale mângâierile cicoare praf de l...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(37)">
+              <div class="poem-title">de dor (I)</div>
+              <div class="poem-preview">paşii mei cu miros de iapă tânără nu mai lasă nici o urmă în iarba udă  a dimine...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(38)">
+              <div class="poem-title">de dor (II)</div>
+              <div class="poem-preview">se-mbată vântul cu atâta parfum şi atâta culoare simțurile toate slăbesc din str...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(39)">
+              <div class="poem-title">mirajul unui dor descris</div>
+              <div class="poem-preview">mi se topesc mai întâi brațele într-o îmbrățişare prelungă fără de tine şi fără ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(40)">
+              <div class="poem-title">despre dorul care mă arde în chip de senin</div>
+              <div class="poem-preview">uneori pândită de secundele goale cred că spălându-mi ochiul cu apă multă limped...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(41)">
+              <div class="poem-title">întru totul dorință</div>
+              <div class="poem-preview">descuie-mi seninul nopții să cad înstelat într-o partitură adâncă devenită vis d...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(42)">
+              <div class="poem-title">despre durerea marginii de tine în formă continuă</div>
+              <div class="poem-preview">în fiecare noapte dar în fiecare noapte ce trage la mal înainte de a adormi la m...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(43)">
+              <div class="poem-title">despre noi la prezent compus</div>
+              <div class="poem-preview">sub fiecare pas şovăit al tău se închină un fir de iarbă în chip de înger sub fi...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(44)">
+              <div class="poem-title">de dejà-vù</div>
+              <div class="poem-preview">despicând sensul până la sărutul pasului căzut în propria sa urmă de zbor frânt...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(45)">
+              <div class="poem-title">conjugarea căderii din sens</div>
+              <div class="poem-preview">ieri este din nou ieri ca să se facă astăzi azi inefabil infailibil imuabil din ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(46)">
+              <div class="poem-title">despre perfectul în sinea sa imperfectă</div>
+              <div class="poem-preview">eu mă uit cu ochii mei în privirea ta şi bat cu inima mea tactul sufletului tău ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(47)">
+              <div class="poem-title">înapoi spre înainte</div>
+              <div class="poem-preview">privesc pe gaura cheii clipele risipite trecutului ca pe un cârd de păsări călăt...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(48)">
+              <div class="poem-title">în aşteptare</div>
+              <div class="poem-preview">în ziua care a început să se treacă în zori să se treacă înserându-mă fără să mă...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(49)">
+              <div class="poem-title">absența</div>
+              <div class="poem-preview">uneori nu dorm  de teama de a nu te pierde în timpul nopții şi absența ta râde d...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(50)">
+              <div class="poem-title">singurătatea ca o chemare perfectă</div>
+              <div class="poem-preview">cad în prezent în fiecare zi la mijlocul nopții când întunericul e atât de dens ...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(51)">
+              <div class="poem-title">cuvântul cel de pe urmă</div>
+              <div class="poem-preview">de vei vrea vreodată  să te odihneşti de mine– spuse - aşează-te în locul în car...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(52)">
+              <div class="poem-title">viscerală</div>
+              <div class="poem-preview">aş slobozi lacrimile întru neplângerea ta aş slobozi un strigăt întru nechemarea...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(53)">
+              <div class="poem-title">vaiet</div>
+              <div class="poem-preview">de câte ori m-am prăbuşit iubite de câte ori mi-am muşcat buzele să nu se audă ț...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(54)">
+              <div class="poem-title">în dimensiunea zbaterii unei pleoape până la etern</div>
+              <div class="poem-preview">nu coborî în numele zborului - zise ci aruncă-te în zborul ei păsării-fântână ce...</div>
+            </div>
+            <div class="poem-card" onclick="showPoem(55)">
+              <div class="poem-title">De...</div>
+              <div class="poem-preview">de-ți este sete sunt aici să-ți pun palmele mele căuș și să izvoresc în ele apă ...</div>
+            </div>
+</div>
+<div class="no-results" id="noResults">Nu s-au găsit poeme...</div>
+
+<div class="modal" id="poemModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <h2 class="modal-title" id="modalTitle"></h2>
+    <div class="modal-poem" id="modalPoem"></div>
   </div>
-</div>
-
-<!-- POEME -->
-<div class="poeme-wrap">
-
-  <div class="poem-block" id="p1"><span class="poem-nr">I</span><h2 class="poem-title">întomnare</h2><div class="poem-body"><div class="strofa"><span class="vers">îmi era foame de toamnă</span><span class="vers">am mușcat cu atâta poftă din ea</span><span class="vers">încât mi-au dat lacrimile</span><span class="vers">m-am șters la ochi cu dosul palmei</span><span class="vers">și ceața-mi pătrunse buzele</span></div><div class="strofa"><span class="vers">mâinile mi se transformaseră deja</span><span class="vers">în crengi tremurânde ruginiu</span><span class="vers">ca de o plecare</span><span class="vers">în neiubire</span></div><div class="strofa"><span class="vers">pluteam deja</span><span class="vers">ca o frunză spre uitare</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p2"><span class="poem-nr">II</span><h2 class="poem-title">despre ofrande</h2><div class="poem-body"><div class="strofa"><span class="vers">când cerul plutește fierbinte-n albastru</span><span class="vers">rezemându-se pe acoperișurile caselor</span><span class="vers">vânătorul aduce drept ofrandă</span><span class="vers">miezul zilei</span></div><div class="strofa"><span class="vers">când ploaia își rostogolește perdelele fumurii de lacrimi</span><span class="vers">peste podurile singuratice</span><span class="vers">vânătorul aduce drept ofrandă</span><span class="vers">înserarea</span></div><div class="strofa"><span class="vers">când vântul mână aspru cârdurile de nori</span><span class="vers">aducând și ducând</span><span class="vers">zilele una după alta</span><span class="vers">vânătorul aduce drept ofrandă</span><span class="vers">toamna</span></div><div class="strofa"><span class="vers">când vin eu</span><span class="vers">vin cu totul</span><span class="vers">și mă aduc pe mine toată</span><span class="vers">de la mine până la tine</span><span class="vers">și atunci vânătorul se aduce pe sine ofrandă</span><span class="vers">timpului care a căzut peste noi</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p3"><span class="poem-nr">III</span><h2 class="poem-title">insomnia</h2><div class="poem-body"><div class="strofa"><span class="vers">ascult</span><span class="vers">privesc</span><span class="vers">și ard</span><span class="vers">în bătăile inimii tale</span><span class="vers">și respir în ritmul ei cadențat</span><span class="vers">care fărâmă noaptea în cioburi de gânduri</span><span class="vers">înflorite în parfumul zorilor</span></div><div class="strofa"><span class="vers">îmi simt mai apoi trupul</span><span class="vers">cum încearcă să-și șteargă cu mâneca</span><span class="vers">ochiul podidit de lacrimi sângerânde</span><span class="vers">la desprinderea de trupul tău</span></div><div class="strofa"><span class="vers">și câtă durere în sunetul elegiei</span><span class="vers">cântată pe toate clapele nopții</span><span class="vers">cântată pe toate strunele tăcerii</span><span class="vers">cântată spasmotic</span><span class="vers">cântată organic chiar</span></div><div class="strofa"><span class="vers">de nisipul ce-și curge</span><span class="vers">neputința de rocă</span><span class="vers">în clepsidra firii</span><span class="vers">măsurându-ne trecutul niciodată trecut</span><span class="vers">măsurându-ne iubirea niciodată părăsită de insomnii</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p4"><span class="poem-nr">IV</span><h2 class="poem-title">diminețile</h2><div class="poem-body"><div class="strofa"><span class="vers">diminețile se sparg în versuri și înfloresc cristalin</span><span class="vers">pe mângâierile mele desenându-ți trupul</span><span class="vers">zilele se deschid una după alta ca filele unei cărți</span><span class="vers">fiecare pagină rănind-o pe cealaltă</span></div><div class="strofa"><span class="vers">precum fiecare mișcare care mă desparte de tine</span><span class="vers">provoacă inevitabil</span><span class="vers">un rid fiecăruia dintre noi</span></div><div class="strofa"><span class="vers">preț de o răsuflare mai ezit</span><span class="vers">preț de o dimineață mai rămân</span><span class="vers">preț de o viață mai iubesc</span><span class="vers">prețuindu-te</span><span class="vers">prețuindu-mă</span><span class="vers">neprețuindu-ne</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p5"><span class="poem-nr">V</span><h2 class="poem-title">încă devreme</h2><div class="poem-body"><div class="strofa"><span class="vers">încă devreme</span><span class="vers">se fărâmițează-n</span><span class="vers">zorii primăverii frunza</span><span class="vers">în zbaterea embrionului</span><span class="vers">slobodă destinului</span></div><div class="strofa"><span class="vers">în frăția mugurelui și-a crengii</span><span class="vers">în fiecare rodire e-o lacrimă</span><span class="vers">și-n fiecare lacrimă rodește un zbor</span><span class="vers">în fiecare clipă a mea rodești tu</span></div><div class="strofa"><span class="vers">în timp ce</span><span class="vers">în fiecare bătaie a inimii tale</span><span class="vers">zboară versul meu</span><span class="vers">limpede ca o primăvară</span></div><div class="strofa"><span class="vers">încă devreme</span><span class="vers">rodului</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p6"><span class="poem-nr">VI</span><h2 class="poem-title">despre trecerea peste zi a sărutului</h2><div class="poem-body"><div class="strofa"><span class="vers">dimineața</span><span class="vers">ți-aș ridica greutatea pleoapei cu geana mea</span><span class="vers">și aș veghea să ți se reveleze</span><span class="vers">doar o fantă de răsărit căprui</span></div><div class="strofa"><span class="vers">la prânz</span><span class="vers">mi-aș strivi dureros buzele de buzele tale</span><span class="vers">până la esența cuvântului de dincolo de cuvânt</span></div><div class="strofa"><span class="vers">noaptea</span><span class="vers">ți-aș apune în durerea iubirii</span><span class="vers">cu patima mea de femeie lăsată de Dumnezeu</span><span class="vers">femeie să-ți fie</span></div><div class="strofa"><span class="vers">și-apoi din nou</span><span class="vers">să croim sărutul zorilor</span><span class="vers">cu patima zilei ce va să vie</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p7"><span class="poem-nr">VII</span><h2 class="poem-title">spre haiku dar nu până acolo</h2><div class="poem-body"><div class="strofa"><span class="vers">dacă aș plânge</span><span class="vers">sângerând rouă</span><span class="vers">răsăritului dimineților mele</span><span class="vers">atinse de dor</span><span class="vers">ai înțelege gustul dulce-dureros al</span><span class="vers">zborul deplin și infinit al petalei</span><span class="vers">care moare?</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p8"><span class="poem-nr">VIII</span><h2 class="poem-title">așteptarea și sensul. umbrele amurgul patima.</h2><div class="poem-body"><div class="strofa"><span class="vers">ascult cum se topește</span><span class="vers">amurgul peste mine și ninge a liniște</span><span class="vers">și ochii mei de miere arsă curg</span><span class="vers">peste cuvintele crescute rotund</span></div><div class="strofa"><span class="vers">îți așezi versurile pe umerii mei</span><span class="vers">încălzindu-mi deznădejdea apusului</span><span class="vers">ca un rug pictând naiv freamătul pădurii</span></div><div class="strofa"><span class="vers">pe când la pieptul meu se întretaie</span><span class="vers">plânsul cu umbrele</span><span class="vers">umbrele cu urmele</span><span class="vers">urmele cu amintirile</span><span class="vers">care respiră a tine</span><span class="vers">care mângâie a mine</span><span class="vers">care adorm a noi</span><span class="vers">într-o amăgire împletita-n suspine</span><span class="vers">până la patimă</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p9"><span class="poem-nr">IX</span><h2 class="poem-title">esențe de martie</h2><div class="poem-body"><div class="strofa"><span class="vers">viața și moartea zâmbesc în fiecare dimineață cu același chip</span><span class="vers">precum zăpada cerului muiată în gust de primăvară</span><span class="vers">pe mângâieri ludice de lumină caldă</span><span class="vers">în gene de martie crud</span></div><div class="strofa"><span class="vers">cumpăna fântânii scârțâie ascuțit</span><span class="vers">când mândrul chip al zilei coboară să se scalde</span><span class="vers">și buza fântânii arde în lumina lunii pline</span></div><div class="strofa"><span class="vers">și mie mi-e sete de tine ca de iele</span><span class="vers">cu nopțile înflorite-n palme</span><span class="vers">în dansul sălbatec al echinocțiului</span></div><div class="strofa"><span class="vers">la capătul lumii</span><span class="vers">la capătul umil al cuvântului dor</span><span class="vers">unde viața și moartea poartă același chip</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p10"><span class="poem-nr">X</span><h2 class="poem-title">plouă</h2><div class="poem-body"><div class="strofa"><span class="vers">cu stropi mari dezordonați și zgomotoși</span><span class="vers">peste noi</span><span class="vers">goi</span><span class="vers">peste doi</span><span class="vers">a început să plouă</span></div><div class="strofa"><span class="vers">picură obsesiv</span><span class="vers">plouă amenințător</span><span class="vers">și sufletul se contorsionează</span><span class="vers">să protejeze ce a mai rămas</span><span class="vers">dintr-o iubire</span><span class="vers">visată</span><span class="vers">sau udată</span><span class="vers">sau dorită</span><span class="vers">sau trăită</span><span class="vers">nicăieri și totuși pretutindeni</span></div><div class="strofa"><span class="vers">totul se amestecă</span><span class="vers">și se șterge</span><span class="vers">ca o amintire amară</span></div><div class="strofa"><span class="vers">plouă</span><span class="vers">de la început și până la sfârșit</span><span class="vers">cu lacrimile propriului meu sânge</span><span class="vers">cu lacrimile propriului tău chip</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p11"><span class="poem-nr">XI</span><h2 class="poem-title">pictură de-avril</h2><div class="poem-body"><div class="strofa"><span class="vers">plânge cerul rece și mohorât</span><span class="vers">încrustând inserții de toamnă</span><span class="vers">pe-un început de aprilie</span></div><div class="strofa"><span class="vers">e atât de frig</span><span class="vers">încât mugurii au fugit înapoi în crengi</span><span class="vers">iar florile au dat buzna înapoi</span><span class="vers">în ideea de muguri</span></div><div class="strofa"><span class="vers">e atât de frig</span><span class="vers">încât imaginea ta recreată de mine</span><span class="vers">îngheață frigid și crispat</span><span class="vers">într-o grimasă</span><span class="vers">din care nu pot să te trăiesc</span></div><div class="strofa"><span class="vers">duc în părul meu</span><span class="vers">lipsa totală a definiției</span><span class="vers">duc în pântecul meu lipsa</span><span class="vers">completată de fiecare cuvânt de-al tău</span><span class="vers">din sensul unic al ființării curge o lacrimă de-avril</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p12"><span class="poem-nr">XII</span><h2 class="poem-title">despre înfrunzirea jertfei în cuvânt</h2><div class="poem-body"><div class="strofa"><span class="vers">din totului tot</span><span class="vers">ce aș fi putut să fac pentru tine</span><span class="vers">în fiecare dospire a dimineții</span><span class="vers">am ales să dospesc în căușul palmelor mele roua</span><span class="vers">abia frământată</span><span class="vers">a ochilor mei</span></div><div class="strofa"><span class="vers">din totului tot</span><span class="vers">ce aș fi putut să fac pentru tine</span><span class="vers">în lenea fiecărei amiezi toropite</span><span class="vers">am ales să îți litografiez respirația mea pe umăr</span></div><div class="strofa"><span class="vers">din totului tot ce aș fi putut să fac pentru tine</span><span class="vers">intrând pe ușa înserării cu brațele pline</span><span class="vers">am ales să îți bandajez</span><span class="vers">rănile verzi ale trunchiurilor versurilor încă nescrise</span><span class="vers">cu lianele înfrunzite ale brațelor mele</span></div><div class="strofa"><span class="vers">din totului tot ce aș fi putut să fac</span><span class="vers">în fiecare anotimp</span><span class="vers">pentru tine</span><span class="vers">am ales să măsor așteptarea</span><span class="vers">măsurându-mi cu nemăsura dăruirii</span><span class="vers">pașii</span><span class="vers">versul</span><span class="vers">visul</span></div><div class="strofa"><span class="vers">până când toate au început</span><span class="vers">să îmbătrânească rotund înflorind ridurile</span><span class="vers">de la ora la care îmi ești</span><span class="vers">până la ora la care îmi vei fi</span><span class="vers">jertfiți</span><span class="vers">celui ce se cuvine</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p13"><span class="poem-nr">XIII</span><h2 class="poem-title">esența unui dor ce doare în floare</h2><div class="poem-body"><div class="strofa"><span class="vers">în părul meu se odihnesc</span><span class="vers">toate florile de salcâm</span><span class="vers">toate florile de castan</span><span class="vers">toate florile teiului</span><span class="vers">toate florile cerului</span></div><div class="strofa"><span class="vers">pe umerii mei se odihnește respirația ta</span><span class="vers">înainte și după înflorire</span><span class="vers">înainte și după ofilire</span></div><div class="strofa"><span class="vers">în ochii mei se odihnește privirea ta</span><span class="vers">în loc de privire</span><span class="vers">pe buzele mele se odihnește sărutul tău</span><span class="vers">în loc de sărut</span></div><div class="strofa"><span class="vers">înlăuntrul cuvântului meu</span><span class="vers">se împlinește cuvântul tău</span><span class="vers">înainte și după rostire</span><span class="vers">înflorire</span><span class="vers">iubire</span><span class="vers">rodire</span><span class="vers">până la ultima pagină de dor</span><span class="vers">deschisă la o ultimă dorință</span><span class="vers">deja înflorindă</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p14"><span class="poem-nr">XIV</span><h2 class="poem-title">înrămând în floare plânsul</h2><div class="poem-body"><div class="strofa"><span class="vers">pun în ramă fotografia mării neodihnite</span><span class="vers">și o privesc din fotografia nisipului care curge printre valuri</span><span class="vers">înrămată de fotografia muntelui care s-a scurs printre pietre</span></div><div class="strofa"><span class="vers">pun în ramă fotografia copacului gârbovit de floare</span><span class="vers">și o privesc din fotografia veștejirii purtate de vânt</span><span class="vers">sau a împlinirii înrămate</span><span class="vers">într-un anotimp care curge peste devenire</span></div><div class="strofa"><span class="vers">înrămez chipul tău cu îmbrățișarea mea</span><span class="vers">cu respirația sacadată îți înrămez gura</span><span class="vers">cu lacrimile curse înrămez iubirea ta</span></div><div class="strofa"><span class="vers">pun în ramă fotografia sufletului tău</span><span class="vers">și o privesc din fotografia ochiului meu</span><span class="vers">înrămată de fotografia privirii noastre</span><span class="vers">neodihnite încă</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p15"><span class="poem-nr">XV</span><h2 class="poem-title">pre destin are</h2><div class="poem-body"><div class="strofa"><span class="vers">curge în cuvintele mele</span><span class="vers">uneori</span><span class="vers">așa trist</span><span class="vers">o lumină care cuvântă</span><span class="vers">aproape albastru</span><span class="vers">încât</span><span class="vers">mă adun rotund în pumni</span><span class="vers">și nu știu</span><span class="vers">plâng sau plouă?</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p16"><span class="poem-nr">XVI</span><h2 class="poem-title">pictură</h2><div class="poem-body"><div class="strofa"><span class="vers">cerul creionează acoperișurile caselor</span><span class="vers">în lumini și umbre înserate</span><span class="vers">se aud zgomote inutile</span><span class="vers">strident de comune</span><span class="vers">de pretutindeni</span></div><div class="strofa"><span class="vers">în afara mea</span><span class="vers">înlăuntru</span><span class="vers">nici o imagine</span><span class="vers">nici un zgomot comun</span><span class="vers">doar bătrânul ceasornic care bate în ritmul inimii mele</span><span class="vers">un strat fin de praf se așează peste așteptare</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p17"><span class="poem-nr">XVII</span><h2 class="poem-title">tușe de primăvară</h2><div class="poem-body"><div class="strofa"><span class="vers">ne târâm prin această ternă primăvară</span><span class="vers">cu sensuri unice</span><span class="vers">și mirosuri puternice de rut</span></div><div class="strofa"><span class="vers">am obosit iubirea mea</span><span class="vers">am obosit să te tânjesc</span><span class="vers">să te creez în forme și imagini</span><span class="vers">mi se zvâcolește trupul desenat de palmele tale</span></div><div class="strofa"><span class="vers">trupul meu vrea să mă părăsească</span><span class="vers">tactil și tiptil</span><span class="vers">la ce bun atâta primăvară</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p18"><span class="poem-nr">XVIII</span><h2 class="poem-title">desen de iarnă</h2><div class="poem-body"><div class="strofa"><span class="vers">de va fi</span><span class="vers">să plâng vreodată</span><span class="vers">fără lacrimi</span><span class="vers">înmoaie-ți un colț de suflet în zăpadă</span><span class="vers">și desenează-mi-le încet pe obraz</span><span class="vers">respirându-mă</span><span class="vers">până la tine</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p19"><span class="poem-nr">XIX</span><h2 class="poem-title">desen de iarnă (2)</h2><div class="poem-body"><div class="strofa"><span class="vers">tac</span><span class="vers">și genele mele înghețate</span><span class="vers">îți aștern vers cu vers</span><span class="vers">poemul invers</span><span class="vers">pe frunte</span></div><div class="strofa"><span class="vers">mă aplec</span><span class="vers">să-ți ascult respirația</span><span class="vers">de sub fruntea rănită</span><span class="vers">de cuvânt</span></div><div class="strofa"><span class="vers">și tăcerea se varsă</span><span class="vers">în colțurile ochilor tăi</span><span class="vers">deschiși înlăuntru</span><span class="vers">în dreptul inimii</span></div><div class="strofa"><span class="vers">și versurile curg</span><span class="vers">înlăuntru și-n afară</span><span class="vers">împletindu-se strâns</span><span class="vers">în pași care ning</span><span class="vers">în flacăra lumânării</span><span class="vers">din fereastra deschisă</span><span class="vers">spre sine</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p20"><span class="poem-nr">XX</span><h2 class="poem-title">desen de decembrie în iarnă plină</h2><div class="poem-body"><div class="strofa"><span class="vers">îmi lipsesc</span><span class="vers">vocea</span><span class="vers">privirea</span><span class="vers">auzul</span><span class="vers">cuvintele</span><span class="vers">mângâierile</span><span class="vers">sărutul</span></div><div class="strofa"><span class="vers">e noapte</span><span class="vers">și candelele iernii</span><span class="vers">pâlpâie efemer în lumina rece și strâmtă</span></div><div class="strofa"><span class="vers">și eu cu trupul meu întreg</span><span class="vers">mă ghemuiesc la tine-n ev</span><span class="vers">caut răsăritul pe bâjbâite</span><span class="vers">și mă rănesc în colțurile lacrimilor tale</span><span class="vers">înghețate în cascade de țurțuri</span><span class="vers">în palmele tale</span><span class="vers">e prima dimineață în care au înghețat zorii zilei</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p21"><span class="poem-nr">XXI</span><h2 class="poem-title">ninge</h2><div class="poem-body"><div class="strofa"><span class="vers">ninge disperat de alb și de înghețat</span><span class="vers">pătimaș și adânc</span><span class="vers">din pântecul spart al cerului</span></div><div class="strofa"><span class="vers">ninge prelung și haotic</span><span class="vers">peste o iubire deznădăjduită și disperată</span><span class="vers">ca o amintire atârnând uitată într-un sertar vechi</span><span class="vers">ce-și scârțâie lacrima</span></div><div class="strofa"><span class="vers">ninge</span><span class="vers">peste trupul încă viu al iernii care va să vină</span></div><div class="strofa"><span class="vers">ninge</span><span class="vers">în această dimineață de lume nefecundă</span><span class="vers">ca într-un dor neputincios</span><span class="vers">de rod</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p22"><span class="poem-nr">XXII</span><h2 class="poem-title">rid colind ploaie ecou</h2><div class="poem-body"><div class="strofa"><span class="vers">strigătul sufletului meu</span><span class="vers">ajunge la tine</span><span class="vers">ecou</span></div><div class="strofa"><span class="vers">lacrima sufletului meu</span><span class="vers">se preface până la tine-n</span><span class="vers">ploaie</span></div><div class="strofa"><span class="vers">patima inimii mele</span><span class="vers">colindă iarna cu gust de migdală</span><span class="vers">și mângâie ridul absenței</span></div><div class="strofa"><span class="vers">ecoul ploii colindă ridurile fericirii</span><span class="vers">care</span><span class="vers">au îmbătrânit de-atâta așteptare</span><span class="vers">și doare</span><span class="vers">nebănuit de tare</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p23"><span class="poem-nr">XXIII</span><h2 class="poem-title">vid</h2><div class="poem-body"><div class="strofa"><span class="vers">din sărutul tău</span><span class="vers">s-a prelins pe glezna mea</span><span class="vers">și a înghețat</span><span class="vers">umbra prelungă</span><span class="vers">a trecerii fără pași</span><span class="vers">rostită sieși</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p24"><span class="poem-nr">XXIV</span><h2 class="poem-title">întrebări esențiale I</h2><div class="poem-body"><div class="strofa"><span class="vers">de ce oare</span><span class="vers">apa nu se îneacă în mare</span><span class="vers">de ce oare</span><span class="vers">lumina nu se întoarce în soare</span><span class="vers">de ce oare</span><span class="vers">focul nu se arde arzând</span><span class="vers">de ce oare</span><span class="vers">pământul nu rodește pământ</span><span class="vers">de ce eu cuvânt</span><span class="vers">când sunt cuvânt?</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p25"><span class="poem-nr">XXV</span><h2 class="poem-title">întrebări esențiale II</h2><div class="poem-body"><div class="strofa"><span class="vers">de ce oare</span><span class="vers">eu cuvânt așa</span><span class="vers">cu tăcerea ta</span><span class="vers">până când</span><span class="vers">mă topesc în noi</span><span class="vers">în formă de unu din doi</span><span class="vers">și-atunci îmi spun</span><span class="vers">suntem o pasăre</span><span class="vers">suntem o pasăre</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p26"><span class="poem-nr">XXVI</span><h2 class="poem-title">schiță de-o clipă</h2><div class="poem-body"><div class="strofa"><span class="vers">fiecare clipă a mea mă trece</span><span class="vers">mă petrece respectuos până la ușă</span><span class="vers">și mă poftește să plec</span><span class="vers">după ce mă urmărește cu privirea</span><span class="vers">să fie sigură că am trecut pragul următoarei clipe</span></div><div class="strofa"><span class="vers">și eu mă trec</span><span class="vers">mă petrec</span><span class="vers">mă seamăn fiecărei clipe</span><span class="vers">care se aseamănă cu fiecare clipă</span></div><div class="strofa"><span class="vers">în timp ce eu locuiesc alături</span><span class="vers">în clipele mele cu tine</span><span class="vers">în clipele tale cu mine</span><span class="vers">în clipele de-o clipă</span><span class="vers">ce clipesc rotunde</span><span class="vers">semănate deplin</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p27"><span class="poem-nr">XXVII</span><h2 class="poem-title">despre devenire cumva</h2><div class="poem-body"><div class="strofa"><span class="vers">schițează-mă</span><span class="vers">desenează-mă în tușe simple</span><span class="vers">sau lasă-mă așa în alb și negru</span><span class="vers">rotundă</span></div><div class="strofa"><span class="vers">suflă cu suflarea ta de bărbat al meu</span><span class="vers">peste mine</span><span class="vers">și eu voi deveni a ta</span><span class="vers">și suflarea ta va fi cuvântul meu</span><span class="vers">și suflarea mea va răsări în poem</span></div><div class="strofa"><span class="vers">și lacrimile mele vor curge pe obrajii tăi</span><span class="vers">când te sărut</span><span class="vers">și sărutul nostru va încolți</span><span class="vers">într-o umbră de primăvară</span><span class="vers">și va rodi</span><span class="vers">în fine</span><span class="vers">într-un final de lume</span><span class="vers">ca un strigăt de lebădă nespus</span><span class="vers">de</span><span class="vers">tăcut</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p28"><span class="poem-nr">XXVIII</span><h2 class="poem-title">desen de devenire</h2><div class="poem-body"><div class="strofa"><span class="vers">sub fiecare pas al tău se închină un fir de iarbă</span><span class="vers">sub fiecare pas al meu se plămădește o floare</span><span class="vers">glezna ta se încleștează în gustul ierbii</span><span class="vers">în timp ce glezna mea se desenează cu parfumul florii ce se va naște</span></div><div class="strofa"><span class="vers">șoldul tău</span><span class="vers">poartă în el circularitatea roții</span><span class="vers">în timp ce șoldul meu carafă de apă e</span><span class="vers">întru plăsmuirea lutului</span></div><div class="strofa"><span class="vers">pentru că palmei tale drepte i se supune cuvântul</span><span class="vers">iar palmei tale stângi umărul meu înflorit</span><span class="vers">fragil de rotund</span></div><div class="strofa"><span class="vers">însă doar palmele mele știu tăcerea să mângâie</span><span class="vers">mai întâi palma dreaptă</span><span class="vers">mai apoi palma stângă</span><span class="vers">și demiurgic</span><span class="vers">să se lase rănite</span><span class="vers">să sângereze</span><span class="vers">în piroanele clipelor răsuflării tale</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p29"><span class="poem-nr">XXIX</span><h2 class="poem-title">singurătate. desen în creion.</h2><div class="poem-body"><div class="strofa"><span class="vers">mi se pare că</span><span class="vers">imaginile în care gândesc se estompează</span><span class="vers">imaginile devin gri</span><span class="vers">ca și cum ar fi cărate în spate</span><span class="vers">de fulgi imenși de zăpadă gri</span><span class="vers">ținând în brațe toate nopțile gri</span><span class="vers">până la sfârșitul ideii de noapte</span></div><div class="strofa"><span class="vers">e atât de trist că nici cerul nu mai e albastru</span><span class="vers">și florile își scutură culorile și devin gri</span></div><div class="strofa"><span class="vers">doar privirea ta tăcută căzându-mi din poală</span><span class="vers">îmi rănește glezna cicatrizată de sărutul tău</span><span class="vers">și sângele meu atât de sânge</span><span class="vers">pătează monocromia cu roșul atât de roșu</span><span class="vers">până la patimă</span><span class="vers">ca un sărut de prunc</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p30"><span class="poem-nr">XXX</span><h2 class="poem-title">sentimentul monocrom în desen trist</h2><div class="poem-body"><div class="strofa"><span class="vers">mi se pare că</span><span class="vers">imaginile în care gândesc se estompează</span><span class="vers">imaginile devin gri</span><span class="vers">e atât de trist</span><span class="vers">că nici cerul nu mai e albastru</span><span class="vers">și florile și-au scuturat culoarea</span><span class="vers">veștejindu-se gri</span></div><div class="strofa"><span class="vers">doar cioburile stelelor căzute pe caldarâmul gri</span><span class="vers">îmi rănesc tălpile pe care încă mai stăruie</span><span class="vers">sărutul tău</span><span class="vers">și sângele meu atât de sânge</span><span class="vers">pătează monocromia</span><span class="vers">cu roșul atât de roșu</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p31"><span class="poem-nr">XXXI</span><h2 class="poem-title">desen cu mâini</h2><div class="poem-body"><div class="strofa"><span class="vers">mâna mea se strecoară</span><span class="vers">ca o privire fină ce se înfiripă</span><span class="vers">abia simțită pe gâtul tău</span><span class="vers">și se încolăcește strâns</span><span class="vers">peste clipa asta atât de lungă</span></div><div class="strofa"><span class="vers">mâna mea e ca un zâmbet</span><span class="vers">ce-și desenează perechea</span><span class="vers">în colțul gurii tale</span><span class="vers">aburindă fierbinte</span><span class="vers">de cuvinte abia șoptite</span><span class="vers">în zorii beți de iubire</span></div><div class="strofa"><span class="vers">mâna mea e o rugăciune</span><span class="vers">ce șerpuiește</span><span class="vers">atingându-te ușor pe frunte</span><span class="vers">pentru a-ți desena visul</span></div><div class="strofa"><span class="vers">mâna mea te sărută în nopțile</span><span class="vers">în care dorința îmi rătăcește</span><span class="vers">pe nebune cărări</span><span class="vers">până când te întâlnește</span><span class="vers">apoi se întoarce brusc la mine</span><span class="vers">purtând pe buze</span><span class="vers">gustul sărutului</span><span class="vers">și în palma mea versul tău</span><span class="vers">în chip de suflet</span><span class="vers">suflecându-și mânecile</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p32"><span class="poem-nr">XXXII</span><h2 class="poem-title">tatuaj permanent pe sens înnodat</h2><div class="poem-body"><div class="strofa"><span class="vers">mi-am tatuat pasul cu sărutul tău</span><span class="vers">și toate nopțile sub care mă aștern</span><span class="vers">la pieptul tău</span><span class="vers">mirosind a toamna părului meu</span></div><div class="strofa"><span class="vers">mi-am tatuat umărul cu privirea ta</span><span class="vers">și toate diminețile mele se recompun</span><span class="vers">și încep cu tine</span></div><div class="strofa"><span class="vers">mi-am tatuat inima cu numele tău</span><span class="vers">și toate clipele care trec</span><span class="vers">ca fluturii firavi și colorați și temători</span><span class="vers">mă împletesc dorinței</span><span class="vers">numai pentru că știu că locuiesc în palma ta</span></div><div class="strofa"><span class="vers">în timp ce</span><span class="vers">dorul doare</span><span class="vers">până la soare</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p33"><span class="poem-nr">XXXIII</span><h2 class="poem-title">modelaj</h2><div class="poem-body"><div class="strofa"><span class="vers">surâsul meu</span><span class="vers">atât de rotund întârzie pe la colțurile verii</span><span class="vers">până când muchiile se topesc</span><span class="vers">dezvelindu-mi sărutul</span></div><div class="strofa"><span class="vers">pasul meu atât de rotund</span><span class="vers">se reazămă anevoie de colbul drumului</span><span class="vers">de la început la început</span><span class="vers">până când toamna își dezvăluie toate unghiurile</span></div><div class="strofa"><span class="vers">umărul meu atât de rotund</span><span class="vers">se șlefuiește din când în când</span><span class="vers">cu respirația ta</span><span class="vers">și de-atâta rotund</span><span class="vers">umărul se pregătește</span><span class="vers">de mușcătura privirii tale de daltă</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p34"><span class="poem-nr">XXXIV</span><h2 class="poem-title">autoportret in disolve</h2><div class="poem-body"><div class="strofa"><span class="vers">privirea mea ecou ridat al privirii tale</span><span class="vers">diluând culorile până la nuanțe</span><span class="vers">surâsul meu roșu rotund</span><span class="vers">arcuind surâsul tău atât de puternic</span></div><div class="strofa"><span class="vers">cearcănele mele evaporând</span><span class="vers">lacrimile tale rupte privirii</span><span class="vers">șoldul meu crispat lipindu-se de șoldul tău</span><span class="vers">crestat în piatră cu o singură lovitură de daltă</span></div><div class="strofa"><span class="vers">genunchii lipiți de podeaua rece</span><span class="vers">în umbra genunchilor tăi</span><span class="vers">și glezna mea purtând sărutul gleznei tale</span><span class="vers">iar tălpile</span><span class="vers">tălpile mele strecurându-se furișat</span><span class="vers">în urma tălpilor tale</span></div><div class="strofa"><span class="vers">și răsuflarea mea înfiptă în răsuflarea ta</span><span class="vers">în timp ce eu mă dizolv continuu</span><span class="vers">în iubirea mea</span><span class="vers">pentru tine</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p35"><span class="poem-nr">XXXV</span><h2 class="poem-title">moody</h2><div class="poem-body"><div class="strofa"><span class="vers">uneori</span><span class="vers">umerii mei se frâng sub povara florilor albe de cireș</span><span class="vers">ca și cum milioanele de petale</span><span class="vers">m-ar îngropa neputincioasă</span><span class="vers">într-o dorință prea aspră</span></div><div class="strofa"><span class="vers">mă tem că nu pot dărui tot</span><span class="vers">și fug înlăuntrul meu</span><span class="vers">dar înlăuntrul meu dau iar de tine</span><span class="vers">și brusc revin înflorită în chip de boare</span><span class="vers">respirând cuvintele cu nesaț</span></div><div class="strofa"><span class="vers">și tot așa</span><span class="vers">într-o perpetuă preumblare</span><span class="vers">între speranță și disperare</span><span class="vers">până când mâinile mele devin roșii</span><span class="vers">până când sânii mei devin roșii</span><span class="vers">până când buzele mele au gust de copt</span><span class="vers">până ochii mei capătă forma cireșelor</span></div><div class="strofa"><span class="vers">și nici nu știu</span><span class="vers">când și de ce rodesc</span><span class="vers">doar gura ta gustă din mine</span><span class="vers">cu un nesaț pe care nu-l mai înțeleg</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p36"><span class="poem-nr">XXXVI</span><h2 class="poem-title">moody 2</h2><div class="poem-body"><div class="strofa"><span class="vers">ce să-ți las eu să-ți amintești de mine?</span><span class="vers">o geană pe pernă</span><span class="vers">după o noapte de iubire?</span><span class="vers">sau zâmbetul unei zile perfect îndoite?</span></div><div class="strofa"><span class="vers">ori durerile crăpate între veacurile</span><span class="vers">crescute între două priviri...?</span><span class="vers">poate o pană din aripa păsării care încă eram</span><span class="vers">sau petalele mele de magnolie violet</span><span class="vers">desenate de tine cu o pensulă ciudată</span></div><div class="strofa"><span class="vers">ce vrei să-ți las?</span><span class="vers">îți amintești de mine?</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p37"><span class="poem-nr">XXXVII</span><h2 class="poem-title">serendipity</h2><div class="poem-body"><div class="strofa"><span class="vers">în jurul cuvintelor tale</span><span class="vers">ochii mei îți țes migdale</span><span class="vers">mângâierile cicoare</span><span class="vers">praf de lacrimi de mă doare</span></div><div class="strofa"><span class="vers">buzele mele flămânde</span><span class="vers">împletesc săruturi crude</span><span class="vers">și tăcerile rotunde</span><span class="vers">și plăcerile fecunde</span></div><div class="strofa"><span class="vers">vino tu cu tine toată</span><span class="vers">să ne împletim în roată</span><span class="vers">să iubim până la artă</span><span class="vers">să murim până la piatră</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p38"><span class="poem-nr">XXXVIII</span><h2 class="poem-title">de dor (I)</h2><div class="poem-body"><div class="strofa"><span class="vers">pașii mei cu miros de iapă tânără</span><span class="vers">nu mai lasă nici o urmă în iarba udă</span><span class="vers">a dimineții mirosind a ceață devreme</span></div><div class="strofa"><span class="vers">te strig cu ritmul inimii mele frământate</span><span class="vers">de spaima că aș putea să-ți pierd ecoul</span><span class="vers">rătăcind printre culmile înnourate ale munților încă albi</span></div><div class="strofa"><span class="vers">te și privesc înlăuntru și în afara mea</span><span class="vers">căutându-te frenetic și jucăuș printre sentimentele mele</span><span class="vers">confuze încă, tinere încă, iederă încă</span></div><div class="strofa"><span class="vers">în mine cu tine</span><span class="vers">pe semne de sine</span><span class="vers">pășește-mă depline</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p39"><span class="poem-nr">XXXIX</span><h2 class="poem-title">de dor (II)</h2><div class="poem-body"><div class="strofa"><span class="vers">se-mbată vântul cu atâta parfum și atâta culoare</span><span class="vers">simțurile toate slăbesc din strânsoarea gândului</span><span class="vers">miliarde de capete verzi se ițesc verde obraznic</span><span class="vers">și seva copacilor gâlgâie provocator și abundent</span></div><div class="strofa"><span class="vers">florile se dăruiesc captiv și ablativ culorilor</span><span class="vers">intuind perenitatea clipei</span><span class="vers">streasinile se înnădesc în chip de cuiburi</span><span class="vers">și sunetele se amestecă până la dizolvare</span></div><div class="strofa"><span class="vers">mângâierea ta zăbovește pe un umăr al meu</span><span class="vers">până când trupul mi se topește</span><span class="vers">și devine gest</span><span class="vers">și uneori doare</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p40"><span class="poem-nr">XL</span><h2 class="poem-title">mirajul unui dor descris</h2><div class="poem-body"><div class="strofa"><span class="vers">mi se topesc mai întâi brațele</span><span class="vers">într-o îmbrățișare prelungă</span><span class="vers">fără de tine și fără de capăt</span></div><div class="strofa"><span class="vers">apoi mi se sting ochii</span><span class="vers">și mângâierea din ei</span><span class="vers">obosește într-un miraj deplin</span></div><div class="strofa"><span class="vers">sunt pustiită de liniște</span><span class="vers">e liniște</span><span class="vers">nu se vede nimic</span><span class="vers">dar se aude cum lunei îi clănțăne dinții de frig</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p41"><span class="poem-nr">XLI</span><h2 class="poem-title">despre dorul care mă arde în chip de senin</h2><div class="poem-body"><div class="strofa"><span class="vers">uneori</span><span class="vers">pândită de secundele goale</span><span class="vers">cred că</span><span class="vers">spălându-mi ochiul cu apă multă</span><span class="vers">limpede de izvor</span><span class="vers">aș putea să te șterg din privirea mea</span><span class="vers">ca pe un vis deja plecat în noapte</span></div><div class="strofa"><span class="vers">dar tu deja</span><span class="vers">nu mai ești</span><span class="vers">decât</span><span class="vers">seninul care te cerni în sângele meu</span><span class="vers">ce te privește</span><span class="vers">zâmbește</span><span class="vers">trăiește</span><span class="vers">iubește</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p42"><span class="poem-nr">XLII</span><h2 class="poem-title">întru totul dorință</h2><div class="poem-body"><div class="strofa"><span class="vers">descuie-mi seninul nopții să cad înstelat</span><span class="vers">într-o partitură adâncă</span><span class="vers">devenită vis</span><span class="vers">din care</span><span class="vers">în aceeași noapte</span><span class="vers">îți adulmec umbra</span></div><div class="strofa"><span class="vers">descuie seninul nopții</span><span class="vers">privirea mi-a tăcut</span><span class="vers">mi-e tine</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p43"><span class="poem-nr">XLIII</span><h2 class="poem-title">despre durerea marginii de tine în formă continuă</h2><div class="poem-body"><div class="strofa"><span class="vers">în fiecare noapte</span><span class="vers">dar în fiecare noapte ce trage la mal</span><span class="vers">înainte de a adormi la marginea amară a sensului</span><span class="vers">aș vrea să îți cuprind fața între palmele mele</span></div><div class="strofa"><span class="vers">și să privesc cu ochii mei ochii tăi</span><span class="vers">și gura mea și mintea mea ți-ar pune o întrebare</span><span class="vers">ce ai de gând măi bărbate al meu cu femeia femeii din mine</span><span class="vers">născută să îți fie ție măsură?</span></div><div class="strofa"><span class="vers">câte nopți vor mai fi</span><span class="vers">eu minus tine</span><span class="vers">tu minus mine?</span><span class="vers">întrebarea asta a mea care mă doare</span><span class="vers">tot doare</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p44"><span class="poem-nr">XLIV</span><h2 class="poem-title">despre noi la prezent compus</h2><div class="poem-body"><div class="strofa"><span class="vers">sub fiecare pas șovăit al tău</span><span class="vers">se închină un fir de iarbă în chip de înger</span><span class="vers">sub fiecare pas desprins din mine</span><span class="vers">se plămădește o floare cu trup de sânziană</span></div><div class="strofa"><span class="vers">șoldul meu poartă în el circularitatea roții</span><span class="vers">în timp ce șoldul tău carafă de apă vie e</span><span class="vers">întru plăsmuirea lutului cu palmele tale</span></div><div class="strofa"><span class="vers">brațelor tale li se cuvine îmbrățișarea</span><span class="vers">fie ea a mea</span><span class="vers">fie a absenței mele</span></div><div class="strofa"><span class="vers">curgând cuvintelor făptură</span><span class="vers">în miez de haos</span><span class="vers">din care picură viitorul</span><span class="vers">sub forme prelungi</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p45"><span class="poem-nr">XLV</span><h2 class="poem-title">conjugarea căderii din sens</h2><div class="poem-body"><div class="strofa"><span class="vers">ieri</span><span class="vers">este din nou ieri</span><span class="vers">ca să se facă astăzi</span><span class="vers">azi</span><span class="vers">inefabil</span><span class="vers">infailibil</span><span class="vers">imuabil</span><span class="vers">din azi se va rupe mâine</span></div><div class="strofa"><span class="vers">taci</span><span class="vers">lasă-mă să veghez</span><span class="vers">cum atunci când nu-ți ajung cuvintele</span><span class="vers">vii tiptil să le rupi din mine</span><span class="vers">ca și cum eu</span><span class="vers">ți-aș fi mâine la fel</span><span class="vers">cum n-am putut să-ți fiu azi</span><span class="vers">decât ieri</span><span class="vers">ca-ntr-o cădere din sens</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p46"><span class="poem-nr">XLVI</span><h2 class="poem-title">despre perfectul în sinea sa imperfectă</h2><div class="poem-body"><div class="strofa"><span class="vers">eu mă uit cu ochii mei în privirea ta</span><span class="vers">și bat cu inima mea tactul sufletului tău</span><span class="vers">apoi mă desenez perfect</span><span class="vers">legănându-mi șoldurile pe drumul tău</span></div><div class="strofa"><span class="vers">ca și cum ar mai fi timp pentru</span><span class="vers">o singură îmbrățișare a îmbrățișării</span><span class="vers">cu brațele mele peste brațele tale</span></div><div class="strofa"><span class="vers">ca și cum ar mai fi timp să-ți sărut un singur sărut</span><span class="vers">în care</span><span class="vers">tăcerea se tace</span><span class="vers">iubirea se iubește pe sine</span><span class="vers">și moartea se moare</span><span class="vers">în întrebarea din întrebare</span><span class="vers">mamă</span><span class="vers">de ce oare?</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p47"><span class="poem-nr">XLVII</span><h2 class="poem-title">înapoi spre înainte</h2><div class="poem-body"><div class="strofa"><span class="vers">privesc pe gaura cheii clipele risipite trecutului</span><span class="vers">ca pe un cârd de păsări călătoare rătăcite</span><span class="vers">în valurile vieții mele</span></div><div class="strofa"><span class="vers">mă uit pe furiș</span><span class="vers">de parcă și păsările îmi sunt străine</span><span class="vers">îngenunchez</span><span class="vers">să văd mai bine</span><span class="vers">și mă surprind</span><span class="vers">îngenuncheată</span><span class="vers">mângâindu-ți regăsirea</span><span class="vers">în formă de zbor</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p48"><span class="poem-nr">XLVIII</span><h2 class="poem-title">în așteptare</h2><div class="poem-body"><div class="strofa"><span class="vers">în ziua care a început să se treacă în zori</span><span class="vers">să se treacă înserându-mă</span><span class="vers">fără să mă întrebe măcar</span><span class="vers">am intrat din nou în întunericul</span><span class="vers">prea plin de tine</span></div><div class="strofa"><span class="vers">să mă ascund în visele tale</span><span class="vers">și să țes din șiraguri de stele</span><span class="vers">zilele ce vor veni în așteptarea</span><span class="vers">bărbatului meu</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p49"><span class="poem-nr">XLIX</span><h2 class="poem-title">absența</h2><div class="poem-body"><div class="strofa"><span class="vers">uneori nu dorm</span><span class="vers">de teama de a nu te pierde</span><span class="vers">în timpul nopții</span><span class="vers">și absența ta râde</span><span class="vers">dezolant de strident</span><span class="vers">acoperind căutarea mea</span><span class="vers">care te strigă</span><span class="vers">și vocea se stinge în întuneric</span><span class="vers">dureros de tăcută</span></div><div class="strofa"><span class="vers">alteori refuz să clipesc</span><span class="vers">pentru că mi-e frică</span><span class="vers">să nu te înlocuiască absența</span><span class="vers">între două clipiri</span></div><div class="strofa"><span class="vers">întotdeauna</span><span class="vers">dar întotdeauna</span><span class="vers">absența are inițiala numelui tău</span><span class="vers">mustind de așteptarea mea</span><span class="vers">rodind tăcerii</span><span class="vers">în formă de dor</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p50"><span class="poem-nr">L</span><h2 class="poem-title">singurătatea ca o chemare perfectă</h2><div class="poem-body"><div class="strofa"><span class="vers">cad în prezent în fiecare zi la mijlocul nopții</span><span class="vers">când întunericul e atât de dens</span><span class="vers">și lipsa ta doare ca o frică</span></div><div class="strofa"><span class="vers">ești când nu ești și apoi iar ești</span><span class="vers">și pe urmă alerg să rostogolesc lacrimi</span><span class="vers">în întunericul jilav</span><span class="vers">al măsurii mele de tine</span></div><div class="strofa"><span class="vers">și lacrima se rostogolește sferic</span><span class="vers">pe cearcăn în același ritm</span><span class="vers">în concert de suspin</span><span class="vers">și-apoi aroma îmbrățișării tale ca un dejá-vu</span><span class="vers">adoarme la pieptul meu</span><span class="vers">într-un vers fecund</span><span class="vers">pe același adagio al lunii celei pline de tine</span><span class="vers">lumine</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p51"><span class="poem-nr">LI</span><h2 class="poem-title">cuvântul cel de pe urmă</h2><div class="poem-body"><div class="strofa"><span class="vers">de vei vrea vreodată</span><span class="vers">să te odihnești de mine — spuse —</span><span class="vers">așează-te în locul în care pădurea</span><span class="vers">își astâmpără setea de pământ</span></div><div class="strofa"><span class="vers">de vei vrea vreodată</span><span class="vers">să te odihnești de mine — spuse —</span><span class="vers">ascultă ce spune izvorul muntelui</span><span class="vers">în locul în care își astâmpără setea de piatră</span></div><div class="strofa"><span class="vers">de vei vrea vreodată</span><span class="vers">să te odihnești de mine</span><span class="vers">— suspină —</span><span class="vers">înmoaie-ți obrajii în lacrima dimineții neîncepute</span><span class="vers">și strigă-mi despărțirea mai întâi pe sunete</span><span class="vers">mai apoi pe cuvinte</span></div><div class="strofa"><span class="vers">îți voi astâmpăra setea</span><span class="vers">cu roua ochilor mei</span><span class="vers">din căușul ridurilor</span><span class="vers">de vei vrea vreodată să te odihnești de mine</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p52"><span class="poem-nr">LII</span><h2 class="poem-title">viscerală</h2><div class="poem-body"><div class="strofa"><span class="vers">aș slobozi lacrimile întru neplângerea ta</span><span class="vers">aș slobozi un strigăt întru nechemarea-ți</span><span class="vers">aș slobozi floare ne-nflorită</span><span class="vers">herghelie ne-mblânzită</span><span class="vers">simfonie necompusă</span><span class="vers">secunda netrăită</span></div><div class="strofa"><span class="vers">aș slobozi vântului aripile sărutate de nori</span><span class="vers">ploaia întru rod</span><span class="vers">lumea întru lumină</span></div><div class="strofa"><span class="vers">până când slobozindu-mă din îmbrățișarea brațelor tale</span><span class="vers">din neplângere și nechemare să-ți simt întruparea</span><span class="vers">de-a-ntrupulea trupului meu</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p53"><span class="poem-nr">LIII</span><h2 class="poem-title">vaiet</h2><div class="poem-body"><div class="strofa"><span class="vers">de câte ori m-am prăbușit</span><span class="vers">iubite</span><span class="vers">de câte ori mi-am mușcat buzele</span><span class="vers">să nu se audă țipătul meu interior</span></div><div class="strofa"><span class="vers">de câte ori am plâns toate lacrimile deodată</span><span class="vers">în speranța că neavând lacrimi</span><span class="vers">nu mă voi mai putea prăbuși</span></div><div class="strofa"><span class="vers">de câte ori am scris</span><span class="vers">și cuvintele s-au șters</span><span class="vers">ca de pe o foaie șifonată de suferință</span><span class="vers">și au rămas doar dâre de sare</span><span class="vers">de parcă ar fi fost scrise cu lacrimi</span></div><div class="strofa"><span class="vers">de câte ori</span><span class="vers">iubite</span><span class="vers">oare de câte ori</span><span class="vers">am plâns</span><span class="vers">și m-am prăbușit</span><span class="vers">în cuvinte ciobite</span><span class="vers">ori de câte ori</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p54"><span class="poem-nr">LIV</span><h2 class="poem-title">în dimensiunea zbaterii unei pleoape până la etern</h2><div class="poem-body"><div class="strofa"><span class="vers">nu coborî în numele zborului</span><span class="vers">— zise</span><span class="vers">ci aruncă-te în zborul ei</span><span class="vers">păsării-fântână celei</span><span class="vers">prin care ai văzut din nou lumina</span></div><div class="strofa"><span class="vers">apoi ți-a mângâiat ochii și ți-a redat privirea vorbirii</span><span class="vers">apoi gura rodirii</span><span class="vers">apoi ți-a prins palmele între aripile ei</span><span class="vers">și ai deprins poezirea</span></div><div class="strofa"><span class="vers">— zise</span><span class="vers">din greșeală</span><span class="vers">— zise</span><span class="vers">te-a atins apoi cu o aripă în dreptul inimii</span><span class="vers">și cu iubirea ei ai început să o iubești</span><span class="vers">cu dorul ei să o dorești</span><span class="vers">să o ai</span><span class="vers">în formă</span><span class="vers">de-ntorcere</span><span class="vers">în definiție</span></div></div></div>
-  <div class="poem-divider"></div>
-
-  <div class="poem-block" id="p55"><span class="poem-nr">LV</span><h2 class="poem-title">De...</h2><div class="poem-body"><div class="strofa"><span class="vers">de-ți este sete</span><span class="vers">sunt aici</span><span class="vers">să-ți pun palmele mele căuș</span><span class="vers">și să izvoresc în ele apă rece de izvor</span></div><div class="strofa"><span class="vers">de-ți este foame</span><span class="vers">sunt aici</span><span class="vers">să pun zălog privirea mea răsăritului</span><span class="vers">și el să-ți coacă pâinea cea de toate zilele</span></div><div class="strofa"><span class="vers">de te doare cuvântul</span><span class="vers">sunt aici</span><span class="vers">să-l împletesc ființei mele</span><span class="vers">și cuvântul tău să înflorească neasemuit</span></div><div class="strofa"><span class="vers">de te doare ființa ta</span><span class="vers">sunt aici</span><span class="vers">cu toată ființarea mea</span><span class="vers">să te umplu de tine</span></div><div class="strofa"><span class="vers">ești tine de mine</span><span class="vers">și sunt mine de tine</span></div></div></div>
-
-  <a href="#" class="back-top">↑ Înapoi la cuprins</a>
 </div>
 
 <footer>
-  <div class="footer-brand">
-    <svg width="18" height="22" viewBox="0 0 120 140" fill="none">
-      <path d="M60 130 C60 130 58 90 55 65 C52 40 48 20 60 8" stroke="#4a7c4a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-      <path d="M55 65 C40 55 28 42 30 20 C38 30 48 48 55 65Z" fill="#4a7c4a" opacity="0.7"/>
-      <ellipse cx="46" cy="83" rx="5" ry="6.5" fill="white" stroke="#4a7c4a" stroke-width="1.8"/>
-      <ellipse cx="44" cy="97" rx="5" ry="6.5" fill="white" stroke="#4a7c4a" stroke-width="1.8"/>
-    </svg>
-    <span class="footer-logo-text">VIOLETA-MIRELA MAREȘ</span>
-  </div>
+  <span class="footer-logo-text">VIOLETA-MIRELA MAREȘ</span>
   <p>Copyright © 2026 · Toate drepturile rezervate · mirelamares.art</p>
 </footer>
 
+<script>
+const poems = [
+  {title: `întomnare`, text: `îmi era foame de toamnă
+am muşcat cu atâta poftă din ea
+încât mi-au dat lacrimile
+m-am şters la ochi cu dosul palmei
+și ceața-mi pătrunse buzele
+mâinile mi se transformaseră deja
+în crengi tremurânde ruginiu
+ca de o plecare
+în neiubire
+pluteam deja
+ca o frunză spre uitare`},
+  {title: `despre ofrande`, text: `când cerul plutește fierbinte-n albastru
+rezemându-se pe acoperișurile caselor
+împlântând făptura fierbinte în toartele halbelor de bere
+vânătorul aduce drept ofrandă
+miezul zilei
+când ploaia își rostogolește perdelele fumurii de lacrimi
+peste podurile singuratice lunecând peste maluri
+insinuându-se imuabil în trupul drumurilor
+vânătorul aduce drept ofrandă
+înserarea
+ea cade pretutindeni
+și inundă curțile caselor
+când vântul mână aspru cârdurile de nori
+răzbătând furibund de la un capăt la altul al pământului
+aducând și ducând
+zilele una după alta
+într-un șir lung de tăceri și dureri
+vânătorul aduce drept ofrandă
+toamna
+când vin eu
+vin cu totul
+și mă aduc pe mine toată
+de la mine până la tine
+pe mine mă aduc de la sinele meu
+și atunci vânătorul se aduce pe sine ofrandă
+timpului care a căzut peste noi`},
+  {title: `insomnia`, text: `ascult
+privesc
+şi ard
+în bătăile inimii tale
+şi respir în ritmul ei cadențat
+care fărâmă noaptea în cioburi de gânduri
+înflorite în parfumul zorilor
+îmi simt mai apoi trupul 
+cum încearcă să-şi şteargă cu mâneca 
+ochiul podidit de lacrimi sângerânde 
+la desprinderea de trupul tău
+şi câtă durere în sunetul elegiei
+cântată pe toate clapele nopții
+cântată pe toate strunele tăcerii
+cântată la toate instrumentele de percuție deodată
+cântată spasmotic
+cântată organic chiar
+de nisipul ce-şi curge
+neputința de rocă
+în clepsidra firii
+măsurându-ne trecutul niciodată trecut
+măsurându-ne trecerea niciodată trecută
+măsurându-ne iubirea niciodată părăsită de insomnii`},
+  {title: `diminețile`, text: `diminețile se sparg în versuri şi înfloresc cristalin
+pe mângâierile mele desenându-ți trupul
+zilele se deschid una după alta ca filele unei cărți
+fiecare pagină rănind-o pe cealaltă
+precum fiecare mişcare care mă desparte de tine
+provoacă inevitabil
+un rid fiecăruia dintre noi
+preț de o răsuflare mai ezit
+preț de o dimineață mai rămân
+preț de o viață mai iubesc
+prețuindu-te
+prețuindu-mă
+neprețuindu-ne`},
+  {title: `încă devreme`, text: `încă devreme
+se fărâmițează-n
+zorii primăverii frunza 
+în zbaterea embrionului
+slobodă destinului
+spre granițele înfrunzirii
+în frăția mugurelui şi-a crengii
+în fiecare rodire e-o lacrimă
+şi-n fiecare lacrimă rodeşte un zbor
+în fiecare clipă a mea rodeşti tu
+în timp ce
+în fiecare bătaie a inimii tale
+zboară versul meu
+limpede ca o primăvară
+încă devreme
+rodului`},
+  {title: `despre trecerea peste zi a sărutului`, text: `dimineața
+ți-aş ridica greutatea pleoapei cu geana mea
+şi aş veghea să ți se reveleze
+doar o fantă de răsărit căprui
+la prânz 
+mi-aş strivi dureros buzele de buzele tale
+până la esența cuvântului de dincolo de cuvânt
+noaptea
+ți-aş apune în durerea iubirii
+cu patima mea de femeie lăsată de Dumnezeu
+femeie să-ți fie
+și-apoi din nou
+să croim sărutul zorilor
+cu patima zilei ce va să vie`},
+  {title: `spre haiku dar nu până acolo`, text: `dacă aş plânge
+sângerând rouă 
+răsăritului dimineților mele
+atinse de dor
+ai înțelege gustul dulce-dureros al
+zborul deplin şi infinit al petalei
+care moare?`},
+  {title: `aşteptarea şi sensul. umbrele amurgul patima.`, text: `ascult cum se topeşte
+amurgul peste mine şi ninge a linişte
+şi ochii mei de miere arsă curg
+peste cuvintele crescute rotund
+în lutul sunetelor stoarse
+de emoții
+într-o limbă ascunsă şi demult trecută tăcerii
+acoperindu-le cu îndelunga clipirii dorință
+îți aşezi versurile pe umerii mei
+încălzindu-mi deznădejdea apusului
+ca un rug pictând naiv freamătul pădurii
+pâlpâind aşteptării ca o punte
+peste neliniştile mele
+atât de amare
+pe când la pieptul meu se întretaie
+plânsul cu umbrele
+umbrele cu urmele
+urmele cu amintirile
+care respiră a tine
+care măngăie a mine
+care adorm a noi
+într-o amăgire împletita-n suspine
+până la patimă`},
+  {title: `esențe de martie`, text: `viața şi moartea zâmbesc în fiecare dimineață cu acelaşi chip
+precum zăpada cerului muiată în gust de primăvară
+pe mângâieri ludice de lumină caldă
+în gene de martie crud
+cumpăna fântânii scârțâie ascuțit
+când mândrul chip al zilei coboară să se scalde
+şi buza fântânii arde în lumina lunii pline
+şi ciutura cu lemnul niciodată uscat
+se lasă încet-încet
+adânc să se cufunde în zborul păsării
+zornăind prelung în lanțuri crepusculare
+pădurea muşcă însetată din lumină
+şi din ciutura plină
+şi mie mi-e sete de tine ca de iele
+cu țâțele înmugurite
+şi nopțile înflorite-n palme
+în dansul sălbatec al echinocțiului
+şi palmele mele mirosind a mugurii sânilor tăi
+şi genele întunericului prelungind ochii mei de veghe către verde
+şi ochii tăi duioşi săvârşind nerăbdarea
+ca pe-o fantastică măsură de lut
+la capătul lumii
+la capătul umil al cuvântului dor
+unde viața şi moartea poartă acelaşi chip`},
+  {title: `plouă`, text: `cu stropi mari dezordonați şi zgomotoşi 
+peste noi
+goi
+peste doi
+ba chiar şi peste iarnă
+a început să plouă
+picură obsesiv
+plouă amenințător
+şi sufletul se contorsionează
+să protejeze ce a mai rămas
+dintr-o iubire
+visată
+sau udată
+sau dorită
+sau trăită
+nicăieri şi totuşi pretutindeni
+fragmente de imagini ude
+se amestecă şi se şterg
+totul se amestecă
+și se șterge
+ca o amintire amară
+cerul
+pământul
+ticăitul obsesiv
+al ceasului
+care se ambiționează să măsoare 
+durerea rotundă
+în mişcarea ei aproape perfectă
+către cioburile lutului primordial
+de la început şi până la sfârşit
+cu lacrimile propriului meu sânge
+cu lacrimile propriului tău chip`},
+  {title: `pictură de-avril`, text: `plânge cerul rece şi mohorât 
+încrustând inserții de toamnă
+pe-un început de aprilie
+ziua se frământă nervoasă
+şi crengile copacilor şuieră
+disperarea unei ierni părăsite
+cu un vânt visceral
+frământat până la furie
+e atât de frig
+încât mugurii au fugit înapoi în crengi
+iar florile au dat buzna înapoi
+în ideea de muguri
+e atât de frig
+încât imaginea ta recreată de mine
+îngheață frigid şi crispat
+într-o grimasă
+din care nu pot să te trăiesc
+pe dinlăuntrul meu
+precum nici primăvara
+nu mă poate trăi
+pe dinlăuntrul ei
+dintr-un cearcăn
+se scurg irosite câteva clipe
+uitate în doi
+pe un şevalet de seară
+cu o îndârjire de culoare
+care sapă în stânca obrajilor
+duc în părul meu
+lipsa totală a definiției
+o dorință de adulmecare pregnantă
+duc în pântecul meu lipsa
+o lipsă definitivă
+completată de fiecare cuvânt de-al tău
+de privirea ta minerală
+înfiptă până la prăsele
+în orele scurse
+de-a lungul singurătății
+din sensul unic al ființării curge o lacrimă de-avril`},
+  {title: `despre înfrunzirea jertfei în cuvânt`, text: `din totului tot
+ce aş fi putut să fac pentru tine
+în fiecare dospire a dimineții
+am ales să dospesc în căuşul palmelor mele roua
+abia frământată
+a ochilor mei
+cea vinovată de împlinire a împletirii
+să-ți astâmpăr cu ea setea de sârg
+din totului tot
+ce aş fi putut să fac pentru tine
+în lenea fiecărei amiezi toropite
+de liniştea parfumului firii
+am ales să îți litografiez respirația mea pe umăr
+cea dăruitoare de zefir
+pentru a-ți odihni esența cuvintelor
+din totului tot ce aş fi putut să fac pentru tine
+intrând pe uşa înserării cu brațele pline
+am ales să îți bandajez 
+rănile verzi ale trunchiurilor versurilor încă nescrise
+cu lianele înfrunzite ale brațelor mele
+cu parfum de femeie împlântată în trecerea
+fecundă a timpului prezent
+din totului tot ce aş fi putut să fac
+în fiecare anotimp
+pentru tine
+am ales să măsur aşteptarea 
+măsurându-mi cu nemăsura dăruirii
+paşii
+versul
+visul
+până când toate au început
+să îmbătrânească rotund înflorind ridurile
+de la ora la care îmi eşti
+până la ora la care îmi vei fi
+înfruntând
+disperarea
+timpului care nu curge
+când păşeşti dincolo de urma
+ochilor mei
+jertfiți
+celui ce se cuvine`},
+  {title: `esența unui dor ce doare în floare`, text: `în părul meu se odihnesc 
+toate florile de salcâm
+toate florile de castan
+toate florile teiului
+toate florile cerului
+înflorite sau ofilite
+pe umerii mei se odihneşte respirația ta
+înainte si dupa înflorire
+înainte şi după ofilire
+înainte şi după
+în ochii mei se odihneşte privirea ta
+în loc de privire
+pe buzele mele se odihneşte sărutul tău
+în loc de sărut
+pe trupul meu se odihneşte
+umbra trupului tău
+înainte şi după tine
+înlăuntrul cuvântului meu
+se împlineşte cuvântul tău
+înainte şi după rostire
+înflorire
+iubire
+rodire
+până la ultima pagină de dor
+deschisă la
+o ultimă dorință
+deja înflorindă`},
+  {title: `înrămând în floare plânsul`, text: `pun în ramă fotografia mării neodihnite
+şi o privesc din fotografia nisipului care curge printre valuri
+înrămată de fotografia muntelui care s-a scurs printre pietre
+pun în ramă fotografia copacului gârbovit de floare
+şi o privesc din fotografia veștejirii purtate de vânt
+sau a împlinirii înrămate
+într-un anotimp care curge peste devenire
+înrămez chipul tău cu îmbrățișarea mea
+cu respirația sacadată îți înrămez gura
+cu lacrimile curse înrămez iubirea ta
+pun în ramă fotografia sufletului tău
+şi o privesc din fotografia ochiului meu
+înrămată de fotografia privirii noastre
+neodihnite încă`},
+  {title: `pre destin are`, text: `curge în cuvintele mele
+uneori
+așa trist
+o lumină care cuvântă
+aproape albastru
+încât
+mă adun rotund în pumni
+și nu ştiu
+plâng sau plouă?`},
+  {title: `pictură`, text: `cerul creionează acoperişurile caselor
+în lumini şi umbre înserate
+se aud zgomote inutile
+strident de comune
+de pretutindeni
+în afara mea
+înlăuntru
+nici o imagine
+nici un zgomot comun
+doar bătrânul ceasornic care bate în ritmul inimii mele
+sau doar bătaia cristalină a inimii mele 
+care rupe ritmul tantric al bătrânului ceasornic
+un strat fin de praf se aşează peste aşteptare`},
+  {title: `tușe de primăvară`, text: `ne târâm prin această ternă primăvară
+cu sensuri unice
+şi mirosuri puternice de rut
+şi tu
+cu pieptul adulmecând toate mirosurile deodată
+cu speranța împletirii lor în mirosul definitiv
+şi-o zgomotoasă libertate
+atârnată de atâta primăvară rece şi capricioasă
+am obosit iubirea mea
+am obosit să te tânjesc
+să te creez în forme şi imagini
+mi se zvâcoleşte trupul desenat de palmele tale
+trupul meu vrea să mă părăsească
+tactil şi tiptil
+la ce bun atâta primăvară`},
+  {title: `desen de iarnă`, text: `de va fi
+să plâng vreodată
+fără lacrimi
+înmoaie-ți un colț de suflet în zăpadă
+și desenează-mi-le încet pe obraz
+respirându-mă
+până la tine`},
+  {title: `desen de iarnă (2)`, text: `tac
+și genele mele înghețate
+iți aștern vers cu vers
+poemul invers
+pe frunte
+mă aplec
+să-ți ascult respirația
+de sub fruntea rănită
+de cuvânt
+și tăcerea se varsă
+în colțurile ochilor tăi
+deschiși înlăuntru
+în dreptul inimii
+și versurile curg
+înlăuntru și-n afară
+împletindu-se strâns
+în pași care ning
+în flacăra lumânării
+din fereastra deschisă
+spre sine`},
+  {title: `desen de decembrie în iarnă plină`, text: `îmi lipsesc
+vocea
+privirea
+auzul
+cuvintele
+mângâierile
+sărutul
+rutul
+e noapte
+şi candelele iernii 
+pâlpâie efemer în lumina rece 
+şi strâmtă
+e atât de întuneric aici şi nicăieri
+încât mă amăgesc că păcălesc destinul cu umbra mea
+şi eu cu trupul meu întreg
+mă ghemuiesc la tine-n ev
+caut răsăritul pe bâjbâite
+şi mă rănesc în colțurile lacrimilor tale
+înghețate în cascade de țurțuri
+în palmele tale
+e prima dimineață în care au înghețat zorii zilei`},
+  {title: `ninge`, text: `ninge disperat de alb și de înghețat
+pătimaş şi adânc
+din pântecul spart al cerului
+ninge prelung și haotic
+peste o iubire deznădăjduită şi disperată
+ca o amintire atârnând uitată într-un sertar vechi
+ce-şi scârțâie lacrima
+vântul şuieră
+şi zăpada îngheață țipătul
+pe buzele mute
+eşuate într-un sărut aprins
+ninge
+peste trupul încă viu al iernii care va să vină
+ninge
+în această dimineață de lume nefecundă
+de acum până dincolo de sfârşitul lumii
+ca într-un dor neputincios
+de rod`},
+  {title: `rid colind ploaie ecou`, text: `strigătul sufletului meu
+ajunge la tine
+ecou
+lacrima sufletului meu
+se preface până la tine-n
+ploaie
+patima inimii mele
+colindă iarna cu gust de migdală
+și mângâie ridul absenței 
+ecoul ploii colindă ridurile fericirii
+care
+au îmbătrânit de-atâta așteptare 
+și doare
+nebănuit de tare`},
+  {title: `vid`, text: `din sărutul tău 
+s-a prelins pe glezna mea
+şi a înghețat
+umbra prelungă
+a trecerii fără paşi
+rostită sieşi`},
+  {title: `întrebări esențiale (I)`, text: `de ce oare
+apa nu se ineacă în mare
+de ce oare
+lumina nu se întoarce în soare
+de ce oare
+focul nu se arde arzând
+de ce oare
+pământul nu rodeşte pământ
+de ce eu cuvânt
+când sunt cuvânt ?`},
+  {title: `întrebări esențiale (II)`, text: `de ce oare
+eu cuvânt aşa
+cu tăcerea ta
+până când
+mă topesc în noi
+în formă de unu din doi
+şi-atunci îmi spun
+suntem o pasăre
+suntem o pasăre`},
+  {title: `schiță de-o clipă`, text: `fiecare clipă a mea mă trece
+mă petrece respectuos până la uşă
+şi mă pofteşte să plec
+după ce mă urmăreşte cu privirea
+să fie sigură că am trecut pragul următoarei clipe
+și eu mă trec
+mă petrec
+mă seamăn fiecărei clipe
+care se aseamănă 
+cu fiecare clipă
+şi fiecare clipă semănată celeilalte
+în timp ce eu locuiesc alături
+în clipele mele cu tine
+în clipele tale cu mine
+în clipele de-o clipă 
+ce clipesc rotunde
+semănate deplin`},
+  {title: `despre devenire cumva`, text: `schițează-mă
+desenează-mă în tuşe simple
+sau lasă-mă aşa în alb şi negru
+rotundă
+suflă cu suflarea ta de bărbat al meu
+peste mine
+şi eu voi deveni a ta
+şi suflarea ta va fi cuvântul meu
+şi suflarea mea va răsări în poem
+şi lacrimile mele vor curge pe obrajii tăi
+când te sărut
+şi sărutul nostru va încolți
+într-o umbră de primăvară
+şi va rodi
+în fine
+într-un final de lume
+ca un strigăt de lebădă nespus
+de
+tăcut`},
+  {title: `desen de devenire`, text: `sub fiecare pas al tău se închină un fir de iarbă
+sub fiecare pas al meu se plămădeşte o floare
+glezna ta se încleştează în gustul ierbii
+în timp ce glezna mea se desenează cu parfumul florii ce se va naşte
+pas cu pas
+şoldul tău 
+poartă în el circularitatea roții
+în timp ce şoldul meu carafă de apă e
+întru plăsmuirea lutului
+cu palmele tale
+pentru că palmei tale drepte i se supune cuvântul
+iar palmei tale stângi umărul meu înflorit
+fragil de rotund
+însă doar palmele mele ştiu tăcerea să mângâie
+mai întâi palma dreaptă
+mai apoi palma stângă
+şi
+demiurgic
+să se lase rănite
+să sângereze
+în piroanele clipelor răsuflării tale`},
+  {title: `singurătate. desen în creion.`, text: `mi se pare că
+imaginile în care gândesc se estompează
+imaginile devin gri
+ca şi cum ar fi cărate în spate
+de fulgi imenşi de zăpadă gri
+ținând în brațe toate nopțile gri
+până la sfârşitul ideii de noapte
+e atât de trist că nici cerul nu mai e albastru
+şi florile își scutură culorile și devin gri
+doar privirea ta tăcută căzându-mi din poală
+îmi răneşte glezna cicatrizată de sărutul tău
+şi sângele meu atât de sânge
+pătează monocromia cu roşul atât de roşu
+până la patimă
+ca un sărut de prunc`},
+  {title: `sentimentul monocrom în desen trist`, text: `mi se pare că
+imaginile în care gândesc se estompează
+imaginile devin gri
+ca şi cum ar fi duse în spate
+de fulgi imenşi de zăpadă gri
+ținând în brațe toate nopțile gri
+până la sfârşitul ideii de noapte
+e atât de trist
+că nici cerul nu mai e albastru
+şi florile şi-au scuturat culoarea
+veştejindu-se gri
+doar cioburile stelelor căzute pe caldarâmul gri
+îmi rănesc tălpile pe care încă mai stăruie
+sărutul tău
+şi sângele meu atât de sânge
+pătează monocromia
+cu roşul atât de roşu`},
+  {title: `desen cu mâini`, text: `mâna mea se strecoară
+ca o privire fină ce se înfiripă
+abia simțită pe gâtul tău 
+spumegând alb întretăiat de respirația fierbinte
+de dorință
+şi se încolăceşte strâns
+peste clipa asta atât de lungă
+atât de intensă
+mâna mea e ca un zâmbet
+ce-şi desenează perechea
+în colțul gurii tale
+aburindă fierbinte
+de cuvinte abia șoptite 
+în zorii beți de iubire
+mâna mea e o rugăciune
+ce șerpuiește
+atingându-te uşor pe frunte
+pentru a-ți desena visul
+într-un ritual leneș și abscons
+în care îmi îmbăiez simțurile
+mâna mea te sărută în nopțile
+în care dorința îmi rătăcește
+pe nebune cărări
+până când te întâlneşte
+apoi se întoarce brusc la mine
+purtând pe buze
+gustul sărutului
+şi în palma mea versul tău
+în chip de suflet
+suflecându-și mânecile`},
+  {title: `tatuaj permanent pe sens înnodat`, text: `mi-am tatuat pasul cu sărutul tău
+precum
+toate nopțile sub care m-aştern
+la pieptul tău 
+mirosind a toamna părului meu
+şi
+toate stelele care-mi răsar în prag
+numai pentru ca să pot 
+întinde mâna
+spre tine
+încep cu mirosul tău
+mi-am tatuat umărul cu privirea ta
+şi
+toate diminețile mele se recompun 
+şi încep cu tine
+în fervoarea luminii care zideşte
+mi-am tatuat inima cu numele tău
+şi
+toate clipele care trec precum
+fluturii firavi şi colorați şi temători
+conştiente de fragilitatea aripilor şi a zborului lor
+mă împletesc dorinței
+numai pentru că ştiu că locuiesc în palma ta
+în semn de linie
+pentru un destin
+care se tatuează acum pe semnul plus infinit
+al tăcerii albastre
+cu care îmi învelesc
+căderea în semn
+în sens de nod
+în timp ce
+dorul doare
+până la soare`},
+  {title: `modelaj`, text: `surâsul meu
+atât de rotund întârzie pe la colțurile verii
+până când muchiile se topesc
+dezvelindu-mi sărutul
+pasul meu atât de rotund
+se reazemă anevoie de colbul drumului
+triunghiular
+de la început la început
+până când toamna îşi dezvăluie toate unghiurile
+umărul meu atât de rotund
+se şlefuieşte din când în când
+cu respirația ta
+pe care o priveşte drept
+în ochii ei rotunzi
+şi de-atâta rotund
+umărul se pregăteşte
+de muşcătura privirii tale de daltă`},
+  {title: `autoportret in disolve`, text: `privirea mea ecou ridat al privirii tale
+diluând culorile până la nuanțe
+surâsul meu roşu rotund
+arcuind surâsul tău atât de puternic
+cearcănele mele evaporând
+lacrimile tale rupte privirii
+şoldul meu crispat lipindu-se de şoldul tău
+crestat în piatră cu o singură lovitura de daltă
+genunchii lipiți de podeaua rece
+în umbra genunchilor tăi
+şi glezna mea purtând sărutul gleznei tale
+iar tălpile
+tălpile mele strecurându-se furişat
+în urma tălpilor tale
+şi răsuflarea mea înfiptă în răsuflarea ta
+în timp ce eu mă dizolv continuu
+în iubirea mea
+pentru tine`},
+  {title: `moody (I)`, text: `uneori
+umerii mei se frâng sub povara florilor albe de cireş
+ca şi cum milioanele de petale
+m-ar îngropa neputincioasă
+într-o dorință prea aspră
+mă tem că nu pot dărui tot
+şi fug înlăuntrul meu
+dar înlăuntrul meu dau iar de tine
+şi
+brusc
+revin înflorită īn chip de boare
+respirând cuvintele
+cu nesaț
+şi tot aşa
+într-o perpetuă preumblare
+între speranță şi disperare
+până când mâinile mele devin roşii
+până când sânii mei devin roşii
+până când buzele mele au gust de copt
+până ochii mei capătă forma cireşelor
+şi
+nici nu ştiu
+când şi de ce rodesc
+doar gura ta gustă din mine
+cu un nesaț pe care nu-l mai înțeleg
+şi nu mi-l mai doresc
+de frică să nu se topească într-o bună zi
+în zborul unei efemeride`},
+  {title: `moody (II)`, text: `ce să-ți las eu să-ți aminteşti de mine?
+o geană pe pernă
+după o noapte de iubire?
+sau zâmbetul unei zile perfect îndoite?
+ori durerile crăpate între veacurile
+crescute intre două priviri...?
+poate o pană din aripa păsării care încă eram
+sau petalele mele de magnolie violet
+desenate de tine cu o pensulă ciudată
+înmuiată
+strident în sângele tău?
+ce vrei sa-ti las?
+îţi aminteşti de mine?`},
+  {title: `serendipity`, text: `în jurul cuvintelor tale
+ochii mei îți țes migdale
+mângâierile cicoare
+praf de lacrimi de mă doare
+buzele mele flămânde
+împletesc săruturi crude
+şi tăcerile rotunde
+şi plăcerile fecunde
+vino tu cu tine toată
+să ne împletim în roată
+să iubim până la artă
+să murim până la piatră`},
+  {title: `de dor (I)`, text: `paşii mei cu miros de iapă tânără
+nu mai lasă nici o urmă în iarba udă 
+a dimineții mirosind a ceață devreme
+te strig cu ritmul inimii mele frământate
+de spaima că aş putea să-ți pierd ecoul
+rătăcind printre culmile înnourate ale munților încă albi
+te și privesc înlăuntru și în afara mea
+căutându-te frenetic și jucăuș printre sentimentele mele
+confuze încă, tinere încă, iederă încă
+îmi creez și recreez universurile paralele
+ale dorințelor fierbinți
+ale absențelor amare și apăsătoare
+ale tânjirii zilelor lungi și înnourate
+ale tânguirilor lacrimilor mele izvorâte
+din durerea prea plinului inimii mele
+întoarse în iubire
+fără urmă de umbră
+fără urmă de pată
+în mine cu tine
+pe semne de sine
+pășește-mă depline`},
+  {title: `de dor (II)`, text: `se-mbată vântul cu atâta parfum şi atâta culoare
+simțurile toate slăbesc din strânsoarea gândului
+miliarde de capete verzi se ițesc verde obraznic
+şi seva copacilor gâlgâie provocator şi abundent
+în unduiri terne
+florile se dăruiesc captiv şi ablativ culorilor
+intuind perenitatea clipei
+streaşinile se înnădesc în chip de cuiburi
+şi sunetele se amestecă până la dizolvare
+mângâierea ta zăboveşte pe un umăr al meu
+apoi pe celălaltul
+până când trupul mi se topeşte 
+şi devine gest
+gestul se fracționează în zile
+zilele capătă gustul amărui al despărțirii 
+despărțirea se umple de-atâta parfum
+de-atâta culoare
+şi uneori doare`},
+  {title: `mirajul unui dor descris`, text: `mi se topesc mai întâi brațele
+într-o îmbrățişare prelungă
+fără de tine şi fără de capăt
+unul câte unul mi se topesc în împletirea nerostită
+apoi mi se sting ochii
+şi mângâierea din ei 
+oboseşte într-un miraj deplin
+ca-ntr-un spectacol trist
+uitat de sărutul fierbinte
+al visului neîmplinit
+sunt pustiită de linişte
+e linişte
+nu se vede nimic
+dar se aude cum lunei îi clănțăne dinții de frig`},
+  {title: `despre dorul care mă arde în chip de senin`, text: `uneori
+pândită de secundele goale
+cred că
+spălându-mi ochiul cu apă multă
+limpede de izvor
+aş putea să te şterg din privirea mea
+ca pe un vis deja plecat
+în noapte
+alteori
+cred că
+spălându-mi fața
+cu zorii fragezi ai zilelor rămase târzii
+aş putea să te alung din privirea mea
+şi tot aşa
+descoperindu-mă pe tine însuți
+ajung la inimă şi cred că
+dacă mi-aş răsuci dorul din piept 
+şi l-aş spăla de atâta rană
+ai putea să dispari din inima mea
+dar tu deja
+nu mai eşti
+decât
+seninul care te cerni în sângele meu
+ce te priveşte
+zâmbeşte
+trăieşte
+iubeşte`},
+  {title: `întru totul dorință`, text: `descuie-mi seninul nopții să cad înstelat
+într-o partitură adâncă
+devenită vis
+din care
+în aceeaşi noapte
+îți adulmec umbra
+în timp ce
+orbitele mele neputincioase
+pietrificate de-atâta întuneric
+se sfărâmă
+sub urmele tale uitate
+descuie seninul nopții
+privirea mi-a tăcut
+mi-e tine`},
+  {title: `despre durerea marginii de tine în formă continuă`, text: `în fiecare noapte
+dar în fiecare noapte ce trage la mal
+înainte de a adormi la marginea amară a sensului
+aş vrea să îți cuprind fața între palmele mele
+ca şi cum palmele mele ți-ar fi obraji
+şi tâmplele ți-ar zvâcni a mine
+şi să privesc cu ochii mei ochii tăi
+până când toată culoarea durerii lor
+s-ar cufunda in verdele verdelui ei de împrimăvărare
+şi gura mea şi mintea mea ți-ar pune o întrebare
+ce ai de gând măi bărbate al meu cu femeia femeii din mine
+născută să îți fie ție măsură?
+câte nopți vor mai fi
+eu minus tine
+tu minus mine?
+întrebarea asta a mea care mă doare
+într-o noapte care mă doare
+dar in fiecare noapte care mă doare
+până la marginea durerii mele
+tot doare`},
+  {title: `despre noi la prezent compus`, text: `sub fiecare pas şovăit al tău
+se închină un fir de iarbă în chip de înger
+sub fiecare pas desprins din mine
+se plămădeşte o floare
+cu trup de sânziană
+glezna ta se încleştează în gustul ierbii
+cu disperarea femeii care iubeşte până la patimă
+în timp ce glezna mea despică parfumul pas cu pas
+înflorind apusul cu coloane de fum
+până la trupul acasei
+şoldul meu poartă în el circularitatea roții
+în timp ce şoldul tău carafă de apă vie e
+întru plăsmuirea lutului cu palmele tale
+pentru că palmei tale drepte
+i se supune cuvântul
+iar palmei tale stângi
+umărul meu înflorit fragil de rotund
+brațelor tale li se cuvine îmbrățişarea
+fie ea a mea
+fie a absenței mele
+însă doar palmele mele ştiu
+întâi palma a dreaptă
+apoi palma stângă să fie rănite
+să sângereze în piroanele clipelor pe răsuflarea ta
+curgând cuvintelor făptură
+în miez de haos
+înflorind paginile zilei care se-ngălbenesc
+în lumina acestui apus care va să scrie
+trecutul
+în lutul prezentului
+din care picură viitorul
+sub forme prelungi`},
+  {title: `de dejà-vù`, text: `despicând sensul
+până la sărutul pasului
+căzut în propria sa urmă
+de zbor frânt`},
+  {title: `conjugarea căderii din sens`, text: `ieri
+este din nou ieri
+ca să se facă astăzi
+azi
+inefabil
+infailibil
+imuabil
+din azi se va rupe mâine
+şi teamă mi-e
+că la noapte îl voi auzi pe mâine
+cum cade din azi
+taci
+lasă-mă să veghez
+cum atunci când nu-ți ajung cuvintele
+vii tiptil să le rupi din mine
+ca şi cum eu
+ți-aş fi mâine la fel
+cum n-am putut să-ți fiu azi
+decât ieri
+ca-ntr-o cădere din sens`},
+  {title: `despre perfectul în sinea sa imperfectă`, text: `eu mă uit cu ochii mei în privirea ta
+şi bat cu inima mea tactul sufletului tău
+apoi mă desenez perfect
+legănându-mi şoldurile pe drumul tău
+ca şi cum
+în plină vară ar ninge brusc
+ca şi cum în plină noapte
+ar răsări soarele
+ca şi cum
+ar mai fi timp pentru
+o singură îmbrățişare a îmbrățişării
+cu brațele mele peste brațele tale
+cu durerile mele
+cuprinzându-te ca pe durere
+ca şi cum
+ar mai fi timp să-ți sărut un singur sărut
+în care
+tăcerea se tace
+iubirea se iubeşte pe sine
+şi moartea se moare
+în întrebarea din întrebare
+mamă
+de ce oare?`},
+  {title: `înapoi spre înainte`, text: `privesc pe gaura cheii clipele risipite trecutului
+ca pe un cârd de păsări călătoare rătăcite
+în valurile vieții mele
+mă uit pe furiş
+de parcă şi păsările îmi sunt străine
+îngenunchez
+să văd mai bine
+şi mă surprind
+îngenuncheată
+mângâindu-ți regăsirea
+în formă de zbor`},
+  {title: `în aşteptare`, text: `în ziua care a început să se treacă în zori
+să se treacă înserându-mă
+fără să mă întrebe măcar
+am intrat din nou în întunericul
+prea plin de tine
+să mă ascund în visele tale
+şi să țes din şiraguri de stele
+zilele ce vor veni în aşteptarea
+bărbatului meu`},
+  {title: `absența`, text: `uneori nu dorm 
+de teama de a nu te pierde
+în timpul nopții
+şi absența ta râde
+dezolant de strident 
+acoperind căutarea mea 
+care te strigă
+şi vocea se stinge în întuneric
+dureros de tăcută
+alteori refuz să clipesc 
+pentru că mi-e frică
+să nu te înlocuiască absența 
+între două clipiri
+şi clipirea adoarme ostenită
+de atâta aşteptare
+întotdeauna
+dar întotdeauna
+absența are inițiala numelui tău
+mustind de aşteptarea mea
+rodind tăcerii
+în formă de dor`},
+  {title: `singurătatea ca o chemare perfectă`, text: `cad în prezent în fiecare zi la mijlocul nopții
+când întunericul e atât de dens
+şi lipsa ta doare ca o frică
+mă trezesc ca şi cum aş fi adormit
+de muzica mirosului tău de senin absolut
+şi ascult
+acest concert care taie noaptea în două
+care mă rupe în bucăți
+să nu mai simt durerea
+deşi fiecare bucată doare amar
+eşti când nu eşti şi apoi iar eşti
+şi pe urmă alerg să rostogolesc lacrimi
+în întunericul jilav
+al măsurii mele de tine
+şi tăcerea țiuie în urechea dreaptă
+atât de tare
+încât nu mă pot auzi pe mine jelind
+într-un timp subțire
+care din când în când nu mă ține
+şi cad în de mine
+prelung
+la poarta lunii pline
+de rotund
+şi lacrima se rostogoleşte sferic
+pe cearcăn în acelaşi ritm
+cu acelaşi gust
+în concert de suspin
+şi-apoi aroma îmbrățişării tale ca un dejá-vu
+adoarme la pieptul meu
+într-un vers fecund
+pe acelaşi adagio al lunii celei pline de tine
+lumine`},
+  {title: `cuvântul cel de pe urmă`, text: `de vei vrea vreodată 
+să te odihneşti de mine– spuse -
+aşează-te în locul în care pădurea
+îşi astâmpără setea de pământ
+adulmecând seva văzduhului
+de vei vrea vreodată 
+să te odihneşti de mine – spuse -
+ascultă ce spune izvorul muntelui
+în locul în care îşi astâmpără setea de piatră
+în acorduri reci
+umede
+şi adânci
+de vei vrea vreodată
+să te odihneşti de mine
+- suspină -
+înmoaie-ți obrajii în lacrima dimineții neîncepute
+şi strigă-mi despărțirea mai întâi pe sunete
+mai apoi pe cuvinte
+pe urmă pe gemetele durerilor întregului pământ
+şi
+în fine
+semnează-te pe strigătul meu de moarte
+îți voi astâmpăra setea
+cu roua ochilor mei
+din căuşul ridurilor
+pietrelor din care-mi cresc
+liliacul alb înflorit mirosind a tine
+de vei vrea vreodată să te odihneşti de mine`},
+  {title: `viscerală`, text: `aş slobozi lacrimile întru neplângerea ta
+aş slobozi un strigăt întru nechemarea-ți
+aş slobozi floare ne-nflorită
+herghelie ne-mblânzită
+simfonie necompusă
+secunda netrăită
+steaua neclipită
+aş slobozi vântului aripile sărutate de nori
+ploaia întru rod
+lumea întru lumină
+până când slobozindu-mă din imbrățişarea brațelor tale
+din neplângere şi nechemare să-ți simt întruparea
+de-a-ntrupulea trupului meu`},
+  {title: `vaiet`, text: `de câte ori m-am prăbuşit
+iubite
+de câte ori mi-am muşcat buzele
+să nu se audă țipătul meu interior
+de câte ori am plâns toate lacrimile deodată
+în speranța că neavând lacrimi
+nu mă voi mai putea prăbuşi
+de câte ori am scris
+şi cuvintele s-au şters
+ca de pe o foaie şifonată de suferință
+şi au rămas doar dâre de sare
+de parcă ar fi fost scrise cu lacrimi
+de câte ori
+iubite
+oare de câte ori
+am plâns
+şi
+m-am prăbuşit
+în cuvinte ciobite
+ori de căte ori`},
+  {title: `în dimensiunea zbaterii unei pleoape până la etern`, text: `nu coborî în numele zborului
+- zise
+ci aruncă-te în zborul ei
+păsării-fântână celei
+prin care ai văzut din nou lumina
+apoi ți-a mângâiat ochii şi ți-a redat privirea vorbirii
+apoi gura rodirii
+apoi ți-a prins palmele între aripile ei
+şi ai deprins poezirea
+- zise
+din greşeală
+- zise
+te-a atins apoi cu o aripă în dreptul inimii
+şi cu iubirea ei ai început să o iubeşti
+cu dorul ei să o doreşti
+cu țărmul mării
+până dincolo de murirea ei
+să o ai
+în formă
+de-ntorcere
+în definiție`},
+  {title: `De...`, text: `de-ți este sete
+sunt aici
+să-ți pun palmele mele căuș
+și să izvoresc în ele apă rece de izvor
+de-ți este foame 
+sunt aici
+să pun zălog privirea mea răsăritului
+și el să-ți coacă pâinea cea de toate zilele
+de te doare cuvântul
+sunt aici
+să-l împletesc ființei mele cu
+iscusința iubirii fără de margini
+și cuvântul tău să înflorească neasemuit 
+poemului
+cu durerea ființării noastre
+de te doare ființa ta
+sunt aici
+cu toată ființarea mea
+și cu tot eul meu femeiesc pe care mi-l știu au ba
+să te umplu de tine
+creștine
+cu toate zilele mele senine
+au ba
+ești tine de mine
+și sunt mine de tine`},
+];
+function showPoem(i) {
+  document.getElementById('modalTitle').textContent = poems[i].title;
+  document.getElementById('modalPoem').textContent = poems[i].text;
+  document.getElementById('poemModal').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+  document.getElementById('poemModal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.getElementById('poemModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+document.getElementById('searchBox').addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  const cards = document.querySelectorAll('.poem-card');
+  let visible = 0;
+  cards.forEach((card, i) => {
+    const match = !q || (poems[i].title + ' ' + poems[i].text).toLowerCase().includes(q);
+    card.style.display = match ? '' : 'none';
+    if (match) visible++;
+  });
+  document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+});
+</script>
 </body>
 </html>
