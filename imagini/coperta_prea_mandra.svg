@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 165" width="115" height="165">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2e1a"/>
+      <stop offset="60%" style="stop-color:#2d4a2d"/>
+      <stop offset="100%" style="stop-color:#1a3020"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c9a96e;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#c9a96e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#c9a96e;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4956a"/>
+      <stop offset="50%" style="stop-color:#c9a96e"/>
+      <stop offset="100%" style="stop-color:#8b5e3c"/>
+    </linearGradient>
+    <linearGradient id="leafGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#b8763a"/>
+      <stop offset="100%" style="stop-color:#7a4a20"/>
+    </linearGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="115" height="165" fill="url(#bg)"/>
+
+  <!-- Subtle texture overlay -->
+  <rect width="115" height="165" fill="none" stroke="rgba(74,124,74,0.08)" stroke-width="0.5"/>
+
+  <!-- Spine shadow -->
+  <rect x="0" y="0" width="6" height="165" fill="rgba(0,0,0,0.25)"/>
+  <rect x="0" y="0" width="1.5" height="165" fill="rgba(74,124,74,0.3)"/>
+
+  <!-- Top gold line -->
+  <rect x="12" y="14" width="91" height="0.6" fill="url(#gold)" opacity="0.7"/>
+
+  <!-- Bottom gold line -->
+  <rect x="12" y="151" width="91" height="0.6" fill="url(#gold)" opacity="0.7"/>
+
+  <!-- Autumn leaves - decorative cluster top right -->
+  <!-- Leaf 1 - large, amber -->
+  <g transform="translate(72, 22) rotate(25)">
+    <ellipse cx="0" cy="0" rx="10" ry="5" fill="url(#leafGrad)" opacity="0.9"/>
+    <line x1="-10" y1="0" x2="10" y2="0" stroke="rgba(139,94,60,0.5)" stroke-width="0.4"/>
+    <line x1="0" y1="-5" x2="0" y2="5" stroke="rgba(139,94,60,0.3)" stroke-width="0.3"/>
+  </g>
+  <!-- Leaf 2 - smaller, darker -->
+  <g transform="translate(85, 30) rotate(-15)">
+    <ellipse cx="0" cy="0" rx="7" ry="3.5" fill="url(#leafGrad2)" opacity="0.8"/>
+    <line x1="-7" y1="0" x2="7" y2="0" stroke="rgba(90,50,20,0.5)" stroke-width="0.35"/>
+  </g>
+  <!-- Leaf 3 - tiny accent -->
+  <g transform="translate(78, 35) rotate(50)">
+    <ellipse cx="0" cy="0" rx="5" ry="2.5" fill="#d4956a" opacity="0.6"/>
+  </g>
+  <!-- Leaf stem -->
+  <path d="M75 18 Q80 28 82 38" stroke="#8b5e3c" stroke-width="0.6" fill="none" opacity="0.5"/>
+
+  <!-- Leaves bottom left -->
+  <g transform="translate(25, 138) rotate(-30)">
+    <ellipse cx="0" cy="0" rx="9" ry="4.5" fill="url(#leafGrad)" opacity="0.7"/>
+    <line x1="-9" y1="0" x2="9" y2="0" stroke="rgba(139,94,60,0.5)" stroke-width="0.4"/>
+  </g>
+  <g transform="translate(18, 145) rotate(10)">
+    <ellipse cx="0" cy="0" rx="6" ry="3" fill="url(#leafGrad2)" opacity="0.65"/>
+  </g>
+  <!-- Leaf stem bottom -->
+  <path d="M22 150 Q26 142 30 134" stroke="#8b5e3c" stroke-width="0.5" fill="none" opacity="0.4"/>
+
+  <!-- Central decorative branch -->
+  <path d="M57 48 Q55 62 57 78 Q59 94 57 108" stroke="rgba(74,124,74,0.35)" stroke-width="0.7" fill="none"/>
+  <!-- Small buds on branch -->
+  <circle cx="53" cy="60" r="1.2" fill="rgba(122,170,106,0.4)"/>
+  <circle cx="61" cy="72" r="1" fill="rgba(122,170,106,0.35)"/>
+  <circle cx="52" cy="85" r="1.2" fill="rgba(122,170,106,0.3)"/>
+  <circle cx="62" cy="96" r="1" fill="rgba(122,170,106,0.35)"/>
+
+  <!-- Title text -->
+  <text x="57" y="58" font-family="Cormorant Garamond, Georgia, serif" font-size="7.5" font-style="italic" font-weight="300" fill="rgba(245,240,232,0.95)" text-anchor="middle" letter-spacing="0.3">Prea mândră</text>
+  <text x="57" y="68" font-family="Cormorant Garamond, Georgia, serif" font-size="7.5" font-style="italic" font-weight="300" fill="rgba(245,240,232,0.95)" text-anchor="middle" letter-spacing="0.3">doamnă,</text>
+  <text x="57" y="78" font-family="Cormorant Garamond, Georgia, serif" font-size="9" font-style="italic" font-weight="400" fill="#c9a96e" text-anchor="middle" letter-spacing="0.5">Toamna</text>
+
+  <!-- Thin ornamental line under title -->
+  <rect x="30" y="83" width="55" height="0.4" fill="rgba(201,169,110,0.4)"/>
+
+  <!-- Author -->
+  <text x="57" y="98" font-family="Cinzel, serif" font-size="4.8" fill="rgba(200,230,200,0.75)" text-anchor="middle" letter-spacing="0.8">MIRELA MAREȘ</text>
+
+  <!-- Publisher & year -->
+  <text x="57" y="142" font-family="Cinzel, serif" font-size="3.8" fill="rgba(200,230,200,0.4)" text-anchor="middle" letter-spacing="0.5">Ed. Marineasa · 2014</text>
+
+  <!-- Subtle vignette -->
+  <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+    <stop offset="60%" style="stop-color:transparent"/>
+    <stop offset="100%" style="stop-color:rgba(0,0,0,0.4)"/>
+  </radialGradient>
+  <rect width="115" height="165" fill="url(#vignette)"/>
+</svg>
