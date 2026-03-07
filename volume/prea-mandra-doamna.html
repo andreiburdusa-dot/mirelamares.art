@@ -1,43 +1,213 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prea mândră doamnă, Toamna — Violeta-Mirela Mareș</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prea mândră doamnă, Toamna · Violeta-Mirela Mareș</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    :root{--green-deep:#2d4a2d;--green-mid:#4a7c4a;--cream:#faf7f2;--muted:#7a6f5e;--dark-mid:#1c1814}
-    body{font-family:'EB Garamond',serif;background:var(--cream);color:var(--green-deep)}
-    nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,247,242,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(74,124,74,0.15);padding:0 2.5rem}
-    .nav-inner{max-width:1140px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:66px}
-    .nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
-    .nav-logo-text{font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.2em;color:var(--green-deep);line-height:1.3}
-    .nav-back{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.18em;color:var(--muted);text-decoration:none}
-    .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 5rem;background:var(--green-deep)}
-    .badge{font-family:'Cinzel',serif;font-size:.55rem;letter-spacing:.45em;color:rgba(122,170,106,0.7);margin-bottom:1.5rem;display:block}
-    h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,4rem);font-weight:300;color:var(--cream);margin-bottom:.8rem}
-    .meta{font-family:'Cinzel',serif;font-size:.58rem;letter-spacing:.25em;color:rgba(200,230,200,0.5);margin-bottom:3rem;display:block}
-    .soon{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;color:rgba(200,230,160,0.6);margin-bottom:3rem}
-    .btn{display:inline-block;font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.28em;color:rgba(200,230,200,0.85);text-decoration:none;border:1px solid rgba(122,170,106,0.4);padding:.85rem 2rem;transition:all .3s}
-    .btn:hover{background:rgba(122,170,106,0.15)}
-    footer{background:var(--dark-mid);padding:2rem;text-align:center}
-    footer p{font-size:.72rem;color:#4a4a40;font-family:'Cinzel',serif;letter-spacing:.2em}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1e1a14; --cream: #faf7f2; --parchment: #f2ede3;
+      --gold: #a07840; --green-deep: #2d4a2d; --green-mid: #4a7c4a;
+      --green-light: #7aaa6a; --muted: #7a6f5e; --dark-mid: #1c1814;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'EB Garamond', serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+    nav { background: rgba(250,247,242,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(74,124,74,0.15); padding: 0 2.5rem; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .nav-brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+    .nav-logo-text { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--green-deep); line-height: 1.3; }
+    nav ul { list-style: none; display: flex; gap: 2.2rem; }
+    nav ul li a { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.14em; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    nav ul li a:hover { color: var(--green-deep); }
+    .volum-header { background: var(--green-deep); color: var(--cream); padding: 5rem 2rem 4rem; text-align: center; position: relative; }
+    .volum-header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(200,230,200,0.3), transparent); }
+    .volum-label { font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.4em; opacity: 0.6; display: block; margin-bottom: 1rem; }
+    .volum-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300; margin-bottom: 0.5rem; font-style: italic; }
+    .volum-meta { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 0.95rem; opacity: 0.7; margin-top: 0.8rem; }
+    .motto { max-width: 560px; margin: 2rem auto 0; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem; opacity: 0.65; border-left: 1px solid rgba(200,230,200,0.4); padding-left: 1.2rem; text-align: left; }
+    .search-wrap { max-width: 500px; margin: 2.5rem auto; padding: 0 2rem; }
+    .search-box { width: 100%; padding: 0.85rem 1.5rem; font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; border: 1px solid rgba(74,124,74,0.25); border-radius: 40px; background: var(--cream); color: var(--ink); outline: none; transition: border-color 0.3s; }
+    .search-box:focus { border-color: var(--green-mid); }
+    .poems-grid { max-width: 1100px; margin: 0 auto; padding: 1rem 2rem 5rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+    .poem-card { background: var(--parchment); border: 1px solid rgba(74,124,74,0.1); padding: 1.8rem; cursor: pointer; transition: all 0.3s; position: relative; overflow: hidden; }
+    .poem-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--green-deep), transparent); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
+    .poem-card:hover { transform: translateY(-4px); box-shadow: 0 8px 28px rgba(45,74,45,0.12); border-color: rgba(74,124,74,0.25); }
+    .poem-card:hover::before { transform: scaleX(1); }
+    .poem-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; color: var(--green-deep); margin-bottom: 0.6rem; }
+    .poem-preview { font-size: 0.92rem; color: var(--muted); line-height: 1.7; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+    .no-results { text-align: center; padding: 4rem; color: var(--muted); font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; display: none; }
+    .modal { display: none; position: fixed; inset: 0; background: rgba(28,24,20,0.92); z-index: 1000; overflow-y: auto; backdrop-filter: blur(4px); }
+    .modal-content { background: var(--cream); margin: 3rem auto; padding: 3.5rem; max-width: 680px; position: relative; border-top: 3px solid var(--green-deep); }
+    .modal-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 1.8rem; color: var(--muted); cursor: pointer; transition: color 0.2s; background: none; border: none; line-height: 1; }
+    .modal-close:hover { color: var(--green-deep); }
+    .modal-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-style: italic; font-weight: 300; color: var(--green-deep); margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid rgba(74,124,74,0.15); }
+    .modal-poem { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 2.1; color: #3a322a; white-space: pre-wrap; }
+    .modal-dedication { font-family: 'Cormorant Garamond', serif; font-size: 0.9rem; font-style: italic; color: var(--muted); margin-bottom: 1.2rem; }
+    footer { background: var(--dark-mid); border-top: 1px solid rgba(74,124,74,0.15); padding: 2.5rem 2rem; text-align: center; }
+    .footer-logo-text { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.25em; color: rgba(200,230,200,0.7); display: block; margin-bottom: 0.5rem; }
+    footer p { font-size: 0.75rem; color: #4a4a40; }
+    @media (max-width: 600px) {
+      .poems-grid { grid-template-columns: 1fr; }
+      .modal-content { margin: 1rem; padding: 2rem 1.5rem; }
+    }
   </style>
 </head>
 <body>
-<nav><div class="nav-inner">
-  <a href="../index.html" class="nav-brand">
-    <svg width="26" height="32" viewBox="0 0 120 140" fill="none"><path d="M60 130 C60 130 58 90 55 65 C52 40 48 20 60 8" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"/><path d="M55 65 C40 55 28 42 30 20 C38 30 48 48 55 65Z" fill="#4a7c4a" opacity=".85"/><path d="M64 55 C80 45 90 30 86 10 C78 22 68 40 64 55Z" fill="#4a7c4a" opacity=".75"/><ellipse cx="46" cy="83" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/><ellipse cx="74" cy="78" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/></svg>
-    <span class="nav-logo-text">VIOLETA-MIRELA<br>MAREȘ</span>
-  </a>
-  <a href="index.html#volume" class="nav-back">← Înapoi la volume</a>
-</div></nav>
-<div class="hero">
-  <span class="badge">Volum de poezie · 2014</span>
-  <h1>Prea mândră doamnă, Toamna</h1>
-  <span class="meta">Violeta-Mirela Mareș · Ed. Marineasa · 2014</span>
-  <p class="soon">Poemele acestui volum vor fi disponibile în curând.</p>
-  <a href="index.html#volume" class="btn">← Înapoi la volume</a>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <svg width="28" height="34" viewBox="0 0 120 140" fill="none">
+        <path d="M60 130 C60 130 58 90 55 65 C52 40 48 20 60 8" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M55 65 C40 55 28 42 30 20 C38 30 48 48 55 65Z" fill="#4a7c4a" opacity="0.85"/>
+        <path d="M64 55 C80 45 90 30 86 10 C78 22 68 40 64 55Z" fill="#4a7c4a" opacity="0.75"/>
+        <ellipse cx="46" cy="83" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+        <ellipse cx="44" cy="97" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+        <ellipse cx="74" cy="78" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+        <ellipse cx="75" cy="92" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+      </svg>
+      <span class="nav-logo-text">VIOLETA-MIRELA<br>MAREȘ</span>
+    </a>
+    <ul>
+      <li><a href="../index.html#volume">← Volume</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="volum-header">
+  <span class="volum-label">VOLUM DE POEZIE · 2014</span>
+  <h1 class="volum-title">Prea mândră doamnă, Toamna</h1>
+  <p class="volum-meta">Violeta-Mirela Mareș · Ed. Marineasa · 2014</p>
+  <p class="volum-meta" style="font-size:0.8rem; margin-top:0.4rem; opacity:0.5;">Traduceri în limba engleză: Radu Sebescu</p>
 </div>
-<footer><p>VIOLETA-MIRELA MAREȘ · mirelamares.art</p></footer>
-</body></html>
+
+<div class="search-wrap">
+  <input type="text" class="search-box" id="searchBox" placeholder="Caută în poeme...">
+</div>
+
+<div class="poems-grid" id="poemsGrid"></div>
+<div class="no-results" id="noResults">Niciun poem găsit.</div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div class="modal-title" id="modalTitle"></div>
+    <div class="modal-dedication" id="modalDedication"></div>
+    <div class="modal-poem" id="modalPoem"></div>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-logo-text">VIOLETA-MIRELA MAREȘ</span>
+  <p>© 2014 Mirela Mareș · Traduceri © Radu Sebescu · Toate drepturile rezervate</p>
+</footer>
+
+<script>
+const poems = [
+  { title: "Am intrat tiptil în sufletul meu", dedication: "", text: "Am intrat tiptil în sufletul meu\n\nși m-am îngrozit\n\nde-atâta dezordine.\n\nAmintiri vechi,\n\nzăceau pe toate rafturile,\n\nîn toate ungherele\n\nși parcă nici nu se recunoșteau\n\nunele pe altele.\n\nAm șters mai întâi praful,\n\napoi\n\nam înrămat fiecare amintire\n\nși am fixat-o-ntr-un cui\n\npe câte-un perete\n\nal sufletului.\n\nFără să știu\n\ncă\n\nmi-l răstignesc!" },
+  { title: "Surâsul meu", dedication: "", text: "Surâsul meu,\n\nde-o parte și de alta\n\na chipului tău.\n\nToamna mea,\n\nde-o parte și de alta\n\na culorii topite.\n\nȘi\n\npoemul\n\n- scris la ambele capete -\n\nspart în chemare\n\nîntr-o parte și în alta a lumii.\n\nE dimineață devreme de toamnă ..." },
+  { title: "Metamorfoză necontrolată", dedication: "", text: "Cum ar arăta\n\ntoamna noastră alb-negru\n\nsfârșită-n poem?" },
+  { title: "Ia-mi-l", dedication: "", text: "Ia sufletul meu!\n\nDe când te cunosc,\n\nmi-a rămas mult prea mic." },
+  { title: "Seninul bunicului", dedication: "bunicului meu, Victor", text: "Bunicul meu,\n\na venit într-o toamnă.\n\nBunicul meu,\n\ncu ochii lui senini cu tot.\n\nPe mine,\n\ncând m-a primit,\n\nm-a purtat\n\nprin toate poveștile lui.\n\nAm coborât\n\ndin brațele sufletului său,\n\npreț de o moarte,\n\npe când cireșele dădeau în pârg\n\nși erau atât de amare ...\n\nE dis-de-dimineață și cerul refuză orice senin." },
+  { title: "Culoarea scriiturii", dedication: "", text: "Eu vin cu toată toamna mea spre tine\n\nSă te sufoc cu galben eu aș vrea,\n\nSă scrii, să scrii, să scrii de dor de mine\n\nȘi geana-n soare îți voi înmuia." },
+  { title: "Toamna iernii", dedication: "", text: "Cu mâinile transformate-n crengi\n\nte mângâi a toamnă.\n\nApoi scrâșnesc din pleoape\n\nsă nu te ningă lacrima mea." },
+  { title: "Adverbe", dedication: "", text: "oriunde privesc\n\noriunde iubesc\n\noriunde-i oriunde\n\nmă regăsesc.\n\nPretutindeni sunt eu.\n\nUnde-i oriunde?" },
+  { title: "Topografică", dedication: "", text: "Măsor cu talpa sufletului Marea și ea\n\nîmi ghicește în palmă.\n\nPe creștetul sufletului meu,\n\nse odihnește un pescăruș.\n\nzboru-mi e fragil\n\nUnde era marea?" },
+  { title: "Frig", dedication: "", text: "Iarnă?\n\nE sărutul tău,\n\nce s-a prelins pe glezna mea\n\nși a-nghețat." },
+  { title: "Întinare", dedication: "", text: "îmi curge tristețea pe față.\n\nmi-a murdărit ochii, obrajii ...\n\nuite, și mâinile îmi sunt murdare de tristețe.\n\nmă opresc din scris\n\nnu vreau un poem murdar." },
+  { title: "Pronume posesive", dedication: "", text: "aud bătăile inimii tale\n\nîn pulsul meu.\n\nsuspinul meu,\n\nîn hohotul tău de plâns.\n\nuneori nu știu unde să îmi caut ploaia\n\nalteori, mă întâlnesc cu tine când nu-ți găsești iarna." },
+  { title: "19 mai", dedication: "fratelui meu, Mihai", text: "Într-un orășel de provincie\n\nîntr-o cofetărie\n\nîmi caut fratele.\n\nCaut prăjitura copilăriei\n\nDar\n\nmă regăsesc pe mine într-un miros pregnant de cafea prăjită\n\nde-acum, dintotdeauna." },
+  { title: "Oglindire", dedication: "", text: "Mă uit în oglindă.\n\nImaginea mea râde în hohote de mine\n\nși chipul meu se refugiază batjocorit\n\nîn suflet.\n\noglinda sufletului îmi dăruiește\n\nimaginea distorsionată." },
+  { title: "Basm", dedication: "fratelui meu, Mihai", text: "A fost odată o fetiță,\n\no fetiță ca toate fetițele,\n\nnici frumoasă, nici urâtă,\n\ncare avea doar sentimente.\n\nLa un moment dat,\n\na primit un frățior\n\nși i-a dăruit lui tot ce avea.\n\nN-a păstrat nimic pentru ea.\n\nNu avea idealuri,\n\nn-o interesa nimic.\n\nÎși dorea doar\n\nsă-și facă frățiorul fericit.\n\nȘi frățiorul a crescut.\n\nA crescut și fetița.\n\nȘi nu s-a schimbat nimic.\n\nA rămas,\n\no fetiță ca oricare alta,\n\ncăruntă, cu riduri în jurul ochilor,\n\nfără sentimente,\n\ncu un frățior fericit." },
+  { title: "În galaxie", dedication: "", text: "uneori privesc stelele.\n\nne imaginăm aiurea că\n\nși ele ne privesc pe noi.\n\nce-i pasă stelei dacă\n\nsunt obosită sau dacă\n\nam mâncat astăzi orez cu lapte.\n\ndoar eu simt ca steaua mea\n\nplânge.\n\nsau că îi vine să cadă." },
+  { title: "Înfometare", dedication: "", text: "Îmi era foame de toamnă.\n\nAm mușcat cu atâta poftă din ea\n\nîncât mi-au dat lacrimile.\n\nApoi m-am șters la ochi\n\ncu dosul palmei\n\ndar mâinile mi se transformaseră deja în crengi." },
+  { title: "Dincolo", dedication: "", text: "Am băut împreună toamna din căușul palmei\n\nși ne-au rămas frunze veștede-n păr.\n\nȘi renasc\n\nși respir\n\nși iubesc doar pentru tine din adâncul meu\n\npeste te iubesc!" },
+  { title: "Atotputernicie", dedication: "", text: "Scrisul meu, a aparținut cândva copacului,\n\ncare se ruga cu toată seva lui,\n\nToamnei,\n\nsă nu-l înghețe.\n\nOchiul meu, a aparținut cândva apei,\n\ncare se ruga cu toată lacrima ei,\n\nToamnei,\n\nsă n-o înghețe.\n\nInima mea, a aparținut cândva inimii tale,\n\ncare se ruga cu toată bătaia ei,\n\nIernii,\n\nsă o-nghețe." },
+  { title: "Apartenență", dedication: "", text: "Aud cum îmi bate toamna\n\nîn geamul sufletului\n\ncu degete amorțite de vânt ...\n\nȘtiu de ce mă cheamă.\n\nTrebuie să redau copacului frunza.\n\nNeputința mea se prelinge\n\npe ochiul care veghează închis.\n\nMă abandonez toamnei\n\ncare deși mă are, mă strigă." },
+  { title: "Corespondență", dedication: "", text: "Mâinile mi-au îmbătrânit.\n\nPalma mea are alte linii\n\nde când ți-ai scris destinul acolo,\n\ncu un ciob de gheață.\n\nÎn fiecare cută a mâinii mele\n\nse zbate o îmbrățișare a sufletului tău." },
+  { title: "Rugăciune", dedication: "", text: "Dă-mi, Doamne,\n\nlocul gol dintre aripi,\n\nsă învăț zborul!\n\nspațiul dintre crengi\n\nsă învăț îmbrățișarea!\n\ncerneala nescrisă a poemului!\n\nȘi iubirea, nu!\n\nDă-mi, neputința!\n\nȘi, fă-mă om!" },
+  { title: "Prenaștere", dedication: "fiului meu, Mihnea-Victor", text: "Fiul meu,\n\ncând mi-a părăsit pântecul,\n\na uitat acolo,\n\nceva.\n\nCine știe?\n\nPoate într-o zi,\n\nîntr-o durere sfâșietoare,\n\nvoi naște poem." },
+  { title: "Schiță", dedication: "", text: "De va fi, să plâng vreodată fără lacrimi,\n\nÎnmoaie-ți un colț de suflet în iarnă,\n\nȘi desenează-mi-le, încet, pe obraz!" },
+  { title: "Implorare", dedication: "", text: "Și copacul a căzut\n\nîn genunchii lui de copac,\n\nimplorând zăpada să nu mai fie atât de pură." },
+  { title: "Tăcând poemul", dedication: "", text: "Tac\n\nși genele mele înghețate\n\nîți zgârie vers cu vers,\n\npoemul pe frunte.\n\nAm uitat să îmi urlu disperarea.\n\nDoresc,\n\nsă-ți ascult respirația\n\nde sub fruntea rănită de cuvântul\n\nde noapte ucisă de zi." },
+  { title: "Corvoadă", dedication: "", text: "Duc cu mine dintotdeauna\n\nUmbra ta.\n\nE responsabilă cu tristețile mele\n\nși îmi e din ce în ce mai greu\n\ns-o port.\n\nDar când eu voi dispărea,\n\nîn ce corp se va-ntrupa,\n\nUmbra ta?" },
+  { title: "Granit", dedication: "", text: "Mi s-au spart ridurile azi-noapte.\n\nAcum,\n\nzâmbetul îmi alunecă pe față,\n\namestecat cu lacrima și absența ta.\n\nîmbătrânește-mi, Doamne sufletul,\n\nsă-mi rămână iubirea,\n\nacolo,\n\nîntre ridurile lui!" },
+  { title: "Chibzuință", dedication: "", text: "Ai cheltuit ce aveai,\n\nAi cheltuit ce primeai,\n\nAi cheltuit: frunza, zâmbetul, ridul și tristețea,\n\nluna, ochiul și lumina,\n\nfloarea și noaptea,\n\nclipa.\n\nȚi-am rămas eu -\n\nultimii tăi bani de buzunar." },
+  { title: "Rană", dedication: "", text: "Orbecăind,\n\nmi-am rănit poemul\n\nși acum aud cu sufletul\n\nmirosul florii de cais\n\ncrescând în urma pașilor mei." },
+  { title: "Acoperire", dedication: "", text: "De voi plânge vreodată cioburi,\n\nmă voi ascunde,\n\nsă nu-ți rănești talpa în lacrimile mele." },
+  { title: "Lăcaș", dedication: "", text: "Am fost hărăzită\n\nsă-mi port fiul și poemul\n\nîn pântecul sufletului." },
+  { title: "Alunga", dedication: "", text: "În mine,\n\ndoar de tine am loc.\n\nM-ai cotropit,\n\nm-ai devastat,\n\nm-ai ocupat.\n\nÎmi aud inima\n\nîncet, foarte încet.\n\nAm alungat-o, să ai tu loc!" },
+  { title: "Acasă", dedication: "", text: "În fiecare noapte,\n\npăsările călătoare ale ochilor tăi,\n\nse întorc la cuiburile ochilor mei.\n\nFiecare răsărit îmi este\n\nDis-de-primăvară." },
+  { title: "Explicație", dedication: "", text: "Răsăritul e însângerat\n\npentru că dimineața\n\nse naște dintr-o noapte fecundă." },
+  { title: "Modelare", dedication: "fiului meu, Mihnea-Victor", text: "Dumnezeu a luat o bucățică\n\nde iubire, a frământat-o\n\ncu lacrima sa,\n\nși cum\n\nîi era greu să îi găsească un loc,\n\na ascuns-o în locul sufletului meu.\n\nDe-atunci îmi ești, fiule!" },
+  { title: "Mamei", dedication: "mamei mele", text: "Mă rog pentru mama mamei\n\ncopilului meu.\n\nPentru mâinile ei,\n\npentru cuvânt,\n\ndurere sau\n\nadiere de vânt.\n\nApoi,\n\nsuspin.\n\nPentru mama mea mă-nchin." },
+  { title: "...", dedication: "", text: "Încerc să traversez o iubire.\n\nÎntâmplător, văd semaforul.\n\nDin dreapta, din stânga,\n\ndin toate părțile,\n\nvâjâie violent sentimente\n\nnerăbdătoare să ajungă la destinația lor de\n\nsentimente.\n\nCuloarea semaforului permite ...\n\nȘi brusc\n\nMă traversează o iubire." },
+  { title: "Șoapta", dedication: "dedicată Otiliei", text: "Fiul meu\n\nși-a sprijinit tâmpla\n\nde sufletul tău.\n\nApoi,\n\nl-ai îmbrățișat cu sufletul\n\nîn rugăciunea de dimineață.\n\nÎncet, încet,\n\ni-ai dăruit cuvântul scris\n\npe un petec de inimă.\n\nSufletul meu de mamă\n\nîngenunchează în fața ta." },
+  { title: "Ție", dedication: "", text: "Întâi te-am îmbrățișat\n\ncu brațele inimii mele.\n\nApoi,\n\ngura inimii mele te-a sărutat.\n\nDe atunci,\n\ninima inimii mele te iubește.\n\neu sunt\n\no inimă care iubește-un om." },
+  { title: "Mică publicitate", dedication: "prietenei mele, Dana", text: "Ofer la schimb\n\naroma cafelei de dimineață\n\nzâmbetul născut din lacrimă,\n\nfiecare anotimp al meu.\n\nSolicit\n\nculoarea senin\n\n(preferabil a cerului ochilor),\n\nchipul primăverii\n\nși lumina sufletului.\n\nTermenul de valabilitate al anunțului\n\na expirat\n\nde când ne știm." },
+  { title: "Rid-Colind-Ploaie-Ecou", dedication: "", text: "Strigătul sufletului meu\n\najunge la tine\n\nEcou.\n\nLacrima sufletului meu\n\nse preface până la tine-n\n\nPloaie.\n\nDă drumul inimii tale\n\nsă-mi cânte-a\n\nColind.\n\nȘi mângâie-mă cu\n\nRidul\n\nce-ți vine din absența mea." },
+  { title: "Autumnală", dedication: "", text: "Mi-am rănit glezna\n\nde creanga înfrigurată\n\na copacului ce-și striga\n\ndeznădăjduit goliciunea.\n\nȘi alergam și te strigam\n\nși mă prăbușeam ...\n\nȘi te scriam.\n\nȘi alergam și te strigam,\n\nși mă prăbușeam ...\n\nȘi se făcea că te scriam." },
+  { title: "La un ceai", dedication: "", text: "Am invitat copacii\n\nla o cană de ceai.\n\nȘi ei au venit toți,\n\ntoți deodată.\n\nApoi am invitat culorile\n\nla o cană de ceai.\n\nAu venit și ele,\n\npoate o nuanță, două să fie lipsit.\n\nApoi,\n\nte-am chemat pe tine,\n\ncu toate cuvintele mele nerostite.\n\nȘi ceaiul a căpătat o aromă galbenă\n\ncând s-a răcit." },
+  { title: "Rămășag", dedication: "", text: "Te provoc la un pariu.\n\nPariul cu iubirea.\n\nȘanse să-l pierzi\n\nai și tu,\n\nam și eu.\n\nBatem palma?\n\n...să vină Toamna..." },
+  { title: "Nuanță de alb", dedication: "", text: "Culorile mele\n\nse izbesc de culorile tale\n\nși\n\nașa, fără zgomot,\n\nse amestecă, se amestecă\n\nși se cuprind unele pe altele\n\nPână când,\n\ndin ele nu mai rămâne nimic.\n\nPână când,\n\ndin noi nu mai rămâne nimic.\n\nPână când?\n\nPână când?" },
+  { title: "Romanță", dedication: "", text: "împletește-mi părul\n\ncu frunze veștede\n\nși romanță de toamnă\n\nmă voi numi!\n\nApoi,\n\nșuieră peste mine\n\nacorduri tăcânde,\n\nîn amorțeala fecundă\n\nși-a ta voi fi!" },
+  { title: "Amintiri", dedication: "", text: "Zdrențe de amintiri păstrez.\n\nToamna mi-o amintesc,\n\nmângâierea\n\nși sărutul,\n\nsărutul acela amărui\n\ncu gust de poamă răscoaptă,\n\npe care-l păstrez în lacrimă,\n\nca să-l pot cerne printre gene\n\ncând ochii mei se sparg\n\nde neputința clipirii." },
+  { title: "Dor de mâna ta", dedication: "", text: "Mi-e dor de mâna ta care zâmbește\n\nE dor de mâna ta care mă caută\n\nDor de mâna ta care strigă\n\nDe mâna ta care mă găsește\n\nMâna ta care strigă\n\nMâna ta care suspină\n\nȘi-apoi întâlnește mâna mea\n\nÎntâlnește mâna mea\n\nMâna mea care scrie.\n\nMâna mea care scrie\n\nDe dorul mâinii tale." },
+  { title: "Imobilitate", dedication: "", text: "În simfonia frunzei,\n\ncăzute într-un ochi de moarte,\n\nai topit toamna\n\nși m-ai poleit cu ea.\n\nDe atunci,\n\nîn nemișcarea mea,\n\nhălăduiesc cu pași tăcânzi\n\npe silabele numelui tău." },
+  { title: "Aromă", dedication: "dedicată Otiliei", text: "Umbra copacului\n\nce se oglindește resemnat\n\nîn șoapta toamnei,\n\nsuspinul fiecărei frunze\n\ncare pleacă\n\nși aroma cafelei\n\ndintr-o dimineață rece de toamnă\n\nle împart cu tine,\n\ndincolo de literă, sunet sau cuvânt,\n\naici, oriunde, la marginea timpului!" },
+  { title: "Dor de tine", dedication: "", text: "Dorul de tine\n\nmă caută adesea și în vis\n\nsă-mi sfredelească fiecare ciob de suflet.\n\nPloaia\n\nîmi inundă sentimentele și trupul\n\ndoar dorul de tine\n\nhohotește nemernic într-un ecou\n\nca o simfonie fără acorduri." },
+  { title: "Pioșenie", dedication: "", text: "Mi-am surprins aseară ochiul\n\nrugându-se.\n\nA șoptit rugăciunea\n\ncu genele împreunate,\n\napoi\n\ns-a închinat încet\n\nc-o lacrimă." },
+  { title: "Floarea soarelui", dedication: "", text: "Floarea soarelui\n\nrefuză\n\nsă privească în ochi\n\npe altcineva\n\nchiar dacă e în vaza mea.\n\nTe pregătești să răsari?\n\nÎmi aranjez puțin petalele\n\nși vin să te privesc." },
+  { title: "Dimineață aromată", dedication: "prietenei mele, Dana", text: "Ce-aș mai putea să aflu\n\nde mi-aș ghici-n cafea\n\ncând,\n\naroma ei,\n\nîn fiecare dimineață,\n\nîți împrumută parfumul?" },
+  { title: "Dedicată", dedication: "fiului meu, Mihnea-Victor", text: "De câte ori am ocazia,\n\nîmbrățișez fericirea.\n\nȘi ea îmi spune cu ochi senini:\n\n\"Mama, te iubesc!\n\nEști frumoasa mea!\"\n\nȘi mama fericirii își amintește,\n\ncă știe să plângă.\n\nÎmbrățișez fericirea,\n\nde câte ori am ocazia." },
+  { title: "Fecundă", dedication: "fiului meu, Mihnea-Victor", text: "Întâi te-am purtat în zâmbet,\n\nApoi,\n\nmi-ai alunecat încet pe obraz\n\ncând n-am mai putut să te port\n\nîn lacrimă.\n\nAbia după ce te-am compus\n\nam înțeles\n\nirepetabilitatea nașterii.\n\nSufletul meu binecuvântat,\n\netern însărcinat cu tine,\n\npruncul meu!" },
+  { title: "Toamnă iernită", dedication: "", text: "Sub pasul meu\ntrosnește bruma.\n\nȘi toamna îmi pleacă\nhulită de iarnă.\n\nCopite de cai,\nmi-au călcat ieri cuvântul.\n\nȘi astăzi se-aude\ndespuiat și stingher,\n\nacordul tăcut al solstițiului nostru,\ndesprins liniștit dintr-o coardă de ger." },
+  { title: "Absență", dedication: "", text: "Am fost plecată puțin\ndin această iubire.\n\n- Ce s-a întâmplat pe-aici?\n\nVăd că totul e bine.\nMă recunoaște și cuvântul.\n\nDoar toamna mi-a întors spatele.\n\nI-am luat culoare pentru ochi\nși ți-am dăruit-o-ntr-o clipire\n\ncât am lipsit." },
+  { title: "De-a joaca", dedication: "", text: "Hai să ne jucăm de-a toamna!\nEu frunză, tu copac.\n\nSă ne numărăm.\n\nIes afară\nde-afară.\n\nIntru-n joc\ndacă, și doar dacă\nîți acoperi ochii\ncu ochii mei." },
+  { title: "Imperativ", dedication: "", text: "Se făcea\nCă mă compuneai.\n\nDoar portativul bătrân plânsese,\nsprijinindu-se în cheia sol.\n\nȘi notele-silabe ale numelui meu\nscânteiau, schilodite de tăcere.\n\nOrologiul a bătut de iarnă.\n\nSe aude o suferință\nCântată strident, sacadat și obsesiv\n\nundeva în stele.\n\nRecompune-mă din umbre!\nPierde-mă în forme fixe!\nDar scrie-mă, iubite, scrie-mă!" },
+];
+
+function renderPoems(list) {
+  const grid = document.getElementById('poemsGrid');
+  const noRes = document.getElementById('noResults');
+  grid.innerHTML = '';
+  if (!list.length) { noRes.style.display = 'block'; return; }
+  noRes.style.display = 'none';
+  list.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'poem-card';
+    card.onclick = () => showPoem(p);
+    const preview = p.text.replace(/\n+/g, ' ').slice(0, 100) + '...';
+    card.innerHTML = `<div class="poem-title">${p.title}</div><div class="poem-preview">${preview}</div>`;
+    grid.appendChild(card);
+  });
+}
+
+function showPoem(p) {
+  document.getElementById('modalTitle').textContent = p.title;
+  document.getElementById('modalDedication').textContent = p.dedication;
+  document.getElementById('modalDedication').style.display = p.dedication ? 'block' : 'none';
+  document.getElementById('modalPoem').textContent = p.text;
+  document.getElementById('modal').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+document.getElementById('searchBox').addEventListener('input', function() {
+  const q = this.value.toLowerCase();
+  const filtered = poems.filter(p => p.title.toLowerCase().includes(q) || p.text.toLowerCase().includes(q));
+  renderPoems(filtered);
+});
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+renderPoems(poems);
+</script>
+</body>
+</html>
