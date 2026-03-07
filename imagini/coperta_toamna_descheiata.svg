@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 165" width="115" height="165">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="20%" y2="100%">
+      <stop offset="0%" style="stop-color:#1c2e1c"/>
+      <stop offset="60%" style="stop-color:#2d4a2d"/>
+      <stop offset="100%" style="stop-color:#162416"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c9a96e;stop-opacity:0"/>
+      <stop offset="50%" style="stop-color:#c9a96e;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#c9a96e;stop-opacity:0"/>
+    </linearGradient>
+    <linearGradient id="mistGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(200,220,200,0.12)"/>
+      <stop offset="100%" style="stop-color:rgba(200,220,200,0)"/>
+    </linearGradient>
+    <radialGradient id="vignette" cx="50%" cy="50%" r="70%">
+      <stop offset="60%" style="stop-color:transparent"/>
+      <stop offset="100%" style="stop-color:rgba(0,0,0,0.5)"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="115" height="165" fill="url(#bg)"/>
+
+  <!-- Spine -->
+  <rect x="0" y="0" width="6" height="165" fill="rgba(0,0,0,0.25)"/>
+  <rect x="0" y="0" width="1.5" height="165" fill="rgba(74,124,74,0.3)"/>
+
+  <!-- Top gold line -->
+  <rect x="12" y="14" width="91" height="0.6" fill="url(#gold)" opacity="0.7"/>
+  <!-- Bottom gold line -->
+  <rect x="12" y="151" width="91" height="0.6" fill="url(#gold)" opacity="0.7"/>
+
+  <!-- Ground -->
+  <rect x="0" y="118" width="115" height="47" fill="rgba(20,35,20,0.5)"/>
+
+  <!-- Mist layer at ground -->
+  <rect x="0" y="112" width="115" height="20" fill="url(#mistGrad)"/>
+
+  <!-- Poplar trees - tall, slender, characteristic shape -->
+  <!-- Poplar 1 - left -->
+  <ellipse cx="25" cy="72" rx="5" ry="42" fill="rgba(15,25,15,0.92)"/>
+  <!-- Poplar 2 - center-left -->
+  <ellipse cx="43" cy="65" rx="4.5" ry="50" fill="rgba(15,25,15,0.88)"/>
+  <!-- Poplar 3 - center (tallest) -->
+  <ellipse cx="62" cy="58" rx="5" ry="57" fill="rgba(12,22,12,0.95)"/>
+  <!-- Poplar 4 - center-right -->
+  <ellipse cx="79" cy="67" rx="4" ry="48" fill="rgba(15,25,15,0.85)"/>
+  <!-- Poplar 5 - right -->
+  <ellipse cx="95" cy="75" rx="3.5" ry="40" fill="rgba(15,25,15,0.8)"/>
+
+  <!-- Subtle amber leaves hint on poplars -->
+  <ellipse cx="25" cy="55" rx="4" ry="12" fill="rgba(180,120,40,0.08)"/>
+  <ellipse cx="62" cy="40" rx="4" ry="15" fill="rgba(180,120,40,0.06)"/>
+
+  <!-- Falling leaves -->
+  <ellipse cx="35" cy="95" rx="2.5" ry="1.2" fill="rgba(201,169,110,0.5)" transform="rotate(20,35,95)"/>
+  <ellipse cx="70" cy="88" rx="2" ry="1" fill="rgba(212,149,106,0.45)" transform="rotate(-30,70,88)"/>
+  <ellipse cx="52" cy="102" rx="1.8" ry="0.9" fill="rgba(201,169,110,0.4)" transform="rotate(45,52,102)"/>
+  <ellipse cx="88" cy="93" rx="2.2" ry="1.1" fill="rgba(180,120,60,0.4)" transform="rotate(-15,88,93)"/>
+  <ellipse cx="18" cy="108" rx="1.5" ry="0.8" fill="rgba(201,169,110,0.35)" transform="rotate(35,18,108)"/>
+
+  <!-- Moon -->
+  <circle cx="85" cy="30" r="7" fill="rgba(245,240,220,0.12)"/>
+  <circle cx="83" cy="29" r="7" fill="url(#bg)"/>
+  <circle cx="85" cy="30" r="7" fill="none" stroke="rgba(245,240,220,0.25)" stroke-width="0.5"/>
+
+  <!-- Title -->
+  <text x="57" y="130" font-family="Cormorant Garamond, Georgia, serif" font-size="7" font-style="italic" font-weight="300" fill="rgba(245,240,232,0.9)" text-anchor="middle" letter-spacing="0.3">Toamna</text>
+  <text x="57" y="139" font-family="Cormorant Garamond, Georgia, serif" font-size="6.5" font-style="italic" font-weight="300" fill="rgba(245,240,232,0.9)" text-anchor="middle" letter-spacing="0.3">descheiată</text>
+  <text x="57" y="148" font-family="Cormorant Garamond, Georgia, serif" font-size="6.5" font-style="italic" font-weight="300" fill="#c9a96e" text-anchor="middle" letter-spacing="0.3">la plopi</text>
+
+  <!-- Author -->
+  <text x="57" y="22" font-family="Cinzel, serif" font-size="4.5" fill="rgba(200,230,200,0.7)" text-anchor="middle" letter-spacing="0.8">MIRELA MAREȘ</text>
+
+  <!-- Vignette -->
+  <rect width="115" height="165" fill="url(#vignette)"/>
+</svg>
