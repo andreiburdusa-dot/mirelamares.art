@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alte scrieri · Violeta-Mirela Mareș</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;500&family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --ink: #1e1a14; --cream: #faf7f2; --parchment: #f2ede3; --green-deep: #2d4a2d; --green-mid: #4a7c4a; --muted: #7a6f5e; --dark-mid: #1c1814; --sand: #d4c5a9; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'EB Garamond', serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+    nav { background: rgba(250,247,242,0.96); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(74,124,74,0.15); padding: 0 2.5rem; position: sticky; top: 0; z-index: 100; }
+    .nav-inner { max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 66px; }
+    .nav-brand { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+    .nav-logo-text { font-family: 'Cinzel', serif; font-size: 0.72rem; letter-spacing: 0.2em; color: var(--green-deep); line-height: 1.3; }
+    nav ul { list-style: none; display: flex; gap: 2.2rem; }
+    nav ul li a { font-family: 'Cinzel', serif; font-size: 0.65rem; letter-spacing: 0.14em; color: var(--muted); text-decoration: none; transition: color 0.3s; }
+    nav ul li a:hover { color: var(--green-deep); }
+    .page-header { background: var(--green-deep); color: var(--cream); padding: 5rem 2rem 4rem; text-align: center; }
+    .page-label { font-family: 'Cinzel', serif; font-size: 0.56rem; letter-spacing: 0.4em; opacity: 0.6; display: block; margin-bottom: 1rem; }
+    .page-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 300; font-style: italic; margin-bottom: 0.8rem; }
+    .page-desc { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1rem; opacity: 0.6; max-width: 500px; margin: 0 auto; line-height: 1.7; }
+    .gold-line { width: 50px; height: 1px; background: rgba(201,169,110,0.6); margin: 1.5rem auto; }
+    .scrieri-grid { max-width: 960px; margin: 0 auto; padding: 5rem 2rem 6rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 2rem; }
+    .scriere-card { background: var(--parchment); border: 1px solid rgba(74,124,74,0.12); border-top: 3px solid var(--green-deep); padding: 2.5rem; text-decoration: none; display: block; transition: all 0.3s; }
+    .scriere-card:hover { transform: translateY(-4px); box-shadow: 0 10px 32px rgba(45,74,45,0.12); border-top-color: #a07840; }
+    .scriere-tag { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.3em; color: var(--green-mid); margin-bottom: 1rem; display: block; }
+    .scriere-title { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 400; font-style: italic; color: var(--ink); margin-bottom: 0.6rem; line-height: 1.3; }
+    .scriere-meta { font-family: 'Cinzel', serif; font-size: 0.58rem; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1.2rem; }
+    .scriere-desc { font-size: 0.95rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+    .scriere-link { font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--green-deep); }
+    footer { background: var(--dark-mid); border-top: 1px solid rgba(74,124,74,0.15); padding: 2.5rem 2rem; text-align: center; }
+    .footer-logo-text { font-family: 'Cinzel', serif; font-size: 0.75rem; letter-spacing: 0.25em; color: rgba(200,230,200,0.7); display: block; margin-bottom: 0.5rem; }
+    footer p { font-size: 0.75rem; color: #4a4a40; }
+    @media (max-width: 600px) { .scrieri-grid { grid-template-columns: 1fr; padding: 3rem 1.2rem 4rem; } }
+  </style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-brand">
+      <svg width="28" height="34" viewBox="0 0 120 140" fill="none">
+        <path d="M60 130 C60 130 58 90 55 65 C52 40 48 20 60 8" stroke="#2d4a2d" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+        <path d="M55 65 C40 55 28 42 30 20 C38 30 48 48 55 65Z" fill="#4a7c4a" opacity="0.85"/>
+        <path d="M64 55 C80 45 90 30 86 10 C78 22 68 40 64 55Z" fill="#4a7c4a" opacity="0.75"/>
+        <ellipse cx="46" cy="83" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+        <ellipse cx="44" cy="97" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+        <ellipse cx="74" cy="78" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+        <ellipse cx="75" cy="92" rx="5" ry="6.5" fill="white" stroke="#2d4a2d" stroke-width="1.8"/>
+      </svg>
+      <span class="nav-logo-text">VIOLETA-MIRELA<br>MARE&#x218;</span>
+    </a>
+    <ul>
+      <li><a href="../index.html">&larr; Acas&#x103;</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page-header">
+  <span class="page-label">STUDII &middot; CERCETARE &middot; ESEURI</span>
+  <h1 class="page-title">Alte scrieri</h1>
+  <div class="gold-line"></div>
+  <p class="page-desc">Lucrări academice, studii critice și eseuri — cuvântul ca instrument de cunoaștere.</p>
+</div>
+
+<div class="scrieri-grid">
+
+  <a href="sorescu-dramaturgul.html" class="scriere-card">
+    <img src="../imagini/sorescu-portret.jpg" alt="Marin Sorescu" style="width:100%;height:160px;object-fit:cover;object-position:center top;display:block;margin:-2.5rem -2.5rem 1.5rem;width:calc(100% + 5rem);filter:sepia(15%) contrast(1.05);">
+    <span class="scriere-tag">TEZ&#x102; DE DOCTORAT &middot; DRAMATURGIE</span>
+    <div class="scriere-title">Marin Sorescu &mdash; Dramaturgul</div>
+    <div class="scriere-meta">Prof. Dr. Mare&#x219; Violeta-Mirela &middot; Referent: Prof. Univ. Dr. Cornel Ungureanu</div>
+    <p class="scriere-desc">Analiză a specificității dramaturgiei soresciene — de la trilogia ontologică (<em>Iona</em>, <em>Paracliserul</em>, <em>Matca</em>) la drama istorică modernă, prin prisma ironiei filosofice și a inovației tehnice.</p>
+    <span class="scriere-link">CITE&#x218;TE LUCRAREA &rarr;</span>
+  </a>
+
+  <a href="sorescu-ironie.html" class="scriere-card">
+    <img src="../imagini/sorescu-palarie.png" alt="Marin Sorescu" style="width:100%;height:160px;object-fit:cover;object-position:center top;display:block;margin:-2.5rem -2.5rem 1.5rem;width:calc(100% + 5rem);filter:sepia(15%) contrast(1.05);">
+    <span class="scriere-tag">TEZ&#x102; DE DOCTORAT &middot; POEZIE</span>
+    <div class="scriere-title">Marin Sorescu &#x219;i semnul ironiei</div>
+    <div class="scriere-meta">Prof. Dr. Mare&#x219; Violeta-Mirela &middot; Referent: Prof. Univ. Dr. Cornel Ungureanu</div>
+    <p class="scriere-desc">Studiu asupra ironiei ca modalitate fundamentală de expresie în opera lui Marin Sorescu — de la parodie la <em>La Lilieci</em>, ironia ca formă de supraviețuire și rezistență estetică.</p>
+    <span class="scriere-link">CITE&#x218;TE LUCRAREA &rarr;</span>
+  </a>
+
+</div>
+
+<footer>
+  <span class="footer-logo-text">VIOLETA-MIRELA MARE&#x218;</span>
+  <p>&copy; Violeta-Mirela Mare&#x219; &middot; Toate drepturile rezervate</p>
+</footer>
+</body>
+</html>
