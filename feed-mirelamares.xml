@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Doeme — Andrei Constantin Burdușa &amp; Violeta-Mirela Mareș</title>
+    <link>https://mirelamares.art</link>
+    <description>Doeme — formă lirică în doi autori. Doi autori, un singur poem. Nicio contribuție nu poate fi identificată individual.</description>
+    <language>ro</language>
+    <lastBuildDate>Sat, 28 Jun 2026 09:00:00 +0300</lastBuildDate>
+    <atom:link href="https://mirelamares.art/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>concert de dalb pe alb</title>
+      <link>https://mirelamares.art/concert-de-dalb-pe-alb.html</link>
+      <description>Doem — Andrei Constantin Burdușa &amp; Violeta-Mirela Mareș.</description>
+      <pubDate>Sat, 14 Jun 2026 08:00:00 +0300</pubDate>
+      <guid>https://mirelamares.art/concert-de-dalb-pe-alb.html</guid>
+    </item>
+
+    <item>
+      <title>despre vis și poem laolaltă</title>
+      <link>https://mirelamares.art/despre-vis-si-poem-laolalta.html</link>
+      <description>Doem — Andrei Constantin Burdușa &amp; Violeta-Mirela Mareș.</description>
+      <pubDate>Mon, 01 Jun 2026 08:00:00 +0300</pubDate>
+      <guid>https://mirelamares.art/despre-vis-si-poem-laolalta.html</guid>
+    </item>
+
+    <item>
+      <title>măsura fiirii mele</title>
+      <link>https://mirelamares.art/masura-fiirii-mele.html</link>
+      <description>Doem — Andrei Constantin Burdușa &amp; Violeta-Mirela Mareș.</description>
+      <pubDate>Sat, 15 May 2026 08:00:00 +0300</pubDate>
+      <guid>https://mirelamares.art/masura-fiirii-mele.html</guid>
+    </item>
+
+  </channel>
+</rss>
