@@ -25,6 +25,58 @@
       --muted: #7a6f5e; --dark-mid: #1c1814;
     }
     html { scroll-behavior: smooth; }
+    /* ADN FM */
+    #adnfm { background: var(--parchment); padding: 7rem 2rem; position: relative; }
+    .adnfm-card {
+      background: var(--cream); border: 1px solid rgba(45,74,45,0.18);
+      border-top: 3px solid var(--green-deep);
+      padding: 3rem; max-width: 760px; margin: 0 auto;
+      text-align: center;
+    }
+    .adnfm-logo {
+      font-family: 'Cinzel', serif; font-size: 2.6rem;
+      font-weight: 500; letter-spacing: 0.2em;
+      color: var(--green-deep); margin-bottom: 0.5rem;
+    }
+    .adnfm-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-style: italic;
+      color: var(--muted); margin-bottom: 2rem;
+    }
+    .adnfm-card p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; color: var(--muted);
+      line-height: 1.85; margin-bottom: 1rem; text-align: left;
+    }
+    .adnfm-note {
+      margin-top: 1.5rem;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem; font-style: italic;
+      color: var(--muted); border-top: 1px solid rgba(45,74,45,0.18);
+      padding-top: 1rem;
+    }
+    .adnfm-wave {
+      display: flex; align-items: flex-end;
+      gap: 5px; height: 50px;
+      justify-content: center; margin: 1.5rem 0;
+    }
+    .adnfm-wave .wave-bar {
+      width: 8px; background: var(--green-mid); opacity: 0.5;
+      border-radius: 2px 2px 0 0;
+      animation: waveAnim 1.8s ease-in-out infinite;
+    }
+    .adnfm-wave .wave-bar:nth-child(1) { animation-delay: 0s; }
+    .adnfm-wave .wave-bar:nth-child(2) { animation-delay: 0.15s; }
+    .adnfm-wave .wave-bar:nth-child(3) { animation-delay: 0.3s; }
+    .adnfm-wave .wave-bar:nth-child(4) { animation-delay: 0.45s; }
+    .adnfm-wave .wave-bar:nth-child(5) { animation-delay: 0.6s; }
+    .adnfm-wave .wave-bar:nth-child(6) { animation-delay: 0.75s; }
+    .adnfm-wave .wave-bar:nth-child(7) { animation-delay: 0.6s; }
+    .adnfm-wave .wave-bar:nth-child(8) { animation-delay: 0.45s; }
+    @keyframes waveAnim {
+      0%,100% { opacity: 0.25; transform: scaleY(0.5); }
+      50%      { opacity: 0.8; transform: scaleY(1); }
+    }
     body { font-family: 'EB Garamond', serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--cream); }
@@ -206,6 +258,7 @@
       <li><a href="#volume">Volume</a></li>
       <li><a href="#lacramioare">Lăcrămioarele mele</a></li>
       <li><a href="#doeme">Doeme</a></li>
+      <li><a href="#adnfm">ADN FM</a></li>
       <li><a href="scrieri/alte-scrieri.html">Alte scrieri</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -472,6 +525,51 @@ tihnită și albă...
     <a href="scrieri/alte-scrieri.html" class="contact-link">DESCOPER&#x102; LUCR&#x102;RILE &rarr;</a>
   </div>
 </section>
+
+<div class="ornament">· · ·</div>
+
+<!-- ADN FM -->
+<section id="adnfm">
+  <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+    <span class="section-label">Live acum</span>
+    <h2 class="section-title">ADN FM</h2>
+    <div class="adnfm-card">
+      <div class="adnfm-logo">ADN FM</div>
+      <div class="adnfm-tagline">Muzica ta. Mintea ta.</div>
+      <div class="adnfm-wave">
+        <div class="wave-bar" style="height:40%"></div>
+        <div class="wave-bar" style="height:70%"></div>
+        <div class="wave-bar" style="height:55%"></div>
+        <div class="wave-bar" style="height:90%"></div>
+        <div class="wave-bar" style="height:60%"></div>
+        <div class="wave-bar" style="height:100%"></div>
+        <div class="wave-bar" style="height:75%"></div>
+        <div class="wave-bar" style="height:45%"></div>
+      </div>
+
+      <iframe
+        title="ADN FM audio player"
+        src="https://s5.citrus3.com:2020/AudioPlayer/adnfm?mount="
+        width="100%"
+        height="330"
+        scrolling="no"
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        style="background-color: transparent; border-radius: 0.75rem; margin-bottom: 1rem;"
+      ></iframe>
+      <p style="text-align:center; margin-bottom:2rem;">
+        <a href="https://s5.citrus3.com:2020/public/adnfm" target="_blank" style="font-family:'Cinzel',serif; font-size:0.7rem; letter-spacing:0.1em; color:var(--green-deep); text-decoration:none;">
+          🔊 NU AUZI SUNET? DESCHIDE PLAYERUL DIRECT →
+        </a>
+      </p>
+
+      <p style="max-width:640px; margin-left:auto; margin-right:auto; text-align:left;">Versurile noastre au căpătat, dincolo de pagină, o formă nouă de viață: muzica. ADN FM difuzează non-stop creații muzicale născute din poemele și doemele noastre — un post de radio în care fiecare melodie poartă în ea un vers scris cu mâna și cu sufletul. Ascultați ADN FM! Poemul dintre pământ și etern.<br><br>Cu drag,<br>Andrei &amp; Miruța</p>
+      <div class="adnfm-note">Ascultă acum: creații proprii, în buclă continuă</div>
+    </div>
+  </div>
+</section>
+
+<div class="ornament">· · ·</div>
 
 <!-- CONTACT -->
 <section id="contact">
